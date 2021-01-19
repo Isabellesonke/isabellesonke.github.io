@@ -1,0 +1,633 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Literatuuronderzoek Ar &amp; educatie</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e1220c3f-b85e-42a3-bf0e-3b3de99dd7b1" class="page sans"><header><h1 class="page-title">Literatuuronderzoek Ar &amp; educatie</h1></header><div class="page-body"><p id="18ac86d3-6e7e-4e5d-9fca-3671e48958a5" class="">
+</p><p id="9c8798fe-572c-4054-9d25-c4ca06333e1e" class="">AR en educatie</p><p id="f1d8922a-9dd5-44b3-b701-fd5517c64d3e" class="">Op het gebied van educatie is AR een opkomend medium. Het is vaak minder duur dan bijvoorbeeld VR en kan voor meer interactie met leerlingen zorgen. Hiernaast is het ook toegankelijker dan VR doordat er geen complete set up voor nodig is, vaak is een app op iemands telefoon al genoeg. [1]  De mogelijkheden om AR te gebruiken bij educatie wordt dus steeds toegankelijker. Echter wordt er vrijwel altijd naar tweedimensionale media geneigd als de keuze gemaakt kan worden. Dit omdat het nog steeds makkelijker toegankelijk is dan AR, ook al heeft AR meer potentie. Het is belangrijk dat er gekeken gaat worden naar manieren om AR te betrekken. Het zorgt ervoor dat leerlingen kunnen interacteren met 3D objecten, informatie etc. op een natuurlijke wijze. [2]</p><p id="505cca1e-3414-4a12-b6bc-176a31419a78" class="">Het effect van leren met AR verschilt per doelgroep, voor kinderen zorgt het bijvoorbeeld voor een speelse manier van leren. Dit maakt de leeromgeving actiever en interactiever dan wat zij gewend zijn. [3] Een belangrijk punt om wel naar te kijken bij AR en educatie is dat een deel van wat AR aantrekkelijk maakt is dat het onbekend is. De gebruiker heeft er vaak niet of bijna nog niet mee gewerkt. Dit maakt het medium interessanter. Het is dus belangrijk dat wanneer een AR applicatie wordt doorgezet er gewerkt wordt aan verassingselementen. Hierdoor blijft de gebruiker betrokken en wordt het niet te voorspelbaar.</p><p id="46461016-dbd4-4088-afde-9b8dd654001b" class="">Het is in onderzoek bewezen [4] dat wanneer leerlingen in een klaslokaal samenwerken ze zich beter kunnen focussen op een gezamenlijke werkplaats. Doordat het steeds normaler wordt dat leerlingen met eigen computers of tablets werken wordt er in de praktijk veel minder gezamenlijk gedaan. In contrast hiertegen staat AR. Doormiddel van AR kan er nog steeds samen gezeten worden en gekeken worden naar bijvoorbeeld de anatomie van een hart. Dit zou zorgen voor meer interactie in het klaslokaal.</p><p id="9ddb209f-70e0-4380-a607-bca5e0446ad3" class=""><strong>Wat is het effect van AR?</strong></p><p id="a70147a7-90b1-45ce-bd95-3f2468ecdfce" class="">Augmented Reality zorgt ervoor dat de realiteit gemixt wordt met virtuele elementen. Er worden dus elementen toegevoegd aan wat er al in de echte wereld afspeelt. Hierdoor zorg je voor interactie tussen de realiteit om je heen en hetgeen dat je toevoegt. AR versterkt de perceptie van een echte omgeving voor de gebruiker. Dit is in tegenstelling tot andere computer gebaseerde technologieën, waarbij de gebruiker juist geen aandacht kan besteden aan wat er in de echte wereld gebeurt. [5]</p><p id="b8c78bfb-e9c4-4079-aadd-5151bdec7e43" class="">Omdat AR in tegenstelling tot andere virtuele media ook de realiteit laat zien vormt AR een brug tussen virtuele technieken en de werkelijkheid. Wanneer je bij andere een media soort een verhaal wilt overbrengen of de lezer/gebruiker iets wilt laten voelen moet je zorgen dat dit zo realistisch mogelijk is. AR is hierop geen uitzondering. Wanneer je in staat bent iets realistisch over te laten komen zal de gebruiker zich sneller aangetrokken voelen tot wat ervoor diegene gebeurt. [6]</p><p id="649c7c47-2f76-4a97-bcb6-d1e6a3463356" class="">Wat Milgram zegt over computer interfaces [7] is dat deze geplaatst kunnen worden op een spectrum. Aan de linker kant bevindt zich de echte wereld en aan de rechterkant is er de virtuele wereld. Dingen zoals VR staat aan de rechterkant en leren vanuit een boek staat aan de linkerkant. Omdat deze twee dingen alle twee gunstig zijn voor het leerproces staat AR hiervan in het midden. Dit zou daarom ook de brug kunnen zijn tussen deze twee werelden.</p><p id="f689a8d1-ef6b-410b-a2c4-f05b9bf9dde8" class="">
+</p><p id="b706e043-1049-4c9b-8887-4a6f4e61cb5e" class="">
+</p><figure id="00742bec-592e-4fc3-8a46-0149f89d13d0" class="image"><a href="Literatuuronderzoek%20Ar%20&amp;%20educatie%20e1220c3fb85e42a3bf0e3b3de99dd7b1/Untitled.png"><img style="width:530px" src="Literatuuronderzoek%20Ar%20&amp;%20educatie%20e1220c3fb85e42a3bf0e3b3de99dd7b1/Untitled.png"/></a></figure><p id="9393ecc7-7d30-4669-a5e4-ae7924e11f50" class="">
+</p><p id="83a5c400-bc38-4bc6-ba17-bb6e98422954" class="">
+</p><p id="c461ca76-eb56-4520-a8b3-4f8c2e0d2de3" class="">
+</p><p id="65ab7efd-d9ad-41c6-abe6-ab50b5318aa5" class="">Zoals hierboven al beschreven staat is het belangrijk dat wat je wilt overbrengen realistisch is voor de gebruiker. Het is dus belangrijk dat wanneer er een verhaalelement in zit, de gebruiker zich in de situatie kan plaatsen. Wanneer de gebruiker zich in een situatie kan plaatsen zal de gebruiker sneller empathie voelen voor wat er gebeurt. Dit zorgt ook weer voor betrokkenheid bij de situatie. [8]</p><p id="6800d059-86f8-4d94-85e1-3929314a7a02" class="">Waarom AR en niet een ander soort media?</p><p id="f4ec4f30-6bfa-4feb-9947-3087eb3252ee" class="">Wanneer er een nieuw medium gebruikt wordt is het belangrijk om stil te staan bij waarom je dit specifieke medium zou gebruiken en niet een ander soort medium.  Zo ook bij AR. Het is belangrijk om rekening te houden met wat er overgebracht moet worden. Wat er overgebracht moet worden veranderd namelijk de manier van overdracht. Wanneer er gekeken wordt naar bijvoorbeeld anatomie leren aan de hand van augmented reality komt er naar boven dat het verschil tussen augmented reality en virtual reality bijna niet bestaand is. Er zat geen verschil in de resultaten tussen die twee omdat er doelgericht gewerkt wordt. Het is geen omgeving om nieuwe dingen te leren maar om te oefenen met wat er al bekend is. Wanneer de resultaten vergeleken werden met hoe het normaal geoefend zou worden was het wel AR en VR die betere resultaten hadden. Dit komt doordat er veel minder stress op de studenten zit, ze kunnen bij wijze van spreken zelf thuis oefenen.</p><p id="af4ea43d-f96c-4c2c-8e66-2580e7fdf06a" class="">Bij nieuwe dingen aanleren is er wel resultaat te zien tussen augmented reality en andere media. AR is hiervoor een makkelijke manier om te kunnen interacteren met wat er voor je bevindt. En dit interacteren maakt gelijk het verschil met andere media. Het is in tegenstelling tot virtual reality niet te overweldigend doordat er niet allemaal nieuwe informatie wordt gepresenteerd. [9]</p></div></article></body></html>
