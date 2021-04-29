@@ -1,0 +1,655 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 2</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a365cef8-19a7-4586-89b5-e0dd679bac59" class="page sans"><header><h1 class="page-title">Week 2</h1></header><div class="page-body"><p id="3f438bd4-dae8-4b23-8911-88bae53b55c2" class="">Debriefing </p><p id="ac9c02db-96b1-474f-821d-a2221c0a1a4c" class="">Om toch nog een beter en gestructureerd beeld te krijgen van wat we gaan doen hebben we het samengevoegd tot losse punten:</p><p id="1d46c976-de7b-490e-b3c3-4fe657ac62ec" class="">Opdracht:</p><p id="6765c5af-d84e-4495-8b08-6011112e78ab" class="">Probleemstelling<div class="indented"><ul id="d661b615-f5a5-417b-8b3f-cd22804dc0c0" class="bulleted-list"><li>De drempel om een horizon 1 of 2 idee te beginnen ligt voor veel Greenhouse medewerkers erg hoog. Er wordt gedacht dat het een heel groot idee moet zijn om serieus genomen te worden. Ten tweede wordt het growth project uitgebreid en is hier nog geen gezicht aan gegeven. </li></ul></div></p><p id="6254076e-bb0a-4a98-8cc3-1dc33f904cb3" class="">Opdrachtomschrijving<div class="indented"><p id="29e4c78e-f5bb-4fd0-80a7-eda9b103615b" class="">Om dit probleem op te lossen is er voor een online platform gekozen. Van ons wordt verwacht dat wij dit vorm gaan geven. Dit platform heeft verschillende functies:</p><ol id="9c6fd005-8777-4709-b3eb-a941133e0511" class="numbered-list" start="1"><li>Omdat de drempel hoog ligt moet die drempel omlaag door een online platform te gaan gebruiken voor medewerkers. De opdracht is dus een platform maken wat ten eerste zorgt voor die drempel omlaag brengen. </li></ol><ol id="adff6355-9f4f-4688-987b-f6fa04e69875" class="numbered-list" start="2"><li>Het Growth project wordt momenteel in werking gesteld en hier moet een gezicht aankomen. Het moet innovatie uitstralen en zorgen voor inspiratie. Mensen die op dit platform komen zullen inspiratie krijgen en weten wat Greenhouse kan met dit initiatief. Er moet naar voren komen dat Greenhouse lead of innovation is. </li></ol></div></p><ul id="68085008-c3d8-42b9-ad44-9bd8fb0fce77" class="bulleted-list"><li>Doel<ul id="b48f4c22-bfef-4679-8a90-8f1e123252fd" class="bulleted-list"><li>Het doel van het platform is zorgen voor een gezicht voor growth en het inspireren van medewerkers. Degene die op dit platform komen zullen het proces van Boom te zien krijgen, inspiratie te zien krijgen en de mogelijkheid krijgen om zich bij workshops aan te sluiten. </li></ul><ul id="4134c937-39aa-4be4-9dee-163cdb6c3a37" class="bulleted-list"><li>Een innovatieve ervaring die laat zien wat Greenhouse in huis heeft en wat het kan worden. </li></ul><ul id="2878be47-0950-4077-9e0c-06373dd5d9c4" class="bulleted-list"><li>Zorgen dat de drempel om met ideeen te komen en te implementeren niet te hoog wordt. </li></ul></li></ul><ul id="b7061937-a905-44a6-a92e-43006b143b71" class="bulleted-list"><li>Doelgroep<ul id="cc268144-0b51-4f26-87c5-ae7889804f53" class="bulleted-list"><li>De doelgroep voor dit platform is voor mij nog onduidelijk. </li></ul><ul id="053ff411-7b24-40f1-9621-937f397f863b" class="bulleted-list"><li>Het wordt ten eerste uitgerold voor GroupM maar ook vooral voor Greenhouse. </li></ul></li></ul><ul id="bbcb6eaa-9d1f-4a25-85c6-1f36fd99bdaa" class="bulleted-list"><li>Criteria<ul id="4916871f-88f2-4822-bb70-de4b46e6e116" class="bulleted-list"><li>Het moet een platform worden dat innovatie uitstraalt</li></ul><ul id="4caa19a4-3a16-4c9e-9655-ed0040add318" class="bulleted-list"><li>Het moet workshops bevatten (zie vragen)</li></ul><ul id="03f86f5a-970f-4800-9c5c-f87482d5a98e" class="bulleted-list"><li>Het moet zorgen voor inspiratie </li></ul><ul id="92868645-cc49-424d-8399-e9fa9d4689c0" class="bulleted-list"><li>Het wordt het visitekaartje voor het Growth project</li></ul><ul id="836d696d-2c2b-450e-a23f-5170aa743a58" class="bulleted-list"><li>Het traject van Boom moet er op komen te staan</li></ul><ul id="56493bc8-665f-4df2-b29a-9f90150cad8b" class="bulleted-list"><li>Het moet duidelijk worden wat Greenhouse (Growth) doet en wat er mee gedaan kan worden. <p id="2d30619d-2988-4c9e-bf1d-4060ac2df01c" class="">
+</p></li></ul><p id="9a8e06ff-6b6d-471d-bf60-f3342a9cc3e5" class="">Hier heb ik vooral gekeken naar het samenvoegen van de juiste informatie om tot de juiste opdracht beschrijving te komen en een overzicht te creëren. Ik kwam er hier duidelijk achter dat er nog geen duidelijkheid was voor het Growth initiatief. Om dit zo snel mogelijk wel te krijgen hebben we een gesprek ingepland met onze product owner Bas. </p><p id="09cb279d-d285-4f8b-9161-efdd0a641f96" class="">
+</p><p id="8bcb18de-f41c-4410-9d97-9113f97e54c6" class="">Door middel van de informatie uit dat gesprek hadden we een lowkey brainstorm sessie. Hier kwam vooral een stroom aan ideeën uit die we nog structuur moeten geven. Om toch een kort beeld te geven van hoe dit in zijn werk ging is hier een deel van het document dat eruit kwam:</p><p id="13601b0c-0f63-4491-8b63-a32fa29b98eb" class="">
+</p><ul id="8d551ecf-b557-46e2-9608-0981d4775ec2" class="bulleted-list"><li>Ons de taak om dit duidelijk te krijgen. Maak iets wat het doel echt gaat dienen.
+We zijn zelf ook nog aan het zoeken. Wat is de rol van dit platform? Het moet er komen. Maar waarvoor? Welk doel? Ga dat duidelijk krijgen. Vooral workshops of vooral inspireren? Vette cases?
+</li></ul><ul id="a7fd5c1b-8514-47bc-aaff-5d018c87a632" class="bulleted-list"><li>Toffe website zoals met auto? Chatbots? Digital humans? Allemaal andere invullingen.
+Bas: 2 richtingen. Proof of concept. Of we gaan concreter en aan het eind van 5 maanden kaniemand al toegang hebben tot de workshops. Richting proof of concept is meer speling. Dat is meer conceptueel. Waar kan het heengaan? Dat is een richting
+</li></ul><ul id="1148d1ff-26a8-4f7f-9641-64fcf2dd7d26" class="bulleted-list"><li>Concreet platform richting, kennis beschikbaar, maar personificatie is meer een nice to have en iets minder relevant. Is interessant
+</li></ul><ul id="fb446594-fa86-4ce1-9e18-98470a556302" class="bulleted-list"><li>Bas: Idee is super interessant. Het is een funnel. Komen veel ideen binnen. Ga je helpen helpenhelpen. Paar ideeen blijven over. Hopelijk nieuwe bedrijven. Aan de voorkant: hoe komen die ideeenbinnen, hoe krijg je die binnen, hoe stimuleer je die mensen, hoe ga je ideeen omvatten enbeoordelen? Platform inlog data wat doet die persoon best wel veel kansen. Zou je dan misschieneen ranking systeem maken? Stemmen op ideeen, meedoen!</li></ul><ul id="0ea12fcc-663f-4f24-bd0c-f1766f542606" class="bulleted-list"><li>Tim: Ranken van ideeen en mensen aan laten haken, als dat het doel is is dat super tof.
+Marieke: Ga je echt iets bouwen? Als concept is het cool maar bouw je een klein deel? We gaan demogelijkheden verzamelen, je hoeft het niet allemaal te bouwen. Mogelijkheden exploreren enconcept neerzetten en dan een deel bouwen. Dat is ideaal.</li></ul><ul id="4c45ef06-9a96-4606-b307-6bfc142ea49e" class="bulleted-list"><li>Tim: Je moeten ambitie hebben, 3 talentvolle makers, begin met onderzoek en ga ook maken. We hebben tot Juni en wat gaan we maken? Focus begin moet liggen op doel helder krijgen. Concepten is leuk maar eerst verder onderzoek doen. Laat je niet leiden door ideeën en concepten, dat komt wel als het onderzoek duidelijk is</li></ul><p id="e308483d-9f77-4181-9dec-fa32ce0982b0" class="">
+</p><p id="96aa0613-a5ec-4bd4-87a8-c8f1b4220274" class="">
+</p><p id="b92c8ebe-75b8-4ab2-a0ef-b8265b426f03" class="">Dit werkt natuurlijk niet handig/overzichtelijk/gestructureerd. Dit hebben we dan ook omgezet naar iets meer duidelijkheid:</p><p id="d6dad68b-c893-4d3b-89d8-04f4b924bc66" class="">
+</p><p id="fcbcc756-a447-4503-a24e-47179f15a991" class=""><strong>Doel bepalen</strong>
+Platform kan meerdere doelen hebben: Bijv. stimuleren, informatie en kennis openstellen, het
+innovatieproces duidelijk uitleggen. Samen met Bas gaan we hier stappen inzetten.
+Hoe kunnen we dit doel definiëren? Ga verschillende mensen met verschillende belangen
+interviewen/spreken: Bas, Marieke, Garret, GroupM team Bas, Conversational team, Mensen in Denemarken, klanten. Bereid deze gesprekken goed voor en weet wat jullie eruit willen halen.Zorg dat je je ontwerp goed kan verantwoorden dmv van een goed onderzoek.</p><p id="b8e504a2-bdfb-42f1-80ec-57f3c5418f34" class="">
+</p><p id="a94cbeab-70b2-4a80-b8fa-f2ff0e96a216" class=""><strong>Eindresultaat</strong>
+Proof of concept of werkend platform? (Ga eerst onderzoeken, concept komt later).
+Genoemde Ideeën:</p><ul id="c208f8f9-6de2-4bb2-9c54-59b437550d37" class="bulleted-list"><li>Ranking systeem</li></ul><ul id="8e08d00c-6452-4940-92a0-8a6e69c4d183" class="bulleted-list"><li>Aansluiten bij andere groepen (omdat je hetzelfde idee hebt als een andere organisatie of
+persoon).</li></ul><p id="d0ba988d-ac99-4e3c-b1c4-74675ecd4bf2" class="">
+</p><p id="4d284326-7f31-4a32-a5b3-d5690214f346" class=""><strong>Aanleiding: </strong>
+Ondernemingen starten niet zomaar. Je wil mensen helpen die ondernemer zijn. Waarin wordt een bedrijf succesvol (via boom). Dat proces is BOOM. Maken, schalen, internationaal uitrollen. Dat willen we omvatten in een platform dat beschikbaar wordt gesteld aan verschillende landen.</p><p id="127774ca-cd42-483c-a3ee-1a1d4bd1e044" class="">
+<strong>Benaderen contacten</strong>
+We zouden graag met de volgende mensen in contact willen komen:</p><ul id="1d799ecc-bcfd-4f99-814e-0752bfd36c28" class="bulleted-list"><li>Per craft 2 contactpersonen die onze project-gerelateerde vragen kunnen beantwoorden.</li></ul><ul id="c56449d7-fcb4-4e99-ac7e-194aa090ae69" class="bulleted-list"><li>Contactpersonen bestaande uit potentiële ondernemers + de doelgroep van bedrijven binnen
+GroupM exclusief Greenhouse.</li></ul><ul id="62949bef-fcf5-44ef-8494-a8660dcfb482" class="bulleted-list"><li>Conversational team.</li></ul><ul id="0826064e-f7b7-4f3c-95a7-da7de0e4f45f" class="bulleted-list"><li>GroupM team Bas.</li></ul><ul id="b92c9df9-25f3-46bc-a5c3-94d714d2caee" class="bulleted-list"><li>Ondernemers binnen Greenhouse.</li></ul><ul id="4108e51f-6174-4814-af2f-f272631a6f1e" class="bulleted-list"><li>Contacten waarvan jullie denken dat die van waarde kunnen zijn voor ons project.</li></ul><p id="ccb8175e-5b39-449f-bcad-dee27fe5a9ce" class="">
+</p><p id="df2a6daf-a07b-4c20-8a37-5eed23b7250a" class="">Hier zijn de vervolgstappen dus al wat duidelijker: Het in gesprek gaan met mogelijke doelgroepen om hieruit de juiste doelen te kunnen definiëren. Wat wel een leermoment is geweest voor in de toekomst is dat we gestructureerd alles moeten blijven neerzetten zodat we duidelijke punten hebben om mee verder te gaan en om te bespreken. Dit zorgt voor duidelijkheid achteraf en zo kun je beter meegaan in je vorige denkproces. Ook moet ik er echt voor zorgen dat er grip komt op de gehele opdracht. Ik merk dat de opdracht ook voor Greenhouse nog niet helemaal duidelijk is. Het team moet hierin zelf de leiding nemen om duidelijkheid te krijgen zodat wij de juiste stappen kunnen nemen. </p><p id="76e49e30-9922-40b9-a0a7-d95489e50c88" class="">
+</p><p id="ea36ab51-1843-457f-b7d3-dc14aaad5fe1" class="">
+</p><p id="e960fc7c-ab78-49cf-aa95-46275c6a445e" class=""><a href="Week%203%20710d2d1c24b2447cb400a6a7b6185095.html">Week 3</a> </p></li></ul></div></article></body></html>

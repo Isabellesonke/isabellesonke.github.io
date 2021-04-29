@@ -1,0 +1,636 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 6</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1357609f-58d0-47a4-a133-bb67ee566618" class="page sans"><header><h1 class="page-title">Week 6</h1></header><div class="page-body"><p id="5cde806e-9816-4cc9-a70f-8fec3881bb69" class="">Week 6 stond in het teken van de laatste interviews houden/samenvatten en de doelgroep/doelen bepalen. Net als eerdere weken heb ik structureel de interviews bijgehouden. Omdat ik vorige week merkte dat ik naar de achtergrond trok heb ik er ook voor gezorgd dat ik meerdere interviews heb geleid. Wat hielp met mezelf meer naar de voorgrond zetten en mezelf laten horen. </p><p id="ba85ff5d-5eb8-4536-8140-a1035b8d062d" class="">
+</p><h3 id="78db59bc-bb1a-4d90-85e9-4fe64338c4ea" class="">Doelen stellen en doelgroep bepalen</h3><p id="9f88dd86-64ae-4dd8-acdd-7677b3f7795a" class="">Omdat we deze stap goed wilde zetten en de juiste keuzes wilden maken hebben we een stap teruggezet in het proces. We vonden ook dat er veel samen gewerkt werd maar we wilden juist dat we apart gingen werken en een individuele mening en werkhouding konden krijgen. Om dit te bereiken hebben we de volgende opdracht voor onszelf uitgestippeld:</p><p id="0810678c-68f8-4405-8ef1-9923ea9055bb" class="">
+</p><p id="a0d31241-51cf-4ed7-b771-b4a0991212e0" class="">Het uiteindelijke doel van de opdracht was het vinden van ons doel en het bepalen van de doelgroep. De resultaten die hieruit zouden komen moeten kunnen worden verantwoord a.d.v onderzoek en het kunnen halen uit interviews. Om verschillende perspectieven te kunnen zien en verschillende meningen te zien hebben we er voor gekozen om de initiële fase hiervan individueel uit te werken. Wat we wel als voorbereidend werk gedaan hebben is het vaststellen van de mogelijke doelgroepen, zodat we de resultaten goed met elkaar konden vergelijken. De volgende doelgroepen waren doelgroepen waar we op gefocust hebben:</p><ol id="8f76b3ea-5125-4ec7-89b7-2abe2bb490e4" class="numbered-list" start="1"><li>Klanten</li></ol><ol id="d62d19c2-7234-4f8f-ba0f-39c2c81fa020" class="numbered-list" start="2"><li>Het incubator team</li></ol><ol id="824787c2-ca5f-45c6-ad14-81695f5e3dd9" class="numbered-list" start="3"><li>Ondernemers binnen GroupM</li></ol><ol id="09d4c610-9867-4e0e-9a38-ad4d05baeb21" class="numbered-list" start="4"><li>Potentiële ondernemers binnen GroupM</li></ol><p id="660cc792-6b8a-408c-9d10-73e107d098c3" class="">
+</p><p id="6e5d8b00-f9dd-43b5-9027-477026659f69" class="">Alle mensen wie wij geïnterviewd hebben vallen onder een van deze categorieën. Ik denk dat het belangrijk is op bij nummer 2 een disclaimer te geven. Namelijk dat wij bezig zijn met een platform voor hun als het ware. Het incubator team is bezig om hun initiatief uit te rollen binnen GroupM Europa. En de moeilijke vraagstukken die wij gaan oplossen zijn er als het ware om hun en dus ook het initiatief te helpen. Daarom is het belangrijk dat wij hun ook meenemen in wat zijn belangrijk vinden. Wij gaan niet het complete antwoord zijn op het schalen van kleine ondernemingen. Maar wij gaan hier wel een rol in spelen. </p><p id="c5d048af-98ae-4cfa-8da6-77a67b10d9b6" class="">Naast de mogelijke doelgroepen hebben we ook meerdere vragen opgesteld die we los van elkaar hebben beantwoord:</p><p id="bae482d8-e2b5-4f83-92b4-a0d36fc1deb2" class="">
+</p><ul id="44b5e18b-c767-47fb-a58d-b63657f4f233" class="bulleted-list"><li>Waarom moet dit platform voor jouw doelgroep specifiek ontwikkeld worden? (En juist niet voor de andere doelgroepen?) (Welke problemen kunnen er voor je doelgroep opgelost worden?)</li></ul><ul id="3f51377b-0417-411e-93cf-e08d473fda87" class="bulleted-list"><li>Wat is het profijt van de andere doelgroepen als het voor jouw doelgroep ontwikkeld wordt?</li></ul><ul id="88d77343-0bc9-4463-bb52-cf310acdcc28" class="bulleted-list"><li>Welke onderdelen heeft het platform? (Onderbouwen met onderzoek) (Is een deel van het platform &quot;locked&quot;?) (Intern of extern?) (Gat in de markt: vervangt/creëert het de rol van bijvoorbeeld Wrike of Slack binnen GroupM?)</li></ul><ul id="7ca45c13-f702-4328-b73a-2a45bb87f414" class="bulleted-list"><li>Wat is het incentive voor je doelgroep om naar dit platform te komen?</li></ul><ul id="6f268238-cefa-4770-957a-d4edc22c86c3" class="bulleted-list"><li>Hoe kunnen we ervoor zorgen dat het platform deel uit gaat maken van de dagelijkse job van de doelgroep?</li></ul><ul id="c5fef39a-99a9-4bc3-9d10-30c13f00703a" class="bulleted-list"><li>Hoofdvraag en deelvragen opstellen voor je doelgroep</li></ul><ul id="3c00454e-634c-4837-bc62-dfb3e5890292" class="bulleted-list"><li>Wat heeft GroupM aan dit platform?</li></ul><p id="ab6bb5af-636b-4bf5-abe7-edd3bdb76e52" class="">
+</p><p id="63a695a4-050e-4cb0-a682-745e6dc6409d" class="">Het was door deze groepen van elkaar te splitsen makkelijker om de volle potentie te zien van de verschillende groepen. Zo kun je makkelijker overlappingen zien of juist de verschillen. Hieronder staat ongeveer aangegeven hoe we deze vragen verwerkte.</p><p id="9df723ea-601d-4895-82e1-8f535228e6dc" class="">
+</p><figure id="d6f79a59-7040-49c7-9292-e332dc50a224" class="image"><a href="Week%206%201357609f58d047a4a133bb67ee566618/Schermafbeelding_2021-04-23_om_11.24.20.png"><img style="width:1372px" src="Week%206%201357609f58d047a4a133bb67ee566618/Schermafbeelding_2021-04-23_om_11.24.20.png"/></a></figure><p id="d1d3ae88-1ce4-4d6a-adc0-e027afc0356f" class="">Na het bespreken van alle doelgroepen en onze losse visies hierop hebben we doorgenomen wat we goede punten vinden van de genoemde doelgroepen en punten die hierbij horen. De volgende stap hierna was hoofdvragen bedenken die passen bij de doelgroepen:</p><ol id="d7adf123-003d-4c91-87f3-ffd0f636c4ae" class="numbered-list" start="1"><li>Incubator team: Hoe kunnen we met een online platform voor Innovation Coaches een digitale plek creëren waar ze ondernemers op een effectieve manier kunnen begeleiden met hun start-up?</li></ol><ol id="96fd2d2b-ba1a-4966-bc3d-fb960f2bf110" class="numbered-list" start="2"><li>Klanten: Hoe kunnen we de klant in contact brengen met de nieuwste innovaties binnen GroupM door middel van een platform?</li></ol><ol id="d7dd6957-97f7-4d73-af27-494971e75ee6" class="numbered-list" start="3"><li>Potentiële ondernemer: Hoe kunnen we de potentiële ondernemer stimuleren om door middel van een online platform op innovatieve ideeën te komen en deze vervolgens met begeleiding om te zetten naar een start-up?</li></ol><ol id="d24c9037-ef6e-47fa-96b4-1a208c3beb98" class="numbered-list" start="4"><li>Ondernemers: Hoe kunnen we een online intern platform realiseren dat ondernemers binnen GroupM een netwerk, begeleiding en representatie biedt zodat hun start-ups veel sneller dan voorheen kunnen groeien en schalen op manieren die zonder dit platform niet mogelijk zijn?</li></ol><p id="19c1c0d5-efac-4b31-940d-76b2b6ece269" class="">
+</p><p id="b21e92a9-e65c-41ba-8b28-2eeedc0c7dd7" class="">Deze vragen zijn opgesteld met de gedachte dat deze vraag de behoeftes van de doelgroep moet kunnen oplossen. Uit deze vragen hebben we ook weer een hele hoofdvraag beantwoord:</p><ul id="3765e8b4-070a-4770-912d-72eb4776e08e" class="bulleted-list"><li>Hoe kunnen we voor ondernemers binnen GroupM een online intern platform realiseren dat verschillende handvatten biedt voor het ondernemen?</li></ul><p id="1f2050df-5f0b-4836-ac66-2e730d5843dd" class="">Er was voor deze vraag unaniem besloten dat bij de ondernemers het meeste potentie zit voor het platform en daarom is de hoofdvraag hier ook op gefocust. Met de input uit de pitches over ondernemers zijn de volgende deelvragen opgesteld:</p><ol id="6bba2a21-7492-41bb-afb8-d514851ae7ab" class="numbered-list" start="1"><li><em>Hoe kunnen we een way to navigate creëren voor ondernemers?</em></li></ol><ol id="a93eac6f-8242-4557-947b-386b485cadc2" class="numbered-list" start="2"><li><em>Hoe creëren we een omgeving voor online begeleiding?</em></li></ol><ol id="1a77cda9-5ba0-4897-a6c1-0eeedc4ee566" class="numbered-list" start="3"><li><em>Hoe kunnen we de initiële pitch procedure structuur geven?</em></li></ol><ol id="4a7326be-04b3-4bed-ad14-2f2a132511a9" class="numbered-list" start="4"><li><em>Op welke manieren kunnen wij ondernemers hun ondernemingen laten representeren?</em></li></ol><ol id="c1bf176a-8931-436d-ae64-aa767b26e96e" class="numbered-list" start="5"><li><em>Hoe kunnen we de gebruiker triggeren terug te komen?</em></li></ol><p id="f41072aa-a63a-47d0-b984-a5631a758a37" class="">
+</p><p id="5857b062-f862-458a-9397-a6a77a982b81" class="">Voor volgende week willen we gaan kijken naar het echte hoofddoel, wat wij gaan realiseren en we gaan kijken wat onze volgende stappen kunnen zijn. </p><p id="cb110dca-ec0c-4f1c-bde3-04b89af09d09" class="">
+</p><p id="97cbb8c9-513f-4b6f-81eb-a8f886fa2569" class=""><a href="Week%207%20949f45dd4e424ee68ca1a59b1c8a03bb.html">Week 7</a> </p></div></article></body></html>

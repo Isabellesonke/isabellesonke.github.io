@@ -1,0 +1,635 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Rick Clout</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0173cdbb-7128-49e0-b4ed-0502c060b7b6" class="page sans"><header><h1 class="page-title">Rick Clout</h1></header><div class="page-body"><p id="b227a528-7f1f-4c9b-ac5b-9c130be47c76" class="">Notities bij het interview, met timestamps:</p><p id="55874eaa-8fe6-44eb-9077-2895fb31a924" class="">1:40 Eerste vraag: Conversational categorie, kun je vertellen hoe je bij conversational bent gekomen:</p><ul id="7ab5eedf-5d02-4c44-a2b2-36bdaf4e0527" class="bulleted-list"><li>Hij was op zoek naar op uitdaging, wilde dit niet met teveel risico, dus binnen Greenhouse ging dit goed. Hij had geen ervaring met conversational en zag er veel potentie in, het zou impact hebben. Hij kon veel nieuwe dingen proberen. </li></ul><ul id="8d34059d-def9-40f7-b667-3f1d9003158d" class="bulleted-list"><li></li></ul><p id="b7e50fad-d443-459f-a08b-867acdde61fb" class="">5:30 Risico binnen Greenhouse, zitten hier nadelen aan, aan bezig zijn binnen Greenhouse?</p><ul id="e44f7db0-9ebe-459a-9e6a-fd1df6bed5f5" class="bulleted-list"><li>Het voordeel van een eigen bedrijf is dat je je eigen ding opbouwt, het is van jou, je merkt dat zelf. Het nadeel is dat je dit ook merkt als het mis gaat. </li></ul><ul id="77c769a2-99aa-4a3d-8c34-5f3f4760f048" class="bulleted-list"><li>Hij had nog niet alle benodigde skills om zo&#x27;n bedrijf in een klein team neer te zitten. Bij Greenhouse kan dit wel, zonder die support is het lastig om zelf neer te zetten, en zou de kans van slagen kleiner zijn dat bij Greenhouse. </li></ul><ul id="89de0f91-6bdc-460d-a771-646af859eb68" class="bulleted-list"><li>Er vaart altijd politiek, omdat je deel bent van een grote organisatie met veel stakeholders. Mensen willen graag controle over hun klanten. Er was geen goede vertegenwoordiging vanuit Greenhouse. Ze werden behandelt als bijzaak. </li></ul><p id="56230875-8218-4d55-93a0-705f603568f7" class="">
+</p><p id="43080ac6-53f4-4488-b21b-d99c298ea93d" class="">9:10 Zou je nu wel je onderneming buiten Greenhouse starten? of zou je het weer binnen Greenhouse doen. </p><ul id="0f46e848-f4a2-4946-8f04-f9feba98919e" class="bulleted-list"><li>Er is een hoop ondersteuning van Greenhouse. </li></ul><ul id="4451840c-8c43-4a5f-a075-1ce5570d5133" class="bulleted-list"><li>Ligt af van het doel, hij ziet er het doel wel van in. Wat het aantrekkelijker zou maken zijn aandelen, hij wilt iets terug kunnen zien van zichzelf in het bedrijf. Hij wil wel verbonden blijven met het product/bedrijf. </li></ul><ul id="227331e0-1da8-47d7-aa4c-000793656ca2" class="bulleted-list"><li>Het eigendom blijft binnen het bedrijf</li></ul><p id="43f185fa-e62d-40d1-8b35-08da55a748fd" class="">
+</p><p id="2cc55793-b943-4e4d-ad95-3282bf8f4637" class="">11:00 WAt is jullie ervaring met Boom?</p><ul id="4902378f-5d32-4e65-b07c-cac23fa26d06" class="bulleted-list"><li>Toen hij erin kwam waren er al klanten mee bezig. Er is een nieuwe doelgroep/product. Hij heeft het als fijn ervaren, er werden veel handvaten aangeboden. Het eindproces kan duidelijker, er is een lange tussenfase. Het is nog niet een zelfstandig team maar er is steeds minder begeleiding van Boom. Voor Boom hebben ze alles gedaan, maar voor Greenhouse zijn ze nog bijzaak. De transitie is nog niet echt duidelijk. </li></ul><ul id="3c7cf096-cb50-4d04-b2e1-f6126736a0a5" class="bulleted-list"><li>Het ene kan zonder het andere bestaan. Ze hebben zelf gemerkt dat bijvoorbeeld een website maken zorgt voor de volgende stap. Meer projecten lopen er toch tegenaan dat er geen representatie is voor nieuwe projecten. </li></ul><p id="4702470d-8207-472a-9a85-ec45aa084b6e" class="">
+</p><p id="3bdda05c-f9a9-462c-933f-9e4ff64e46fe" class="">15:30 Ons platform moet ook start-ups dienen, in hoeverre Boom het verschil maakt voor start-ups tijdens het proces</p><ul id="42b5547e-524f-4226-85bd-7d33182967ad" class="bulleted-list"><li>De framework, handvatten en theorie zijn fijn. De support die kijken naar waar de focus ligt. En er wordt echt gebruik gemaakt met coaching met feedback, er word echt geluisterd en hierop ingespeeld. </li></ul><p id="ef9fc082-f097-4ea1-b6bf-b4623f14431b" class="">Als je nu ons platform zou bezoeken, zijn die dingen nog steeds relevant, is de persoonlijke sturing belangrijk?</p><ul id="84812d74-3bfb-408a-ad34-548ec8e7f658" class="bulleted-list"><li>Je kan veel automatiseren</li></ul><ul id="476c9366-527d-438a-90a8-6427c021f8a7" class="bulleted-list"><li>Als het gaat om het verhaal verscherpen, heb je mensen/coaches nodig. </li></ul><p id="bd6dcc8b-74c3-4b45-a7cc-5f07724c7d85" class="">18:25 Wat hebben jullie in de fase nu nodig van zo&#x27;n platform?</p><ul id="37448751-b5f7-4994-86db-c63bcf452f38" class="bulleted-list"><li>ZE zijn echt bezig met kijken hoe ze de volgende stap kunnen zetten, hoe ze kunnen groeien. </li></ul><ul id="17362562-ed68-4144-b8cb-802d736badf5" class="bulleted-list"><li>In plaats van organische groei.  ZE willen duidelijk accelereren. </li></ul><ul id="34f491d5-e29c-48e3-b6df-41bc417a19da" class="bulleted-list"><li>Mensen aannmen zonder dat je omzet naar beneden moet. </li></ul><ul id="bedf6256-5f1b-453d-b04e-d1bbca4fb5a4" class="bulleted-list"><li>Het zou fijn zijn als ze grotere handvaten krijgen. </li></ul><p id="a1ec1485-dccc-4df5-a8d1-2de9d74b685e" class="">20:00 Jullie willen groei en de bereikbaarheid in GroupM? en het is moeilijk om aan funding te komen. </p><ul id="c5ac295b-a4bd-4909-94a8-66c4b39d026b" class="bulleted-list"><li>Altijd blijven vragen hoe je groter kunt denken. </li></ul><ul id="cbf2a933-c558-49f7-9ad4-71716c8747e3" class="bulleted-list"><li>Zijn er mogelijkheden om het verder te productisen. Op het moment dat je kan laten zien dat je X product wilt maken, deze mensen nodig hebt. Dan kun je bij WPP aankloppen met je verhaal. </li></ul><ul id="8b645cad-a49b-4b54-a124-4703399bf1e4" class="bulleted-list"><li>De kennis van andere mensen zorgt voor het punt waar jullie naar toe gaan. </li></ul><ul id="afe9dbd0-ae3d-4095-9101-0d99fd53ef44" class="bulleted-list"><li>De druk van anderen helpt wel om die volgende stap te nemen. Je weet dat je iets moet aanleveren om de volgende stap te zetten. </li></ul><p id="b891ab78-be44-484e-8b04-1d173dc98402" class="">24:00 Greenhouse overschaduwt conversational, hoe kun je zoiets verhelpen?</p><ul id="187fd9ea-8138-411b-81bf-e1470c1b0d6e" class="bulleted-list"><li>Je hebt een naam als Greenhouse, je hebt uit die structuur een bepaalde reputatie. Ze staan ergens bekend om, die associatie met greenhouse, wanneer je daarvan af weikt, moet je jezelf verantwoorden, waarom doe je dat. Mensen snappen dat niet omdat ze dat niet kennen vanaf Greenhouse. </li></ul><ul id="33c6ac87-e103-4d33-b490-e02160c545f4" class="bulleted-list"><li>Als je binnen GroupM of WPP valt, als je daaronder een eigen propostie kunt heb je meer mogelijkheden. </li></ul><p id="56ebc477-9965-45f7-a9f6-1ae8350b715b" class="">27:30 Marktplaats idee, een plek waar start-ups waar je taken kunt aanvragen/skills kunt aanbieden. Ook internationaal. Zou je dit willen?</p><ul id="b75297bc-a178-45d3-a553-3912f31befa4" class="bulleted-list"><li>Zij maken er al een soort van gebruik aan, maar het zou fijn zijn om te weten wat er voor mogelijkheden buiten Nederland zijn. Een handig overzicht. </li></ul><p id="60c964d6-a0f4-483b-8bb0-e4063967fa28" class="">30:20 Wat zouden de redenen zijn om contact te zoeken?</p><ul id="6c40b29a-72d8-4de2-a768-1ca100a0145f" class="bulleted-list"><li>Interne partnerships zijn altijd goed, niet perse een behoefte. Het is fijn om te kijken naar externe partijen, dit zorgt voor nieuwe dingen etc. </li></ul><p id="b5004e5f-eb10-4614-bec0-104677881ec6" class="">32:00 Competitie</p><ul id="649d1839-36ed-4e06-bee2-2083d97427f3" class="bulleted-list"><li>Ligt aan met wie je werkt</li></ul><p id="d7476b6f-6900-472f-9ee4-5ca4c3a1495c" class="">op welk niveau ligt dat concurreren?</p><ul id="8d6595c6-6047-4f73-9e88-7bcbff573780" class="bulleted-list"><li>Tussen die labels liggen verschillende verhoudingen, sommige schuiven Greenhouse naar voren, anderen doen dat liever niet. </li></ul><p id="682752d4-7e77-4c36-90c8-e3e25ce0f658" class="">34:30 Zeg je dat een obstakel hierarchie is en het netwerk navigeren. Denk je dat daar ons platform een oplossing voor kan bieden?</p><ul id="342e85af-48a0-4c15-a195-a40f1f77d7b1" class="bulleted-list"><li>Wij hebben gekozen voor focussen op teams met labels die voor voortgang bieden. En we zijn aan het kijken hoe we onszelf wel kunnen neerzetten bij externe partijen. Zodat klanten willen praten met ons en niet dat het vanuit hun komt. </li></ul><p id="9ce990e3-2e06-4f8b-bce1-012a09ef4f7c" class="">36:00 Stel je hebt een nieuw idee, wat zou jij triggeren om actie te ondernemen?</p><ul id="72933941-e1a6-4fbd-90d7-60d65b714018" class="bulleted-list"><li>Bekendheid</li></ul><ul id="5896aee4-f14d-4bd5-9f18-33205465f2cb" class="bulleted-list"><li>Er word naar je idee gekeken</li></ul><ul id="8a508ae1-f6d6-460c-af38-d148f082ebbc" class="bulleted-list"><li>Tijd en proces</li></ul><p id="36ddf960-2a3c-43a5-8b2e-0c3ef2535102" class="">
+</p><p id="88601b53-99c7-484a-894e-8101d25ca914" class="">
+</p><ul id="01cde92e-ae2a-4e39-bf68-e3107f61c8f2" class="bulleted-list"><li>Bepaalde criteria hebben </li></ul><p id="4eff6d1b-6c38-4f0f-af7b-ba874f97c19d" class="">
+</p><p id="c9aa65cb-2010-43d7-8c60-ec3ec444497c" class="">
+</p><p id="53863b5f-bf49-4f5b-9b78-980293cdc925" class="">Samenvatting interview:</p><p id="284bf4a2-0a02-4071-a75c-edf54cbbbd3c" class="">
+</p></div></article></body></html>

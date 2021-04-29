@@ -1,0 +1,736 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Opdracht Innovation platform</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7c756f48-b2e8-470a-acc6-6f79506bedb6" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🍀</span></div><h1 class="page-title">Opdracht Innovation platform</h1></header><div class="page-body"><p id="cec8d1eb-450f-4e28-b3af-d427f112e579" class="">Online product voor </p><p id="46faf954-0c35-4236-9fec-e0c15db5306e" class="">Doelgroep is GroepM EMEA</p><p id="d32eca59-0a50-4a05-8037-f06f5cc1f5b0" class="">Wat: online platform</p><p id="5f403ec9-5253-4837-9658-6fe34daebe19" class="">Wat is het doel?<div class="indented"><ul id="c2000d8c-648a-4924-afdc-ff00c725b6cc" class="bulleted-list"><li>Meer innovatieprojecten - Rosa</li></ul></div></p><p id="95be7d57-be55-478e-9f01-29d6341aafb1" class="">Twee entiteiten bij innovation</p><p id="93891a70-251b-4c37-ae0d-e934858f3857" class="">Boom!- bussines accelarator: Voor nieuwe ideeen etc. </p><p id="2622a765-cce6-4b66-af92-e74dd6874064" class="">Garret en Marieke Versteegh: Zij zijn innovation coaches. MEt behulp van workshops mensen helpen met het idee uit te werken, te verbeteren. </p><p id="262b0bed-a331-4984-9725-d04e86f1c770" class="">3 fases binnen boom</p><p id="3d98c486-47a3-4266-9970-a10a1a433448" class="">: Explore, discover and deliver</p><p id="95934b5b-daac-4166-9cc7-69f1bca1de56" class="">Garret, Marieke Versteeg, Bas Bas Ploeg spreken, zijn de stakeholders. </p><p id="531bbc09-4f3d-4f1b-a5c1-797d2a4c2991" class="">
+</p><p id="d1e6ee72-d964-47c8-9878-f07b34ee8108" class="">Boom is van nu tot 2 jaar</p><p id="84c389bc-92f4-4150-b7a6-4683b10037d7" class="">Labs is van 2 tot 5 jaar </p><p id="c4b25efd-2bb2-44c8-91c9-57526d55dec2" class="">
+</p><p id="dceeb362-27ec-4a5c-b8fd-58af37be778f" class="">Growth initiatief: Sander Kok</p><p id="49a4fd6e-81a4-4ec2-a808-96809c2c7fe6" class="">
+</p><p id="ea56aa25-efc6-4002-a439-42071abbc269" class="">Bas Ploeg wordt onze coach</p><p id="0dead650-36f2-48f9-9d76-cb18e732be60" class="">
+</p><p id="8abef927-3e02-47da-91d8-afb5b0b62bba" class="">Een idee kan op meerdere levels worden geplaatst, op verschillende horizons. </p><p id="d4b02236-4d8a-4f84-bb27-f079f0d553b7" class="">
+</p><p id="7007cbfd-43d2-4d7f-b150-aa865a127a24" class="">het idee van Conversational heeft in boom gezeten.</p><p id="5013b5db-57d9-4a2d-89e5-c437428bb1e4" class="">
+</p><p id="e1cdd959-a742-4056-81fa-dbeb7ec66acf" class="">Er zijn te weinig projecten voor horizon 1 en 2. Om dit op te zetten wordt er een platform gemaakt. Om meer horizon 1 en 2 projecten te creëren. </p><p id="28c4b4ec-f83f-4d36-945d-70ebd338dc13" class="">Beeld van het Boom duidelijk krijgen. </p><p id="ce861842-8bec-4333-aeb0-558c48c92063" class="">Innovatieconcept. </p><p id="3cedf05c-4fcc-4c4d-baa8-8aa9a0bf6aed" class="">Hoe kan green house relevant blijven en de leiding nemen?</p><p id="43317aba-6cbe-4a17-b8c2-0324b0950677" class="">Greenhouse neerzetten als de innovation growth. </p><p id="6f014be5-2192-49ac-8223-7075b644ac1a" class="">In Engeland en Denemarken een labs opzetten. </p><p id="9b9c2a0f-1896-4d47-ba93-5422f40a672e" class="">Een platform om het allemaal samen te brengen. </p><p id="45d6b9b5-7673-41bc-bac9-0fbdcacbf671" class="">Een online omgeving om te laten zien wat wij doen en wat wij kunnen bieden aan onze collega&#x27;s. </p><p id="fdb38b39-dea0-47dc-b598-3c552cf8073e" class="">Een innovatieve ervaring die laat zien wat Greenhouse in huis heeft en wat het kan worden.<div class="indented"><ul id="26d4378b-9924-41e9-8359-845aad2d4743" class="bulleted-list"><li>Wat voor opdrachten</li></ul><ul id="411f18f2-50b1-4930-a811-da20ca9ef727" class="bulleted-list"><li>Wat bied het </li></ul><ul id="59b6e953-fd53-41e7-9f72-347001f746f9" class="bulleted-list"><li>Tijdlijnen</li></ul><ul id="5bedabc5-756d-45f6-9b7b-526e368dc65e" class="bulleted-list"><li>Wat heeft het in huis. </li></ul></div></p><p id="e5d63a3a-7f35-42a8-8114-2142444ce131" class="">Google innovatief hub </p><p id="9dbc97ce-eedf-499e-b03a-26ca89f5cccc" class="">Een online omgeving die dient als innovatieve ervaring. </p><h2 id="95adf48e-48a6-44f9-8dfb-5e8025b0d43f" class="">Innovation platform</h2><p id="7b96a6b0-e7f8-44bf-b140-0ad83a0c92e4" class="">(Presentation Tim)</p><p id="8970404e-1183-41b5-816f-8da1bce31036" class="">Doelgroep=GroepM, EMEA</p><p id="faf022d2-7b64-4810-8b5d-ea07ef82db2a" class="">Een onderdeel binnen Greenhouse is innovation. Innovation heeft twee entiteiten: Boom! en Labs. </p><p id="78049fa4-0370-482b-a267-76dbd4867a38" class="">Wat gaan wij maken: een online platform. </p><p id="5052b484-6cb7-4118-aab1-393373f6c18f" class="">Waar komt de vraag vandaan?</p><p id="5c8423cd-b982-4ecd-bfc5-26ec8f171943" class="">Van Rosa:</p><p id="4abaa125-1785-4a9d-b6d4-abf58840c7e2" class="">Meer vraag naar projecten die vallen onder horizon 1 en 2. </p><p id="41e0e205-974e-4fd8-b951-17776812cce3" class="">
+</p><p id="e9858481-bf7a-4931-a4dd-20dd55faa2f6" class="">Hoe leren we Greenhouse kennen?</p><p id="d8a4e5d3-35f4-4ecc-95ec-d40d97bed441" class="">Met mensen praten, contact zoeken. </p><p id="a9343199-0d77-4ab9-9650-5f7c0f97f8a4" class="">Bas &amp; Sander</p><p id="ae70c4e3-fe5c-4193-a19a-899491ff61d0" class="">Marieke voor hele boom traject ervaren. En vanuit haar perspectief uitgelegd krijgen. Welke workshops er zijn. Horizons uitgelegd krijgen. </p><p id="2417d76d-d61b-4a05-9b84-406bef542691" class="">Het platform moet initiatief uitstralen. </p><p id="dd857d5d-4286-4017-8d94-a187147556af" class="">Uithangbord. </p><p id="4ba9d55c-efa2-41e7-9837-26c7e0f9ec51" class="">
+</p><p id="daa04350-b585-4963-8c97-1a59e933f985" class="">Greenhouse is deel van WPP</p><p id="bfd813fc-01c5-48f6-842f-db4625b0ef7d" class="">Dit is de overkoppelende organisatie bovenin. </p><p id="b0467461-a78f-4387-82f7-28f0c255d023" class="">WPP richt zich op media/marketing/creatie/PR</p><p id="c656303b-50ec-4dd6-a20c-fd92a2a1e6c7" class="">1/3 van de ads ter wereld valt onder WPP. </p><p id="b5f81d8e-0a98-4241-bd71-d73b8d44bae1" class="">Mediagedeelte:</p><p id="55e1364c-ade4-42ef-8a27-2a56d5f6339c" class="">Daaronder valt GroupM. Hieronder vallen: Mindshare, mediacom en wavemaker. </p><p id="d5594190-9c2e-46b1-bb43-ed9dd74d9633" class="">Ook valt GroupmNL hieronder. Greenhouse is verweven met deze 3 bedrijven in Nederland. </p><p id="84c62272-9547-4d3d-88ed-2fb8805c51e6" class="">Essence-hoort die bij GroupM?</p><p id="98192ae3-b9f2-4210-a0fd-fef0c1628107" class="">
+</p><p id="d7d71ca2-b8a0-46ac-b591-2a66124fcc58" class="">Hoe gaan we dit aanpakken?</p><ul id="db27cee6-b903-4e5f-9a2f-db8344a4ade9" class="bulleted-list"><li>Tone of voice bepalen</li></ul><ul id="4857a1e8-30f3-4d0f-bb83-59d02b000926" class="bulleted-list"><li>plan van aanpak</li></ul><ul id="7c971e45-3445-4ad7-a5e0-823f41a71693" class="bulleted-list"><li>Procesmatig</li></ul><ul id="5e892cfe-5317-46c6-8b7d-9962b9a503a7" class="bulleted-list"><li>Context</li></ul><ul id="40e69294-df03-483f-8552-c0a15659abff" class="bulleted-list"><li>Doel bepalen</li></ul><ul id="9a1d4596-a837-4db2-9ce7-8bb1229386a7" class="bulleted-list"><li>Doelgroep bepalen, </li></ul><p id="c12b8109-3a69-495e-ad38-bf49540c8f08" class="">Wat heeft de prioriteit?</p><p id="ea8352fb-6b46-4360-acdd-83016516686b" class="">Wat werkt?</p><p id="67ad50a1-6945-4bf1-a57c-e7e71773f6c9" class="">Het project en verwachtingen managen. </p><p id="f7704771-2108-4d07-8628-70c2bd410960" class="">Toewerken naar een advies krijgen en naar feedback op krijgen. </p><p id="aaea492a-8e4d-4063-9c48-266f01d755be" class="">
+</p><p id="69fe2cd5-8ea2-4170-a966-dfedf00b27e0" class="">Growth initiatief. </p><p id="3b2684be-5edd-45ed-b82d-2aebd84ee254" class="">
+</p><p id="77bbf2cd-5f2b-42e2-a1b5-94df65c9fc3f" class="">
+</p><p id="b0e74325-aac5-4d7e-9963-db786ae6d85a" class="">
+</p><p id="3dde7078-f226-4827-b39d-ec66f552dbdf" class="">Wat is er allemaal gedaan in het innovatie lab</p><p id="c6057ac9-c8d9-44cf-914e-fed56f246046" class="">Het innovatieve willen we een boom geven. </p><p id="5e033960-3cb3-4d42-bf47-10da2275431e" class="">Wat kan er allemaal gedaan?<div class="indented"><ul id="964522f7-bfbe-4823-99dd-1e2dff03f992" class="bulleted-list"><li>Onderzoek<ul id="afb40a4e-eea7-4c95-a5e4-f9f5ed3b3674" class="bulleted-list"><li>Technisch vlak</li></ul><ul id="c9f343f5-a222-4c68-af69-693b0fb8d240" class="bulleted-list"><li>Wat is er allemaal?</li></ul><ul id="1a6333e8-3317-47bb-af20-56073aa26a1f" class="bulleted-list"><li></li></ul></li></ul></div></p><p id="1143aa90-cd8a-46e3-9b29-7d241f78daa9" class="">
+</p><p id="9e272ac2-0d90-4c8b-8af5-dbe5b42c69e8" class="">
+</p><p id="e233fd9d-6831-4240-8ec2-805ca7a14fc6" class="">
+</p><h2 id="3ed33a0c-575c-445d-a05d-4e39895c15f4" class="">Donderdag 11 Februari</h2><p id="8c8a21cc-6956-4555-8e69-295a96890317" class="">
+</p><p id="caff54a4-7b6d-45d9-be85-87b02f288dcc" class="">Debriefing gesprek met Tim</p><ul id="337eaa7a-e5d4-401b-a776-f944bbe356b9" class="bulleted-list"><li>Titel<ul id="17ec0049-3edf-4511-a4a5-d1b1d9167bf4" class="bulleted-list"><li>Greenhouse open incubator</li></ul></li></ul><ul id="93430eae-7cd6-438f-8d74-c6d7a62cfe7a" class="bulleted-list"><li>Probleemstelling<ul id="ae48d232-2ab6-40a2-960c-80036753090f" class="bulleted-list"><li>De drempel om een horizon 1 of 2 idee te beginnen ligt voor veel Greenhouse medewerkers erg hoog. Er wordt gedacht dat het een heel groot idee moet zijn om serieus genomen te worden. Ten tweede wordt het growth project uitgebreid en is hier nog geen gezicht aan gegeven. </li></ul></li></ul><ul id="5a202938-6d1b-4d70-8a9f-52285a8e7775" class="bulleted-list"><li>Opdrachtomschrijving<p id="7e2f3d1b-d8f3-4f10-b30c-744d1111c183" class="">Om dit probleem op te lossen is er voor een online platform gekozen. Van ons wordt verwacht dat wij dit vorm gaan geven. Dit platform heeft verschillende functies:</p><ol id="9dff5943-33ce-431e-bfad-d4f9e1bef6cf" class="numbered-list" start="1"><li>Omdat de drempel hoog ligt moet die drempel omlaag door een online platform te gaan gebruiken voor medewerkers. De opdracht is dus een platform maken wat ten eerste zorgt voor die drempel omlaag brengen. </li></ol><ol id="f113394e-fca8-4b56-8f81-934d2b28c32a" class="numbered-list" start="2"><li>Het Growth project wordt momenteel in werking gesteld en hier moet een gezicht aankomen. Het moet innovatie uitstralen en zorgen voor inspiratie. Mensen die op dit platform komen zullen inspiratie krijgen en weten wat Greenhouse kan met dit initiatief. Er moet naar voren komen dat Greenhouse lead of innovation is. </li></ol></li></ul><ul id="f728f2c6-1497-4f7a-bf72-b08bec182ee3" class="bulleted-list"><li>Doel<ul id="10492bb5-2051-46c9-ab1e-9eab0c841ccb" class="bulleted-list"><li>Het doel van het platform is zorgen voor een gezicht voor growth en het inspireren van medewerkers. Degene die op dit platform komen zullen het proces van Boom te zien krijgen, inspiratie te zien krijgen en de mogelijkheid krijgen om zich bij workshops aan te sluiten. </li></ul><ul id="bf255bcf-b0bb-459f-821c-b6ead52ea792" class="bulleted-list"><li>Een innovatieve ervaring die laat zien wat Greenhouse in huis heeft en wat het kan worden. </li></ul><ul id="04285b36-46e5-46e2-a4da-1a5b14de9485" class="bulleted-list"><li>Zorgen dat de drempel om met ideeen te komen en te implementeren niet te hoog wordt. </li></ul></li></ul><ul id="00d8ed57-55c7-4bc0-987c-652e3661e196" class="bulleted-list"><li>Doelgroep<ul id="831433ab-f727-4bdc-bb32-32f181802eed" class="bulleted-list"><li>De doelgroep voor dit platform is voor mij nog onduidelijk. </li></ul><ul id="9f3db06d-c67a-494a-856f-8a6be80da763" class="bulleted-list"><li>Het wordt ten eerste uitgerold voor GroupM maar ook vooral voor Greenhouse. </li></ul></li></ul><ul id="5f8de816-e6e4-4ea8-8a93-9de348cdf58b" class="bulleted-list"><li>Criteria<ul id="659a939c-acbf-467b-8ebe-39b4821ec259" class="bulleted-list"><li>Het moet een platform worden dat innovatie uitstraalt</li></ul><ul id="161b388d-931c-4ff6-baf2-093ef03263ca" class="bulleted-list"><li>Het moet workshops bevatten (zie vragen)</li></ul><ul id="16715f5d-88f2-430c-9293-7133ceddc6f0" class="bulleted-list"><li>Het moet zorgen voor inspiratie </li></ul><ul id="80ca451b-d71d-4df7-b3f4-dd12702a7698" class="bulleted-list"><li>Het wordt het visitekaartje voor het Growth project</li></ul><ul id="c9310739-2718-4e70-8b73-b4eab9319609" class="bulleted-list"><li>Het traject van Boom moet er op komen te staan</li></ul><ul id="853ee794-c26e-45e1-b767-362f54671af1" class="bulleted-list"><li>Het moet duidelijk worden wat Greenhouse (Growth) doet en wat er mee gedaan kan worden. </li></ul></li></ul><ul id="c5d57f8c-b423-4a40-85c8-7ec77314e976" class="bulleted-list"><li>Stakeholders (Sander Kok, Bas Ploeg, Tim Deynen, Marieke (?))</li></ul><p id="8e4025f6-1063-4866-91cb-0c8c195d31ce" class="">
+</p><p id="5dd78fbd-c35e-4c97-8313-4349b78f0ee0" class="">
+</p><p id="79b4526a-2975-4f47-93ab-1aca1e152f8a" class="">Vragen:</p><p id="7c2ced0c-d812-47bd-b3ed-56eb530b519e" class="">Hoe werken de workshops, hoe zitten deze in elkaar? Moet je deze zelf opstellen, zijn er al mogelijkheden etc. </p><p id="28a22078-6fd3-4a68-920b-dc93de4d3d16" class="">
+</p><p id="33a92613-4a88-48d6-9bd4-1e798e0aea42" class="">
+</p><p id="7892c4ae-1c38-4ee8-835a-c78d1f78b721" class="">Greenhouse werkt met initiatief: Het Boom project. Boom is een traject wat collega&#x27;s in kunnen gaan. Wanneer een collega hier aanklopt met een idee kunnen zij doormiddel van workshops en innovatie coaches een traject ingaan om de mogelijkheden van hun idee in te zien. Wat Greenhouse gezien heeft is dat veel mensen niet naar dit initiatief toestappen omdat het voelt alsof hier een te grote drempel voor zit. Om dit op te lossen gaat er gebruik gemaakt worden van een online platform, hier kunnen mensen inspiratie uit halen en zelf met low key ideeën komen. </p><p id="6bd18758-f5f9-4fa8-9736-686213c90e9c" class="">Dit Boom initiatief gaat uitgebruid worden naar het Growth initiatief. Dit komt voort uit het probleem dat nieuwe groei initiatieven niet effectief worden aangepakt, hierdoor worden er nieuwe kansen gemist. Hierdoor gaat het niet alleen binnen Greenhouse werken maar binnen heel GroupM.</p><p id="8b2c54fb-6d18-4eb2-bf83-5b2602a3ae20" class="">
+</p><p id="805896fb-22a9-423d-b59b-d07901596f7e" class="">&quot;We need an ambitious approach to scalable innovation&quot;</p><p id="4486793f-ec9e-4299-bf71-427842d8a29e" class="">Deze approach gaat Greenhouse open incubator zijn. </p><p id="0f99430c-0451-4be3-ae76-be64a4c0866c" class="">Deze werkt met Explore Discover Deliver and Learn. </p><p id="199fea5a-e365-4304-be3a-f44a66df5d36" class="">Hiervoor worden verschillende campussen opgericht in Nederland, Denemarken en Engeland. </p><p id="15ecfede-d3aa-476d-aac2-a87204a65e51" class="">
+</p><p id="a2f2301d-b513-4f5f-b1ee-c1f21ad2f509" class="">
+</p><h3 id="96d50b95-6cf8-4ec8-a2f2-970decf90a3f" class="">Platform onderzoek</h3><p id="519131d4-5ffa-4dd8-8385-efd0d9341d02" class="">Met focus op tech</p><p id="f79b2e8f-a8a9-4c2d-b2e5-8179bc8565e5" class="">Wat is er nu op dit moment qua dit soort platformen?</p><p id="f5ce52fc-878d-4c0b-bc27-670ae20aeb3c" class="">Waarom een innovation platform?</p><p id="589b9e7e-cfc2-42e2-ac9b-2237dbbfc057" class="">Wat voor content staat hierop?</p><p id="f278b9a7-b813-4a74-a7c4-2557ab5d98c7" class="">Wat is hiervoor nodig?</p><p id="d1ca65d8-75d6-4cb2-a99e-5809e9cd5fe7" class="">Wat komt hierbij kijken?</p><p id="dc102276-23f7-419e-b263-0243ff220987" class="">
+</p><p id="2d1b8706-52fc-4acd-a4ac-74435afeba1b" class="">
+</p><p id="17836b7c-b935-4631-a658-9c996501d865" class="">Wat is er op dit moment qua dit soort platformen?</p><p id="37f0824f-fbb9-455e-a3e3-a1cd6c07c0a5" class=""><a href="https://www.herox.com/">https://www.herox.com/</a></p><p id="f1487b01-d0b0-4ce0-9abb-2a84024de2dd" class=""><a href="https://www.openideo.com/">https://www.openideo.com/</a></p><p id="966d491a-27b3-43d7-8b5e-9a66446c761b" class=""><a href="https://thehyve.nl/">https://thehyve.nl/</a></p><p id="ce4fd3a8-eda9-41d0-b252-3f635ee489c3" class=""><a href="https://nos.co/">https://nos.co/</a> (Heeft een incubation deel)</p><p id="23df90a7-9041-4fdb-ab2a-21192b5c6e0b" class="">
+</p><p id="a9e32a77-9dd3-4281-99d8-8d0ee5489248" class="">Wat is een innovation platform</p><blockquote id="74f413cf-2d5c-4dd6-bce9-9d183e90ba97" class="">Workplace innovation platforms are high productivity collaborative development tools used by both developers and non-developers to solve business challenges not addressed by existing systems. They allow business leaders and general staff to work collaboratively to build applications and automate business processes while innovating their organization’s digital portfolio.</blockquote><p id="65370920-c961-4c8b-8fc7-bbcfad22f661" class="">
+</p><p id="79352c11-92b7-4ed8-b552-7ade8d57c828" class="">Waarom een innovatie platform?</p><p id="05a465eb-010a-4a04-98e8-4283b4a72454" class="">A consumer&#x27;s pre-innovation platform activity increases innovation diffusion succes and that frequency, quality and relatedness of a consumer&#x27;s pre-innovation platform activity promotes this effect. </p><p id="9cf7a7a6-ab71-4ed2-972d-336c19c27ee2" class="">Belangrijke punten uit: The role of pre-innovation platform activity for diffusion success:</p><p id="215f3e03-a648-49f2-9738-27d30e04264a" class="">In this study, we argue that first-time innovators can increase the
+diffusion success of their innovations by engaging in pre-innovation
+platform activities. Specifically, we propose that frequency, quality,
+and relatedness of pre-innovation platform activity will positively shape
+consumers’ likelihoods of successfully diffusing their first innovations.</p><p id="de2c920f-edd8-4721-a03d-a6d699314e67" class="">Our results show that platform activity prior to developing an
+innovation has a positive effect on innovation diffusion success.</p><p id="22292ce5-992f-4519-80f2-4505c0ea4720" class="">On platforms knowledge is distributed, created and exchanged and
+this provides the basis for the development of innovations, their diffusion
+and usage</p><p id="4c59ec2a-7c77-4812-99fd-4a9f5c5078cd" class="">Door inzicht te krijgen in wat anderen doen wordt de stap om zelf iets te doen kleiner. Hiernaast spelen andere factoren ook een rol: Frequency, kwaliteit en relatedness. </p><p id="678766ce-25a1-4c77-bff2-fc5964e53226" class="">
+</p><p id="4d66e0d1-c31e-494f-bba1-9bbad6970084" class="">Hoe zitten innovatie platformen nu in elkaar?</p><ul id="143ff889-25a4-468a-b5d9-ee02c27cf714" class="bulleted-list"><li>Voorbeelden van challenges of ideeën waar mensen nu mee bezig zijn of oudere cases. <ul id="6bb25a33-1278-4c7f-869a-fe0d4fa26905" class="bulleted-list"><li>Beschrijvingen van de cases, waar het idee vandaan komt, wat het effect is. </li></ul></li></ul><ul id="b8ed9786-107c-4c5a-9f88-1455d6c7ab39" class="bulleted-list"><li>Hoe zit het systeem in elkaar<ul id="b6b21e44-a1b5-442f-ba58-ab26ee0e372b" class="bulleted-list"><li>Je word meegenomen in het proces en de resources van het bedrijf. </li></ul></li></ul><ul id="68e6e852-9027-4556-9169-343399f648b1" class="bulleted-list"><li>Wat krijg jij als &#x27;klant&#x27; aangeboden en wat bieden zij aan</li></ul><ul id="1daf45ff-80fc-47c3-a492-c59ded5ddd18" class="bulleted-list"><li>Criteria voor ideeën</li></ul><p id="b03c0710-cd06-45fc-a24a-7fa9f7c92c54" class="">
+</p><p id="6f206869-addb-41f5-97f4-1f3e18575ca3" class="">
+Wat zou hiervoor nodig zijn:</p><ul id="9c567e60-da0d-4c54-b142-28c2d5d3a051" class="bulleted-list"><li>Een manier om zichzelf te onderscheiden van andere platformen</li></ul><ul id="c85f5f7d-388e-4aa1-8591-ce72b91078bc" class="bulleted-list"><li>Een laagdrempelige manier van met ideeen komen</li></ul><ul id="44180565-179f-4401-83fe-9a9073a25045" class="bulleted-list"><li>Openheid in het proces duidelijk maken voor de gebruiker</li></ul><ul id="6fe0f13c-f545-497b-9fe6-e24a5114176b" class="bulleted-list"><li>Een goede tone of voice neerzetten, het moet innovatie uitstralen</li></ul><ul id="8abbf19e-9531-44ad-bad9-cce903faa514" class="bulleted-list"><li>Voor inspiratie een aanmoediging zorgen</li></ul><p id="38f6165c-3438-45f2-bf49-0489b71b1ad8" class="">
+</p><p id="0d2f62c7-c9d6-451e-9f28-8aa85859a0f8" class="">Wat voor content is hier nodig?</p><ul id="ee924396-2432-47ca-9919-76d70fa464bf" class="bulleted-list"><li>Content die de gebruiker betrekt bij het vinden van ideeën. </li></ul><ul id="1d40401f-e2de-47e2-a527-3b243f774f6a" class="bulleted-list"><li>Genoeg voorbeelden van vorige cases</li></ul><ul id="7c890fae-4839-4ca2-a407-80863fbf390a" class="bulleted-list"><li>Aanbiedbare workshops </li></ul><ul id="1c729ad8-1885-4c95-a991-d77ddb009ce6" class="bulleted-list"><li>Updatebare content, frequentie van nieuwe cases zorgt voor meer ideeën van de doelgroep.</li></ul><p id="5454f3cc-5154-4737-8621-3c00401a91cc" class="">
+</p><p id="9b2a31a3-3a0b-4116-b1d4-0e4302713cbd" class="">Vragen:</p><p id="fcda62b2-ecb5-4562-93ad-55971da6c58d" class="">Hoe zou het platform zich anders maken dan anderen platformen? Het moet zichzelf immers kunnen scheiden van de rest?</p><p id="5ab5affc-a622-467f-8093-21edaba32d80" class="">
+</p><p id="a3c94daa-f851-4102-97cf-603c785451e6" class="">Technische factoren:</p><p id="211f3eeb-08be-4d4e-9609-401190f7a303" class="">
+</p><p id="a69d521e-5165-4d59-99cf-94ece91ee451" class="">
+</p><h3 id="86f2e5a0-21af-4d25-8640-426f202bc665" class="">Eerste concepten</h3><ul id="1bbd67a3-42bf-4501-bf48-a9fb792bde6e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Proef concepten</span></li></ul><ul id="9c30aabb-a654-4f5f-8786-66c6b5dc3bbf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Wat is er nodig?</span></li></ul><ul id="8b18fb31-6b00-4a63-9856-8a9986387edb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Plan van aanpak</span></li></ul><ul id="5cd13ddb-4f90-4fa4-ae49-13d72dbf0bd7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Technische gedeelte</span></li></ul><p id="1d1b3424-0c39-4708-b784-76b52a91c800" class="">
+</p><p id="7150ac25-1e8d-4d7f-8292-97852a1a1c4f" class="">Wat gebruiken innovatie platformen wat wij kunnen meenemen?</p><ul id="1d20fe8a-ea9e-41f6-bada-690d4759e91e" class="bulleted-list"><li>Vorige cases laten zien</li></ul><ul id="84a272cd-a9bd-438e-99e5-32e3476a5fcc" class="bulleted-list"><li>Het werk en denk proces laten zien</li></ul><ul id="01cb8f7f-130d-4f3c-bd57-a96146af3e8b" class="bulleted-list"><li>Wat krijg je als klant aangeboden en wat bieden zij voor &#x27;services&#x27;.</li></ul><ul id="53fcb408-1766-4380-b8b5-1b9cb63397f3" class="bulleted-list"><li>Duidelijke inzichten in wat er gebeurd</li></ul><p id="ea9f8c78-195a-4b73-a1df-fa996d6f24ff" class="">Wat zijn de criteria voor het innovatieve platform?</p><ul id="5c41d1c7-7af4-410e-80d8-9973f3138d6f" class="bulleted-list"><li>Zorgen voor inspiratie</li></ul><ul id="865cd2dd-35d6-45bb-8819-607a10e8b902" class="bulleted-list"><li>Innovatie uitstralen</li></ul><ul id="0eac954b-8b90-4c53-ac2a-4c2b27db8b5d" class="bulleted-list"><li>Vorige cases laten zien</li></ul><ul id="3c5b9480-7061-433e-be88-cf62966e293a" class="bulleted-list"><li>Laten zien hoe het proces verloopt en hier een inkijk ingeven</li></ul><ul id="b9b0b8eb-36b9-4e9c-bd2a-51c85d90ed91" class="bulleted-list"><li>Workshops aanbieden(?)</li></ul><ul id="246fae42-702a-4218-9c73-24c2a5bdbfbb" class="bulleted-list"><li>Een makkelijke manier om contact te krijgen en met ideeen te komen</li></ul><ul id="e5ced348-c724-4755-8ec0-6ec4acc4f8a8" class="bulleted-list"><li>Beter en innovatiever overkomen dan andere platformen</li></ul><ul id="9d0b93d3-7f06-481a-b8a1-aecaf30f42e1" class="bulleted-list"><li>Cases betrekken bij de tone of voice</li></ul><ul id="df763352-b639-456f-8aea-1baf499fc2be" class="bulleted-list"><li>Personalisatie in de website</li></ul><p id="4647bd05-e631-4205-8591-230c8ca83460" class="">
+</p><h3 id="cb908194-a9c3-46bf-9d91-7e2048443c03" class="">Ideeen voor uitwerking</h3><ul id="aae7629d-6641-4bdf-b458-88adceea86c5" class="bulleted-list"><li>Digital human betrekken bij je reis om het platform te ontdekken</li></ul><ul id="184601e1-b7c5-4d7b-a7c3-5cddbe5d37f9" class="bulleted-list"><li>Het proces zal een soort reis zijn tussen alle mogelijkheden door</li></ul><ul id="faf5f393-96a3-4c44-86f5-91b24a0a547e" class="bulleted-list"><li>Het proces door de website heen als een soort reis ervaren, bij elk onderdeel word je meegenomen door een case die uit boom is gekomen; conversational, digital human etc. </li></ul><ul id="e633b054-ff56-4aac-af2b-c615062a46e8" class="bulleted-list"><li>De website persoonlijk maken voor wie dit gebruikt<ul id="c0104343-61f3-4242-9d0c-e58bc7d30cd4" class="bulleted-list"><li>Uberhaubt de website persoonlijk maken</li></ul></li></ul><ul id="7bd7d83f-bc18-4374-a36b-0c5fa73efcac" class="bulleted-list"><li>Op een fancy manier de belangrijke aspecten van vorige projecten overbrengen. En dan niet cliche</li></ul><p id="6bda761f-d785-4e13-bdfc-c39cf042fdd0" class="">
+</p><p id="48996e17-5b51-46c1-9391-9cdfae7843da" class="">
+</p><h3 id="5efab1ed-667d-4c4e-9967-60d638782615" class="">Plan van aanpak</h3><ul id="7fbebf3e-1bd8-4541-896c-5de456639564" class="bulleted-list"><li>Wat is het belangrijkste binnen dit forum<ul id="8bf9ee95-3542-489c-bd21-fd84936ae6d8" class="bulleted-list"><li>Innovatie uitstralen</li></ul><ul id="5ad49c05-655d-40e0-a55d-c37a0ab7b643" class="bulleted-list"><li>Inzicht geven in wie wij zijn en wat wij doen</li></ul></li></ul><ul id="893fd9a3-2558-4669-8cab-a6a45dd0b7c5" class="bulleted-list"><li></li></ul><p id="9193fbdf-bbe7-4241-a7f0-ebc913581a5e" class="">
+</p><p id="d2fdf5d4-7712-459a-9dde-abb96d0d46b9" class="">
+</p><h3 id="c3916c9d-d462-403d-a457-41c89a95bf3e" class="">Inspiratie voor het incubator platform</h3><p id="2ee254c0-bd68-48fb-8993-757c55e098b5" class=""><a href="http://intheeyesoftheanimal.com/">http://intheeyesoftheanimal.com/</a></p><p id="f4096164-d893-4e18-ba66-dc93b6809724" class="">
+</p><p id="9cd14af7-f9db-49c2-820f-3e39d79b2cc0" class="">
+</p><p id="c433167d-6697-4a58-80b7-7c8cbab03b89" class="">datapersonalisatie </p><p id="c6777f87-cbe0-44c4-850c-f606bfd0ae2e" class="">
+</p><p id="7306cdd9-21a7-484d-93f3-e05e6337e09d" class="">Concept 1:</p><p id="d542480a-5169-4e81-91de-91ddf9c5180d" class="">Eerdere cases van Boom (of Growth) implementeren in de website. Een digital human die meepraat met je of een conversational iets dat je als klant helpt met het snappen van wat Greenhouse doet. Hiernaast ook nog los inspiratie plaatsen, maar de website weten te navigeren aan de hand van vorige (succes) cases.</p><p id="14f4b802-484f-42eb-8f5c-ee9cc30239ee" class="">
+</p><p id="63e17a0f-6816-491e-85b4-1e3d3201dc65" class="">Concept 2: </p><p id="4b5aab02-35af-4541-803d-dbef630748fd" class="">Gebruik maken van een sociaal gedeelte binnen het platform; interactie zorgt voor een minder hoge drempel om met ideeen te komen. Helpt mensen de stap te zetten om zelf ook met ideeen te komen. Het toevoegen van een sociaal gedeelte zorgt ervoor dat mensen herkenning zullen zien en ook zichzelf kunnen terugzien. </p><p id="964f42bf-c472-40b2-8c40-25b7c1d20602" class="">
+</p><p id="7d8669b8-9a60-4d92-9f46-ed05df0ac18b" class="">
+</p><p id="84f961ca-422b-47e6-9b49-170996a9de67" class="">Ideeen voor de structuur van het platform:</p><p id="a7d42579-8322-4f5f-97c7-fc5fd235130f" class="">1 deel voor &#x27;nieuwe&#x27; klanten en een ander deel voor mensen die al aangesloten zijn bij het idee. Het deel voor de klanten kan een reis zijn waardoor zij meegenomen worden in wat er mogelijk is en wat zij hierin kunnen betekenen. Dit hoeft dan geen scrolwebsite te zijn maar juist een interactrieve manier van de informatie kunnen bekijken. Hierdoor zorg je voor interactie en blijft het niet te statisch. </p><p id="194ebef7-9760-4712-8cc3-550eba30a660" class="">Het deel voor mensen die ideeen hebben zal het iets meer statisch zijn omdat een laagdrempelige manier moet zijn van met ideeen kunnen komen. Hier kan wel het interactieve gedeelte blijven maar er moeten ook opties zijn om makkelijk op andere plekken te komen. </p><p id="fddfb455-a85e-4143-98b5-fdd98e10584d" class="">Dus: De nieuwe gebruiker ervaart de reis van de Greenhouse incubator met een digitale ervaring. Hiernaast moet het andere deel van het platform vooral gericht zijn op het zelf kunnen navigeren van deze reis. </p><p id="c28fcec6-4bcb-4e5b-b888-02666e5a7b24" class="">Voorbeelden van websites waarin dit gevoel naar bovenkomt:</p><p id="f069b605-6e15-44d7-84ad-bd988a078ed9" class=""><a href="http://intheeyesoftheanimal.com/#home">http://intheeyesoftheanimal.com/#home</a></p><p id="32aef37f-24b8-45f5-8c9a-dfc551d14b7d" class=""><a href="http://blacknegative.com/#!/kindy/">http://blacknegative.com/#!/kindy/</a></p><p id="291552ec-a695-4968-92a5-60c1d5f5a6ec" class=""><a href="https://handsome.is/">https://handsome.is/</a></p><p id="d51e1793-1265-4a31-a448-d8785d552b95" class="">Ideeen waar het over te hebben tijdens de meeting:</p><ul id="e85d9327-c1f0-4869-83b5-c6a6a930ab35" class="bulleted-list"><li>Wat wij denken dat op het platform moet komen<ul id="a21b3290-d4e7-481c-a5fc-15067f09d61d" class="bulleted-list"><li>De criteria die wij voor ons zijn en hebben opgesteld</li></ul></li></ul><ul id="181fc1e1-0ef0-4443-ab4c-1449f1cbc3fa" class="bulleted-list"><li>Wat wij denken dat het doel is van het platform<ul id="b124e1be-9c5e-4c29-a128-85a491c4c92e" class="bulleted-list"><li>Zorgen voor innovatie en inspiratie</li></ul></li></ul><ul id="9792dfbf-b061-475d-bb3c-49e8d1b1405d" class="bulleted-list"><li>Hoe wij het tot nu toe voor ons zien</li></ul><ul id="f47fc29e-e3a3-47fe-b2c1-964654bbfb37" class="bulleted-list"><li>Wat ons plan van aanpak gaat zijn</li></ul><ul id="891759ce-d77f-4054-a53d-6b28f1bb9753" class="bulleted-list"><li>Waar wij nu problemen/vraagstukken zien<ul id="1704e224-890f-48c8-b817-8b890c96d7ba" class="bulleted-list"><li>Techgedeelte etc. </li></ul><ul id="d760a7dd-dbcb-44f7-b177-f072f3c82147" class="bulleted-list"><li>Tot op welke hoogte willen zij bepaalde dingen erop hebben (workshops etc. )</li></ul><p id="0eff2dfb-dc5c-4060-ac33-1e29e0890b39" class="">
+</p></li></ul><ul id="a5cf375c-4190-406b-87d5-89728171e3a4" class="bulleted-list"><li>Wat hebben wij tot nu toe onderzocht hebben en hiervan de resultaten. </li></ul><p id="f0e28477-dcdc-49c5-8251-e2d536e954e8" class="">
+</p><p id="3fa78823-0dec-4aa7-b77c-562009604d19" class="">
+</p><p id="5bc948b2-a6ab-498a-a801-43fb49fcf4d0" class="">Technische gedeelte:</p><p id="40b88a5a-fc4d-4671-8db0-78021fd676cf" class="">Om dit te kunnen realiseren zijn een aantal technische specs nodig. Om hier alvast wat voorbereiding voor te treffen ga ik kijken naar hoe dit ongeveer in elkaar zit en wat ik hierin zou kunnen betekenen. </p><ul id="16875ea2-6415-4526-a14e-4b69bb15a9c1" class="bulleted-list"><li>Een server om te hosten</li></ul><ul id="1785805c-f466-4a90-97f9-0d960f2959e5" class="bulleted-list"><li>Node.js om te testen</li></ul><ul id="59b3bfbc-71dd-45ba-8c46-8f15071850a3" class="bulleted-list"><li>Repository voor code (github)</li></ul><ul id="2e052cd8-96eb-4cd2-85d1-fbca5ce59ae8" class="bulleted-list"><li>Javascript framework(Angular, react, vue)</li></ul><ul id="f257a3ce-7948-4d0d-b60a-53bd87919b84" class="bulleted-list"><li>Database, voor gebruikersgegevens en sitedate </li></ul><p id="66f0e5e4-6a56-446b-9e56-64d02c5e1edb" class="">
+</p><p id="f64ad7e5-9679-47cc-ad15-e03d568904a5" class="">Kleine testjes om te kijken wat ik kan qua interactiviteit etc. Kleine dingen met adobe XD proberen etc. </p><p id="fa124e66-971f-4ca6-ae25-2eef612c1b39" class="">Ideation stage</p><ol id="b1c3ad57-d68a-4587-b8bf-dabd555e555e" class="numbered-list" start="1"><li>Source an idea</li></ol><ol id="6f8fe9a4-340a-4948-b08a-91119c403743" class="numbered-list" start="2"><li>Market research</li></ol><ol id="e75f0dda-d051-403b-a241-c07a3c5ad69a" class="numbered-list" start="3"><li>&quot;Define functionality</li></ol><p id="eaf04f63-2cea-4674-bed2-b61db570b2d5" class="">
+</p><p id="2af0cc5e-b53d-41c1-8f21-fc65ff98ad96" class="">Design stage</p><p id="805ebe24-56b1-4e72-95f4-f1b3a71f20da" class="">4. Sketch your web app</p><p id="8b901680-8aed-49e1-80eb-04a23ba4c886" class="">5. Plan your workflow</p><p id="edcecdf4-31e9-41b5-a619-f1238c00f75a" class="">6. Wireframe the UI</p><p id="c8eab5ec-e53f-4093-9d8f-043a64eca3dc" class="">7. Seek early validation</p><p id="2a3c62fd-7282-456e-a69b-99f4cb49ac1e" class="">
+</p><p id="a1e46638-a39c-4c66-8267-f4bd871fb366" class="">Development stage</p><p id="30772d90-b083-4bdd-97b5-d690928f6183" class="">8. Achitect your database</p><p id="3b2c946d-aa41-4519-a2b3-e80f8fc96e74" class="">9. Develop your frontend</p><p id="0b2081d2-ed68-4c65-b218-efb9ee306a68" class="">10. Build your backend</p><p id="128ce248-865a-48c2-b6cc-4f742ffe09b4" class="">
+</p><p id="ff878d93-27ca-4d4d-9e1b-741f4e080386" class="">Launch stage</p><p id="a8411f2d-9e4e-427c-97c4-6df62636ca3d" class="">11. Host your web app</p><p id="92e50083-ee16-4bce-a2fd-f313a529b4f2" class="">12. Deploy your web app</p><p id="b0b1ad99-efb0-4bd3-a8fd-f76ade73302a" class="">
+</p><p id="a686a2ac-b18e-42e2-bf52-9bba85f4f635" class="">
+</p><p id="41333faf-6ee8-4662-aa9a-b925a061cf21" class="">Plan → Design → Development</p><p id="0422ed2e-c03b-4f2a-af62-f0edd0194e22" class="">Plan: </p><ol id="e22c2a76-db9f-476f-9285-d4f93b1bd5fc" class="numbered-list" start="1"><li>Initial Research<ul id="52834a5d-4c92-42d4-85d5-22fd0a5fcb3b" class="bulleted-list"><li>Asses current website</li></ul><ul id="89562596-75b9-4664-a37a-9bf2517c9eb0" class="bulleted-list"><li>Review current analitytics, data &amp; trends</li></ul><ul id="b656b617-e577-49c4-a45f-263c5d115f3f" class="bulleted-list"><li>Examine competitor websited</li></ul><ul id="4bbaaae0-c87c-4122-afc0-a7bb5619d215" class="bulleted-list"><li>Identify website purpose, objectives &amp; audience</li></ul></li></ol><ol id="568b3dd7-9ad6-4f34-8879-b804f0d6f52c" class="numbered-list" start="2"><li>Scope<ul id="5a3bab2d-0ddb-425f-b85b-9f116e823a4d" class="bulleted-list"><li>Identify required technical funtionality</li></ul><ul id="6c3c8e63-1e56-4671-bd04-c8a368b4f393" class="bulleted-list"><li>Define technical scope</li></ul><ul id="cd3b3d08-846d-4fd1-bce2-f01bf75bd086" class="bulleted-list"><li>Document scope in detail</li></ul></li></ol><ol id="253ce5bf-2a64-48b5-8d5b-9fa768a9feea" class="numbered-list" start="3"><li>Architecture<ul id="b304eb34-38a5-450c-81b5-c030062f6e87" class="bulleted-list"><li>Assemble &amp; classify content types</li></ul><ul id="3dc19ece-156c-469b-9d59-b1a4d19350f2" class="bulleted-list"><li>Define content hierarchy &amp; flow</li></ul><ul id="942a8eba-18e8-4153-9e39-ecb33f9712ac" class="bulleted-list"><li>Creage page outlines for main pages</li></ul><ul id="19824561-e486-49f1-ada5-493f0f0f954f" class="bulleted-list"><li>Create sitemap &amp; architecture</li></ul></li></ol><p id="3297fa3d-78ab-4a6d-94e9-99321da6068a" class="">Design</p><ol id="c7ec0275-d00b-4444-9746-a5d720f72487" class="numbered-list" start="1"><li>Wireframe<ul id="4b125fe6-6f0e-4365-b22b-621c380a5f8c" class="bulleted-list"><li>Establish a visual hierarchy &amp; placements of content</li></ul><ul id="c5b7e3fe-0569-479a-9f50-2565328a9705" class="bulleted-list"><li>Lay-out of home and mail pages using a  responsive grid</li></ul><ul id="a51ee981-9445-49fe-a8eb-995986ad79d3" class="bulleted-list"><li>Produce a static or live wireframe</li></ul><ul id="c2e4f440-9e18-48cc-a58d-504d94814a04" class="bulleted-list"><li>Test and revise as needed</li></ul></li></ol><ol id="b6e83b5f-a9e2-4914-b82c-c3eac1c3934e" class="numbered-list" start="2"><li>Design<ul id="43b4f725-edc1-4757-99bf-dc16393bbeee" class="bulleted-list"><li>Review brand standards</li></ul><ul id="35802bb2-f43b-4f58-96fa-117221475cd1" class="bulleted-list"><li>Identify colour &amp; fonts</li></ul><ul id="7be77930-534b-4153-a9bd-77a87561c002" class="bulleted-list"><li>Determine the overall visual feel using wireframes</li></ul><ul id="18ba06c4-fbfe-4f49-b2a8-549cff41099c" class="bulleted-list"><li>Check in with other stakeholders</li></ul><ul id="a285502c-a550-4f55-a962-606f33cdfeb1" class="bulleted-list"><li>Create main page </li></ul><ul id="168ea3b1-a494-4a24-a763-327dc5d3b117" class="bulleted-list"><li>More pages and visual assets. </li></ul></li></ol><p id="e2a39588-bb8b-4b03-8f68-cca5d993a46c" class="">Development</p><ol id="f6da73bb-f584-4846-97c8-94d955372fe4" class="numbered-list" start="1"><li>Development<ul id="999c2a72-c42f-4cf3-bfeb-532b9c39132e" class="bulleted-list"><li>Set up CMS</li></ul><ul id="5f43e0c4-86e3-4706-807d-0be662c99d63" class="bulleted-list"><li>Built theme &amp; page templates</li></ul><ul id="f63bf5dc-6237-4753-8451-e534216cb1f0" class="bulleted-list"><li>Install and configure needed plugins</li></ul><ul id="9f0e4093-0476-4a9d-80e4-4759ddd1ded9" class="bulleted-list"><li>Program custom functionality</li></ul><ul id="8e98330f-89ca-437c-ae49-0cc88abccd19" class="bulleted-list"><li>Customize back-end</li></ul></li></ol><ol id="851cfaa6-6fe0-4513-9bae-ca4fdcb64bda" class="numbered-list" start="2"><li>Populate<ul id="8bb0de9b-980f-4258-b7fd-43044f224376" class="bulleted-list"><li>Migrate content including text, visuals and attachments</li></ul><ul id="ea87bcda-d0b0-4e32-bf65-3d6fb3728b46" class="bulleted-list"><li>Add links &amp; functionality to content</li></ul><ul id="24bdbd37-c6e3-4c08-8c59-4c95ac5399e3" class="bulleted-list"><li>Proofread &amp; edit where required</li></ul><ul id="99b213c1-900e-43cd-8c11-7889c0d60042" class="bulleted-list"><li>Test on multiple devices</li></ul><ul id="659b497d-166e-4887-a2a2-8028cf674850" class="bulleted-list"><li>Track &amp; correct bugs</li></ul><ul id="bef12c28-1060-42e6-bf8f-d287211f9dac" class="bulleted-list"><li>Optimize everything</li></ul><p id="a4d98575-5949-4835-a294-ac0efa6ecad6" class="">
+</p><p id="aab2f44d-9f43-49bf-8027-b7d22325d70b" class="">Ideation stage</p><ol id="72423793-2b51-4ff7-8df4-285dfed098db" class="numbered-list" start="1"><li>Source an idea</li></ol><ol id="2cf94e86-4d53-47cb-9eeb-f28bd57b7660" class="numbered-list" start="2"><li>Market research</li></ol><ol id="2e5c6022-bbe7-4efb-b295-1cb09f2c5985" class="numbered-list" start="3"><li>&quot;Define functionality</li></ol><p id="54dca1d5-687d-451b-b118-27d17b26ab68" class="">
+</p><p id="245782dc-3ccc-4919-9e0e-137de24e928e" class="">Design stage</p><p id="41845ee5-e414-4c8f-9802-31a09537e1eb" class="">4. Sketch your web app</p><p id="a6f76399-ebcf-408d-959d-e608f442ab7d" class="">5. Plan your workflow</p><p id="966f17b3-ff5b-4a2d-ad4b-2bb94ec1210e" class="">6. Wireframe the UI</p><p id="59b11c5d-845b-4993-a5ec-f1380935e655" class="">7. Seek early validation</p><p id="76de189e-01d3-4bdd-8d3d-6f947f809b72" class="">
+</p><p id="645ae215-ade9-4122-9649-be348130c632" class="">Development stage</p><p id="2876da72-1587-4334-bbe1-2bc58bb19ac7" class="">8. Achitect your database</p><p id="e130406f-1ddd-4557-bfd9-b9e6041debb1" class="">9. Develop your frontend</p><p id="75afe7d7-15ed-4676-ad50-bd92d7eba678" class="">10. Build your backend</p><p id="ee942646-6b1d-4ba6-be61-b99f031892e0" class="">
+</p><p id="fcf0316c-ad1e-45d1-82f3-6ee1b28b4d21" class="">
+</p><p id="6d17fa91-280c-4077-89bc-9a33120172ec" class="">360 design</p><p id="c06b492e-a4c6-4738-b520-565d6af0dfad" class="">Presentatie Rosa</p><p id="26b60582-1da5-4f69-b9f3-f0ae8bd6c643" class="">
+</p><p id="a09b024d-a5bd-419b-8efe-21220da72ed1" class="">Boom! Your way to innovate </p><p id="727ec133-c157-4a8d-9dd0-2e9109b95c00" class="">Innovation, dedication and fun</p><p id="7e0723cc-2395-4117-a021-6ac04c6a9340" class="">Innovatie is heel belangrijk voor Greenhouse. </p><p id="676df71b-545c-4af2-9192-ec8ce39f05b0" class="">Explore =→ Discover → deliver</p><p id="5ba93c8f-4808-48cd-909c-4c51cd0f739c" class="">Discover= Hoe het idee in een business geimplementeerd kan worden</p><p id="cdda5eea-4470-48db-90f4-b88c3f7f8dd1" class="">deliver=idee geimplementeerd</p><p id="b538c309-c77d-4eea-9f77-c7f7fc316542" class="">
+</p><p id="b4296f22-0069-4a7f-af68-aea579fe31f8" class="">Mensen stapten niet snel genoeg naar boom</p><ul id="07224597-3fed-463c-8d1f-63c81302ddd0" class="bulleted-list"><li>Heel veel medewerkers spreken over Boom</li></ul></li></ol><p id="4bf53876-8e38-41d3-ae13-480ab4d9570c" class=""><div class="indented"><p id="e9517257-a95b-4678-9cc9-b17fdda70d2e" class=""> - Boom past niet vaak bij kleinerer innivatieven</p><ul id="970a99f6-d9ec-49d7-a31d-2da699c7b847" class="bulleted-list"><li>Ideeen waren neit groot genoge</li></ul><ul id="44c9dcc6-8e7b-4632-af53-b420220ff698" class="bulleted-list"><li>Ze willen sneller aan de slag kunnen</li></ul><ul id="e53942d1-3c83-45ad-b19a-f6e302be1b4b" class="bulleted-list"><li>Communcatie was niet goed genoeg</li></ul><ul id="9b2cd365-ef43-461f-921c-21109532b0af" class="bulleted-list"><li>Lange discussies</li></ul></div></p><p id="9e45ddac-19c2-45e3-b714-616674a95504" class="">Deze problemen samenvoegen</p><p id="c2109c5e-66fc-419c-8fba-54dcc5081829" class="">
+</p><ul id="508dcc3d-6172-484f-af24-67790a939311" class="bulleted-list"><li>18% zou maar naar boom stappen</li></ul><ul id="77090bf6-479d-4fcd-8a1b-f81df655df20" class="bulleted-list"><li>Ze zouden meer willen horen van het boom traject</li></ul><p id="c1d653c5-60dc-429b-abb3-fb9f35dc8118" class="">Bij kleinere innovatie trajecten kan je ook helpen met tools en fungere als uitdager. </p><p id="8ac3247b-bc11-4442-a6ce-6c29a5207137" class="">Innoatie opdracht:</p><p id="72726d9b-3ffa-4c6a-aa37-5a2dd5ee3fbb" class="">Concept waar sneller en meer impact geleverd kan worden doormiddel van innovatie</p><p id="91361cb1-8e3a-446b-91ff-338a3447e8e4" class="">
+</p><p id="a3b22359-133d-4bd4-9a51-099a9e4f47c3" class="">Het platform Boom! your way to innovate</p><p id="4db95f12-4e4b-4bcd-8334-9d168df5ad0c" class="">Facilitate to accelerate                   </p><p id="33a25299-2cc0-4791-8d37-dcd8c3900108" class="">
+</p><p id="6c41654a-a7ba-4199-9751-620c392769cf" class="">Boom moet gedigitaliseerd worden</p><p id="20047d60-fc65-4a89-b726-a4c833b4d2a4" class="">Je kan alleen workshops volgen als je al geholpen word door de innovatie coaches</p><p id="db7ec9d5-dc27-4526-907c-897dcacba835" class="">Je kan  dus geen workshops volgen met kleineree ideeen</p><p id="d54c636b-15c0-41e8-95b0-458bc32d83ad" class="">Concept: Ruimte gebruiken als onderwerp</p><p id="b672ef8c-249b-4d29-9946-44b55d004bc6" class="">
+</p><ul id="fd85d44d-0b98-4a59-a7d1-7f9e6478f7eb" class="bulleted-list"><li>Contact kunnen zoeken emt je </li></ul><p id="4a2b7243-4f81-448f-8fa7-089e3f3c17bb" class="">Waarom?</p><ul id="c9f20cb4-883c-4d83-b0fe-152fe7347be9" class="bulleted-list"><li>Weg met het langzame imag<ul id="e595a30e-24e3-4fe6-8aba-d473fa9d30a8" class="bulleted-list"><li>een platform zorgt voor snelllere ideeen</li></ul></li></ul><ul id="3e57eae6-55c4-4ce5-84b5-42b7fe1a69cc" class="bulleted-list"><li>Begeleiding op aanvraag</li></ul><ul id="41f64332-4e78-49b1-8ac4-2faf83ecfc16" class="bulleted-list"><li>Meer inspraak in je eigen proces</li></ul><ul id="08fad3ab-43bd-40aa-941a-f1edc763738d" class="bulleted-list"><li>Visueel gepresenteerd</li></ul><p id="cfaca846-aa46-4d12-b39d-509aa7dea081" class="">
+</p><p id="48566895-28fc-4b32-9fe3-0f4bb8bceabf" class="">
+</p><p id="627f1d27-ab0d-4660-a02c-6776d03a9ecd" class="">De stappen naar succes</p><ol id="628104ec-3f46-4c1b-837e-8802bdd0351a" class="numbered-list" start="1"><li>Eind presentatie aan de opdrachtgevers</li></ol><ol id="dd55c453-f87a-4a73-9d12-f74926b38c02" class="numbered-list" start="2"><li>Nieuw team aannemen</li></ol><ol id="78e7fa1f-6855-4488-9faf-9e51eef588f1" class="numbered-list" start="3"><li>Instructie en overdracht </li></ol><ol id="4b6716b0-6295-4356-92f1-fedc6d5f2d0d" class="numbered-list" start="4"><li>Digitalisering </li></ol><p id="6419e65c-651b-43ae-9e9f-43ac7fef3ddc" class="">
+</p><ul id="63174807-c537-4eaa-9537-474cbe2dd9d7" class="bulleted-list"><li>Onze draai eraan geven</li></ul><ul id="f5b8ceb9-57f1-46f3-a2f7-0c5ad9a8b277" class="bulleted-list"><li>Juiste begeleiding geven aan kleine innovatieven</li></ul><ul id="dc6dc120-fdba-469f-b92d-fa6a221a6449" class="bulleted-list"><li>Moet als portfolio gaan dienen</li></ul><ul id="242a2cc5-45d3-43e9-887f-9c5ff483777d" class="bulleted-list"><li>Inspiratie/innovatie</li></ul><ul id="cb7db0a9-6b4e-409d-aead-a890e2523c12" class="bulleted-list"><li>Met de doelgroep gaan praten, en maken wat Bas nodig heeft</li></ul><ul id="a2ea1b4b-68e0-4bc9-999c-8c59c0f7822d" class="bulleted-list"><li>Wat kan er met een platform?<ul id="0b2bb5ab-104b-4c90-ac9a-c3c5185744e8" class="bulleted-list"><li>Zorg dat de coaches inzicht hebben in wat de teams doen</li></ul><ul id="33e09218-e128-459a-9409-05a5eb05065b" class="bulleted-list"><li>Makkelijk contact tegeno</li></ul><ul id="d2577b2b-fc0f-435a-91da-80619914ae83" class="bulleted-list"><li>Inzicht voor coaches om te zien waar mensen mee bezig zijn</li></ul><ul id="19197aae-8c92-4d30-8359-f814e995432a" class="bulleted-list"><li>Hoe kan je zien waar mensen mee bezig zijn en hoe houd je dit in de gaten?<ul id="a98d033b-b1a5-4f7c-bf6c-996c2b7c92a0" class="bulleted-list"><li>Hoe blijft er overzicht</li></ul><ul id="ad31538a-69ea-4ff8-90cf-0dc1299e5eea" class="bulleted-list"><li>DIt verandert wat je gaat aanbieden en hoe je dit gaan aanbieden. </li></ul><ul id="8c7bfa79-5b1c-46ca-a5a5-88619900a6c2" class="bulleted-list"><li>Er moet structuur komen en een grens tussen wat coaches gaan doen en aanbieden. </li></ul></li></ul></li></ul><p id="83fa77b4-d281-4ca2-b77d-45bb732c950b" class="">Explore is een 12 weken proces</p><p id="c6cec5c4-5c8f-49d1-befd-1e388c7b74b5" class="">Je begint met een sort met een intake en een pitch</p><ul id="daf5b144-d61d-4ece-af4b-be8ef7c2cc53" class="bulleted-list"><li>Een workshop van Marieke bijwonen en met haar een meeting plannen</li></ul><p id="b3248a41-5c60-402a-92c2-7da94c18e376" class="">Wat is de toegevoegde waar van Boom!, Dit bespreken met Bas. Hoe motiveer je mensen tot ondernemersschap en waarom zouden mensen dit doen. </p><p id="1efbb2fd-1043-4ccb-a792-bd6ff7a3de02" class="">
+</p><ul id="2f164a4f-d04c-4651-9aef-dd3bc3c765f9" class="bulleted-list"><li>Het heeft het verkeerde image, dit zit hun in de weg</li></ul><ul id="a19fd43a-4fd8-4676-ad97-c517c3f7a4bc" class="bulleted-list"><li>Stimuleren tot innovatie<ul id="67e7742a-e337-462e-9306-2375c95da5ed" class="bulleted-list"><li>Ze hebben veel geprobeerd, wat werkte niet?</li></ul></li></ul><ul id="d2389440-0f9e-468d-93dd-a0a28983c2ca" class="bulleted-list"><li>Klant krijgt voorrang</li></ul><ul id="844a8ead-acbc-4036-a928-16cd23f56bd2" class="bulleted-list"><li>Client business plannen<ul id="253ad869-e400-40e7-9e96-4b02f6cc6195" class="bulleted-list"><li>Wat kunnen we bereiken voor klanten</li></ul></li></ul><ul id="c2589acd-c46f-4afb-9528-9e22a2bf9f80" class="bulleted-list"><li>Naamsbekendheid van Boom is beperkt</li></ul><ul id="9980874e-60eb-4f72-9c86-a2c5cb93e0cb" class="bulleted-list"><li>Eerder naar eigen craft stappen ipv naar boom</li></ul><ul id="f2799f6a-e627-43ba-8a1d-d21bef68263b" class="bulleted-list"><li>Het idee moet groot zijn</li></ul><p id="5091e993-cd9e-4599-8873-1b3e2da35156" class="">
+</p><p id="09cba408-3d20-4630-851c-2b7b4f6218cf" class="">Mensen weten niet wat er op innovatief vlak gebeurd</p><p id="ee9aeec1-9703-42fb-9e79-0deddc50552e" class="">Boom! is niet heel zichtbaar voor andere medewerkers</p><p id="a3c11d6f-ff9a-4316-8c69-355db2284f20" class="">Labs is zichtbaarder dan Boom! voor medewerkers. </p><p id="1708f6b4-a621-4d83-8218-90e13d7cd67a" class="">
+</p><p id="1a58dac5-fd7d-4f7b-8acc-bbc6db0aa109" class="">Labs moet innovatief over komen en Boom! moet vooral veel geld opleveren met ideeen. </p><p id="0bb154f5-d27f-4ef0-8649-840adcdb44f5" class="">
+</p><p id="ba7895d1-e92d-47d2-98f1-346cb16abe5a" class="">Boom heeft een soort board? </p><p id="d0d9f1d0-b04c-442a-a1bc-0e758194f979" class="">Boom heeft geen consistente manier van met nieuwe plannen komen. </p><p id="2c576fbf-5b85-4013-83ba-683abb01fd04" class="">Innovation challenge</p><ul id="22c80836-a08e-4c91-946a-3d250fc8bac9" class="bulleted-list"><li>In een korte tijd met nieuwe ideeen komen. </li></ul><p id="95f3074f-cf81-4c80-abd9-d6a990c47246" class="">Er moet een strategische manier komen van met ideeen komen en deze uitwerken. </p><ul id="2bc1b1ff-3dcd-45d0-91ac-324f9602965d" class="bulleted-list"><li>Grotere stroom van ideeen </li></ul><ul id="cae25671-705c-40a2-a245-a1a002dbdbd5" class="bulleted-list"><li>Het verder brengen van ideeen is de main focus van Boom nu</li></ul><p id="76daaa72-26b6-4026-84e9-e8ea9cd7fc27" class="">Wat is het doel van Bas met dit initiatief</p><ul id="8ba7cac2-61bf-4951-93e3-d2bcf9880d62" class="bulleted-list"><li>Kijken naar de reactie van medewerkers en hiermee testen (?)</li></ul><p id="d7911c21-8c09-4c3a-a854-ea3453eba83b" class="">Wat is Bas zijn idee bij onze opdracht?</p><p id="b052102d-78f4-46de-a776-b32df1f8d8d3" class="">Waar ligt zijn focus? Wat moet het doel van de opdracht</p><p id="4acb8b82-99af-48f5-a4b4-e4ecc611b860" class="">
+</p><p id="0e67fbad-27e2-4813-8e3c-39309aaa5706" class="">Wordt Growth hetzelfde als Boom of wordt dit anders? </p><p id="295b77b2-9646-40da-9c89-e53a2f3770d4" class="">Dit gaan vergelijken</p><p id="e0ea522c-920c-4487-a542-4662dfccad8c" class="">
+</p><p id="d7ae1a0e-f7df-4710-9c3a-9d28d3ed19f1" class="">Het doel van Growth duidelijk hebben, want dat hebben zij ook nog niet duidelijk voor hunzelf. </p><p id="ac1ca41f-a81a-4380-ad0a-7805f9ad4eec" class="">
+</p><p id="b76e5512-8dbf-4e02-846b-d567116822bf" class="">Growth kan een totaal andere kant opgaan dan Boom. </p><p id="e4ef1ad3-ffc8-469e-9116-4a4f63c9b876" class="">
+</p><p id="cc9d50ff-6ff8-4633-8b4b-17c4aa59fc44" class="">
+</p><p id="20c8f802-698d-4c59-882d-c8b4e997ef08" class="">
+</p><p id="7073a883-45da-4153-956f-9f473f73ba3b" class="">Boom goed begrijpen, van alle workshops afweten etc. </p><p id="2eaa7459-38c2-4d1d-a428-acf1c7d29345" class="">
+</p><p id="33b5705e-84b6-4974-a8f2-f5d178e93b61" class="">Wat zijn de europese plannen?</p><ul id="78c5b6ee-c7cd-4899-ae28-124c26323540" class="bulleted-list"><li>Cases en inspiratie</li></ul><ul id="e85f19a0-3910-4014-aa8e-43d42c6c2efe" class="bulleted-list"><li>Of kijken naar de workshops</li></ul><p id="d12db0d9-f066-40d2-8681-9a71e1d9d229" class="">Goed Bas ondervragen over wat zijn visie wordt voor EMEA</p><p id="91b1a435-29cf-4516-b539-bba29614d4d1" class="">
+</p><p id="5cc44b20-77dd-4a39-a9bd-340811bd6ed4" class="">Half elf of elf uur. </p><p id="d6b6bd4a-fecd-4b30-996a-5bf0e0ee5f22" class="">Iedereen heeft een mening</p><p id="bb0488b2-0a97-4e4d-8a71-e86e50fb7d61" class="">
+</p><ul id="28115d1e-684f-4e1a-ae6c-69f12fe26862" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Concepten bedenken</span><ul id="289fe623-5d59-4adf-bf57-dea58caa12f8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Abstracte?</span></li></ul></li></ul><ul id="1f187b49-ea09-4ca4-b489-0c1605372610" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Een platform waar de twee focussen worden gelegd en die twee duidelijk gescheiden zijn van elkaar maar wel hetzelfde </span></li></ul><ul id="b4bd2455-7743-4f14-9ff3-87d251acac08" class="bulleted-list"><li>Hoe het platform in elkaar zit, </li></ul><p id="e05274dc-0cae-498b-bc72-a20ad9da2ae8" class=""><div class="indented"><ul id="8d5f43fb-c2d0-4e74-8d5b-b5be44a36ba1" class="bulleted-list"><li>Een platform wat de twee focussen uit elkaar houdt maar wat wel alletwee beschikbaar blijft </li></ul><ul id="31c3bc94-67bf-4b5d-8768-15d16ae08532" class="bulleted-list"><li>Concepten waar de focus ligt op inspiratie <ul id="58155e72-b028-4a80-919b-c44c74d5db3e" class="bulleted-list"><li>Hier zal het een portfoliostijl platform moeten worden</li></ul></li></ul><p id="f95aa7f5-42a1-490a-bdd4-1ff06cac5961" class="">
+</p></div></p><ul id="47d552d6-3ee0-4993-be83-8f4c19a3ce45" class="bulleted-list"><li>Het implementeren van eerdere Boom ideeen of idee die bij Growth zijn aangesloten. Deze ideeen zullen een inzicht moeten geven in hoe het proces verloopt. Hiernaast moeten ook de labs onderwerpen meegenomen worden en vorige onderwerpen je meenemen in het proces. <ul id="3b99f9ef-231e-419d-9439-838e24689846" class="bulleted-list"><li>Een aparte &#x27;pagina&#x27; waarin alle eerdere projecten overzichtelijk staan etc. </li></ul></li></ul><p id="54997426-4422-45f5-9ce3-88a372e68129" class="">Wanneer de focus ligt bij</p><p id="b0d69a20-32d4-4b2f-8707-58a66045eeae" class="">
+</p><p id="9f521388-9527-4246-920f-a0c37d69f2c7" class="">
+</p><p id="3fa4aee7-fd90-4469-b873-fc599b8e1ec6" class="">GroupM is een partij die digitale media diensten hebben. Zij hebben Greenhouse overgenomen. </p><p id="f794bea0-0f14-4c40-a22f-f447a99ab94a" class="">Er vallen heel veel bedrijven onder GroupM</p><p id="32613c11-dccf-4b06-8a92-338fb99039df" class="">Er zijn diensten die aan de voorkant zitten, de klant praat met een van die diensten. Wij regelen als het ware die diensten. Daarom zie je vaak  bijv. mediawave x Greenhouse, dan werken ze samen. </p><p id="b6bbfed4-c00e-4572-acde-938ed918c546" class="">ze gaan ook richting het mergen van deze bedrijven. </p><p id="92b2d36c-5779-4bcd-9e02-c2af3795d16c" class="">Aan de voorkant zie je voor simplisity een paar bedrijven maar aan de achterkant zit vaak veel meer. </p><p id="231f472c-4723-4b9b-bbee-f70fcb472101" class="">Binnen Greenhouse werken met Sander Kok, Mark Mansveld, Hein en Bas. Het core team die zorgt voor internationaal profileren van growth en innovatie. </p><p id="fcdc8518-50f1-4a07-8430-ecce161814ee" class="">Om binnen de grote groep een soort startup zijn om van ideeen naar bedrijven te gaan. ZE willen internationaal beter profileren en diensten aanbieden om dat growth en innovation centre te zijn. </p><p id="9857fac9-8408-4a72-9030-facfda5122d0" class="">Ze willen niet alleen Greenhouse zijn, maar om een losstaande entiteit te zijn waar mensen binnen Europa naar toe te stappen om topbedrijven te creeeren. </p><p id="ff23b222-9fb6-449a-890c-81393588385f" class="">Het idee is eind december gepitcht aan de CEO van groupM, ze hebben een methodiek nodig die die bedrijven</p><p id="b71f6219-cb3c-4c16-a50d-f4345da4fdf2" class="">De agencies die je ziet binnen GroupM, vinden eht supergaaf. ZE zitten nu bij de eerste selectieronde om te kijken wat de meest belovvende ideeen zijn. Maart worden die ideeen voorgelegd en gaan ze kijken of ze de teams kunnen matchen aan een agency en kunnen ze de teams helpen om groter te worden. </p><p id="c3ef934b-0088-45e9-ad0b-3a71abb1c63c" class="">Er zijn zoveel ideeen in dat netward, hoe gaa je die bundelen. Daar komt onze opdracht bij te kijken</p><p id="4e06cc5e-9456-4c6d-a50f-59eef93d1298" class="">Daar komt kennis bij te kijken die zoals workshops, inspiratie. Hoe kun je die kennis vinden. Waar zit het grootste probleeem waar ze nu mee te maken hebben. Waar is behoefte aan</p><p id="17d37cb3-046f-4bd0-89eb-3323e687f5bd" class="">Dit is gepresenteerd op europees niveau. 10 of 15 teams van ongeveer 5 personene zijn ingericht bij de incubator en deze kunnen dat programma. Bij deze funnel gaan meermensen aansluiten. ER komen ideeen van verschillende niveaus, en deze zullen verschillende dingen nodig hebben. </p><p id="d156c977-f236-481f-8b49-a27581a713f2" class="">Zorgen dat bedrijven toekomstbestendig gaan zijn. ER wordt aangegeven dat het probleem is, daar begin je mee. De hele wereld wil innoveren, wij willen dat ook. Maar hoe kun je dat effectief gaan doen. Heel veel ideeen zijn niet centralised, het is kleinschalig en niet georganiseerd. Zo kun je contacten leggen tussen bijvoorbeeld verschillende landen. </p><p id="26876e2d-4047-485f-90d5-e5f45eee5c85" class="">Hoe kun je meer impact maken? </p><p id="bc6f8e58-2433-4092-907d-4c5303d129d1" class="">Wat je ziet</p><p id="ebf9dc8a-0b5b-41d6-a3a0-79b8dd689768" class="">Je hebt GroupM, maar daarin zijn veel barrrieres. Hoe kun je effectief de juiste stappen te zetten, hoe begin je etc. Met wie, hoe, waar etc. </p><ul id="0b0e605e-886b-468a-ac89-730bfad481d9" class="bulleted-list"><li>HEt stuk netwerk</li></ul><p id="fa342d64-21fb-457d-a438-364e2deac83b" class="">
+</p><p id="8272f588-4049-4609-9211-b7309c0793dd" class="">Heel veel teams strugglen met de juiste skills in het team hebben. </p><p id="c4301d8f-5800-4e89-a480-83b5b2b165be" class="">Het is financieel te lastig om nieuwe ideeen uit te werken. Dit geldt bijvoorbeeld voor kleinere bedrijven tussen groupM. Er is ook een kans dat dit niet gaat lukken etc. </p><p id="647d5e44-3c9c-48bc-b213-7beb3c791520" class="">Binnen groupM hebben we de beste agencies, de beste klanten, allemaal verschillende crafts en skills, en ondernemende mensen. Als je deze samenbrengt vanuit een entitiet (open incubator)</p><p id="f9f0044d-c915-48ca-b57a-916e73679d67" class="">Oplossing staat op de slide, typen duurt lang. </p><p id="8f6148f3-5bc7-4a33-bc12-9cfac5a2a153" class="">Dit is onze oplossing: open incubator. </p><p id="14c38cc5-2215-404c-995a-af13faf64e8b" class="">
+</p><p id="ee718e27-69ce-4934-adab-28bf0271a324" class="">BIj een presentatie vertellen hoe Greenhouse werkt, en het probleem/vraagstelling presenteren. hierdoor maak je een mooie brug van probleem naar oplossing. Dit is een duidelijke werkwijze. Met elke pitch wil je dat de luisteraar je probleem begrijpt en hoe je tot de oplossing bent gekomen. Goed de challenge schetsen. Dan krijg je een rete strak verhaal. </p><p id="286d8b95-7c2b-4131-ba64-b4c6688f3f3e" class="">Als jee pijnpunt hebt bij een klant heb je de sweet spot te pakken. </p><p id="2f6a9659-581d-4843-9966-e88cbd0e1620" class="">Wat bieden we hier dan: Labs, Growth weel en fuel to grow</p><p id="7a5ac2a6-697e-4af1-ab8d-083503ad2643" class="">Dus het innovatie lab, de hulp om je bedrijf verder te helpen en geld. </p><p id="c894a5ce-3a93-4c0e-8f73-faf8be6058ad" class="">Hier komt het Boom proces naar voren. Dit kun je iet zomaar in een ander jasje steken. Ze gaan hier kijken welk deel van de methodiek werkt. Wat ze internationaal proberen te doen is:</p><p id="40470873-1e48-44e9-8001-8d3634e15d04" class="">Explore is ideeen fase. Discover, je moet je idee valideren, het zit nog in een vroege stage, 1 tot 5 mensen. Discover is de start up fase met een beetje omzet waar je test. Je gaat hier ook kijken naar hoe je dit gaat toepassen. Deliver gaat het nog meer schalen</p><p id="14a4ee2c-54fd-474b-981b-a218b63df83c" class="">
+</p><p id="9137f494-4b01-4205-bc43-1161e279c731" class="">Teams zitten dus in de verschillende fases. Hier horen verschillende vraagstukken bij, hoe weet je wat werkt en wat niet etc. Bij discover zit bijvoorbeeld hoe gaan we de teams helpen, hoe kunnen ze geinspireerd raken etc. op een fun ineractieve manier brengen als voorbeeld. Ook afvragen wat haalbaar is. </p><p id="54f21e5b-0725-4e5c-a67e-d9dfdd91f804" class="">Het grootste vraagstuk is hoe je de ideeen en teams gaat helpen. Dus eigenlijk het stage proces wat wij doormaken maken zij ook mee. Doormiddel van methodiek en workshops hierbij helpen. Dit doorschalen naar andere landen. </p><p id="2356b4da-9366-4230-9789-a20ba77c62ec" class="">Samen kijken naar hoe dit samen ingericht kan worden. </p><p id="64026d3f-9c03-4e9a-bc48-4be86050551a" class="">We weten wat we moeten maar we moeten nog kijken wat de focus is. </p><p id="5c3fc50c-7775-4823-ab7e-77507f8b728d" class="">Waarom doen we dit?</p><p id="d15a77a9-1d49-490d-80ac-90552581560e" class="">We increase the Return of investment of innovation efforts. De kans bij slagen bij innovation is vaak niet 100%. Door geberuik te maken van deze methodiek kan dit het risico verlagen</p><p id="1971f90f-74ba-42c5-ad66-7a70065976a1" class="">JE hebt zo ook een plek om tegen dit talent te zeggen: We gaan dit samen exploreren.  Anders gaan ze dit niet bij hun eigen bedrijf zoeken. Zo houdt je ook je klanten, deze willen vaak het nieuwste van het nieuwste. </p><p id="e21a4766-96b1-408d-91bc-e3bd355d1467" class="">Zijn rol gaat het tegenwoordigen zijn van zijn team tegenover ons. Om ons genoeg informatie te geven over het eindproduct.</p><p id="da53f2ed-cb76-4dba-a2bc-7181ade013d5" class="">Post corona map: Alle ideeen rond e-commerce etc en immerisive technology onderbrengen op campussen etc. Om bijvoorbeel in house op een campus te werken om te werken aan je start-up. </p><p id="d470db05-95c4-4ace-986c-c1e19287aed4" class="">ZE hebben veel mogelijke focussen. De open incubator zou de overkoepelende organisator zijn met daaronder verschillende focussen. </p><p id="a96a8c10-b175-4d37-afb9-04208bc6714b" class="">Op 11 maart komt de eerste pitchronde. Deze teams gaan allemaal pitchen met een vraag dat ze willen groeien maar daar hebben ze bijvoorbeeld extramankracht of geld nodig. </p><p id="65ac1370-4a8d-4cf7-988c-1287225bb32d" class="">Dit is in grote lijnen de context en het is hoe het gecommuniceerd wordt naar verschillende groepen. </p><p id="b80d2382-2cf2-4057-b6d3-11e772d15238" class="">Wij zijn niet verantwoordelijk voor het innovatief centrum zijn bijvoorbeeld. Hoe kunnen we toegevaagde waardoe toevoegen aan the growth weel door middel van een platform. </p><ul id="b6c510b7-ddeb-48b5-9e12-3f6df7bc14dc" class="bulleted-list"><li>Kun je bijvoorbeeld de reis visueel maken</li></ul><ul id="77fbae4f-4cf6-461f-885c-7c73a0a92e7c" class="bulleted-list"><li>Waar in het proces zitten mensen duidelijk maken of visualiseren. </li></ul><ul id="f6f307b9-ac69-40ef-83b8-cbd3956a1d7c" class="bulleted-list"><li>Het in kaart brengen van het proces</li></ul><ul id="95763ec3-0e4d-475f-93e5-63cb70d8c56a" class="bulleted-list"><li>Inzicht kunnen hebben in wat voor teams er zijn, er zijn er bijvoorbeeld veel te veel voor AR etc. </li></ul><p id="bb818f74-88c4-489d-bd82-dd4c0ccb6a94" class="">Er zijn dus heel veel vlakken van problemen, deze oplossing moeten we gaan nailen. </p><p id="8484d354-d2f3-442e-b63f-eefa19f0c375" class="">De scope van het project gaan bepalen aan de hand van informatie bij Bas, zijn team, Marieke, Fieldonderzoek, Wat wij zelf willen doen, Tim etc. En dan bepalen wat wij willen hebben staan. </p><p id="f7a2e922-88b3-45dc-a9a0-e7951eaacfe7" class="">
+</p><p id="5e91cdcd-4493-43e8-aeb3-08488b3aeebc" class="">
+</p><p id="63787bc1-5f1e-4a6b-be69-90299f955298" class="">Wat hebben we nodig?</p><p id="8a4c7eb4-2d73-413f-826d-5986922e3a91" class="">Bij wie gaan we dit halen?</p><p id="fb76c658-2591-489d-acb6-0370be1da9af" class="">Hoe gaan we dit eruit halen?</p><p id="a9cc8809-8d80-4caa-aa78-fa31d6ba68a6" class="">Wat gaat de doelgroep zijn?</p><p id="eedaed78-27d5-4674-955d-44b67178485a" class="">
+</p><p id="2899d79e-2e07-4327-8d39-a7f1e07b8054" class="">Welke informatie komt hieruit?</p><p id="b3a24604-a35e-413d-96b0-b8ee6250741e" class="">Hier voorstellen uit halen?</p><p id="bd5a5b25-fc60-4be9-ad3b-bad2fdf37a60" class="">TEsten en iteratief met ideeen komen?</p><p id="53e41a74-b5ac-4569-9e47-14d7b5a6fd81" class="">
+</p><p id="6f3b2e76-9430-4704-8dfd-df66693bcd33" class="">
+</p><p id="4061168e-5545-4cae-b53a-2fed6b599b14" class="">Wat willen we bereiken?</p><p id="bd45b09a-2f47-4603-b5d6-a7fd06bf37ca" class="">We willen erachterkomen waar de behoefte ligt van mensen die het platform gaan gebruiken of hadden kunnen gebruiken?</p><p id="d5d4285f-6c0d-4dbc-a594-b4588438a203" class="">Wat voor vragen moet je stellen om dit doel te bereiken?</p><p id="b7fd5726-c42c-4df7-a876-6142d158ae81" class="">Je moet erachter komen waar de struggles liggen</p><p id="ff5d7aaa-2622-4e03-a4bc-d337ddb564a5" class="">Hoe je dit moet vragen ligt aan wie je het vraagt. </p><p id="b7312ae5-e9a3-466b-b6da-48da75529d89" class="">hoe kun je dit vragen aan iemand die nog met een idee moet komen?</p><ul id="1af1a975-9554-48bb-ade9-582d74e3aebe" class="bulleted-list"><li>Vragen over support/begeleiding</li></ul><ul id="0b9c1ded-c773-4253-b726-4cb95e967932" class="bulleted-list"><li>Vragen over wat zij verwachten van zo&#x27;n traject</li></ul><ul id="ef878283-466e-4162-b019-8d7ae1cb1b3c" class="bulleted-list"><li>Als het mag informatie geven over wat het plan is?</li></ul><ul id="d12a8600-1085-4558-ac0e-eeee183fa23f" class="bulleted-list"><li>Wat denken zij dat er nodig is om je met een idee te laten komen?<ul id="f650ef3e-2c5d-460a-88c2-dfd0a9ca6ef3" class="bulleted-list"><li>Wat zijn mogelijke aspecten die de drempel om met ideeen tekomen lager maakt?</li></ul></li></ul><ul id="ab8937ef-4fd7-41a5-a158-9a01b8da7441" class="bulleted-list"><li>Waar zou jij het liefst extra begeleiding voor willen hebben als je een idee hebt?</li></ul><ul id="f93d5104-8fc5-4f86-befe-4a556a1fe73d" class="bulleted-list"><li>(wanneer van toepassing) wat denk jij dat de main focus moet zijn van Fly wheel<ul id="1c90b5d0-3615-4fa7-b620-baae29a1ae69" class="bulleted-list"><li>En wat zou jouw belang zijn van dit platform?</li></ul></li></ul><ul id="fda67701-d92f-4456-a7a6-9b4dcef9b05d" class="bulleted-list"><li>Hoe zouden zij willen dat het eruit komt te zien?</li></ul><p id="3791bc1b-822d-4ed5-8c5b-308e881649d1" class="">
+</p><p id="e02da184-ee31-44ae-ab7e-b1bf670a74b4" class="">
+</p><p id="c3e67ece-7da6-4b77-aa2d-e5d718c5935a" class="">Plan van aanpak </p><p id="4fffdeb0-9379-461d-a9e5-9898d2ba6b73" class="">
+</p><p id="532f7879-bad7-437e-97d9-0e9a2959dce6" class="">backlog</p><ul id="2a638dca-bc5c-468c-baff-fc0c262bc0ec" class="bulleted-list"><li>Web  Development Frameworks. <p id="b2545d38-2e09-4535-b2b9-31a9aee61f77" class="">
+</p><p id="ed8adba8-65d1-4a45-a1c7-31d0f29feba2" class="">Web Development Frameworks have software bundles or tools that is designed to help the procedure of web apps such as web services, web recources, webpages, browsers, and web API&#x27;s. It is being used to provide a convenient manner to develop and deploy web applications on the internet. <div class="indented"><ol id="5c342074-f193-4ae7-bfda-68c8f4e9b3d2" class="numbered-list" start="1"><li>Express</li></ol><ol id="3f3de7a1-82a1-46b8-ae25-acdc13a34351" class="numbered-list" start="2"><li>Django</li></ol><ol id="475dc4aa-b2d4-476b-9ca2-169251202224" class="numbered-list" start="3"><li>Rails</li></ol><ol id="e229b292-186a-49a0-9eae-153fd4eca2be" class="numbered-list" start="4"><li>Laravel</li></ol><ol id="9ca48148-4a50-4743-aab2-3ecebcc9e2a4" class="numbered-list" start="5"><li>Spring</li></ol><ol id="ee0adf35-ec30-4e5b-8c06-4050b1dae51e" class="numbered-list" start="6"><li>Angular</li></ol><ol id="3dcbb80d-63f2-4dac-9089-918016a40249" class="numbered-list" start="7"><li>React</li></ol><ol id="22b30ad7-96ae-43af-9933-4254c6a35619" class="numbered-list" start="8"><li>Vue</li></ol><p id="eb238b57-be8f-4fdd-a5d9-a343d66f3002" class="">
+</p></div></p></li></ul><p id="211ddc50-3d4b-4feb-8cd6-18740b05cd1d" class="">What is Web Application Architecture? Components, Models, and Types</p><ul id="d74d04c3-5901-4e02-93a4-efd530d39556" class="bulleted-list"><li>The web application architecture describes the interactions between applications, databases, and middleware systems on the web. It ensures that multiple applications work simultaneously. Let us understand it with a simple example of opening a webpage.</li></ul><ul id="a8e282ba-788a-4f3f-9f8a-07f16f1d8d5a" class="bulleted-list"><li>With any typical web application, there are two different codes (sub-programs) running side-by-side. These are:</li></ul><ul id="4ff3cc8d-282f-43fc-8702-8ffa2f2fe68e" class="bulleted-list"><li><strong>Client-side Code - </strong>The code that is in the browser and responds to some user input</li></ul><ul id="8f89a3a5-9533-477f-aa50-3d76cb013743" class="bulleted-list"><li><strong>Server-side Code -</strong> The code that is on the server and responds to the HTTP request</li></ul><p id="92f36e40-dbdb-4551-a6b7-020d65b074d3" class="">
+</p><p id="8dbb5805-4688-4dce-a0a9-10fc21d855aa" class="">
+</p></div></article></body></html>

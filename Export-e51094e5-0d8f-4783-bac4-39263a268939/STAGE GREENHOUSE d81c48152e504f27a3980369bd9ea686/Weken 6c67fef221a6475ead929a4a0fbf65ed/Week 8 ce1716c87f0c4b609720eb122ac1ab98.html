@@ -1,0 +1,638 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 8</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ce1716c8-7f0c-4b60-9720-eb122ac1ab98" class="page sans"><header><h1 class="page-title">Week 8</h1></header><div class="page-body"><h2 id="0360646c-0f53-428b-9b42-9de539de953f" class="">Concepten</h2><p id="0ab0d155-d547-4aeb-9b2e-d733c14052d8" class="">Week 8 draaide om concepten. Iets waarin ik mezelf nooit in heb uit gedaagd is grafisch dingen uitwerken. Dit wilde ik deze week veranderen en daarom ben ik hiermee veel gaan werken. </p><figure id="346d7b48-0924-422b-956d-32b8417730bc" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.38.49.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.38.49.png"/></a></figure><p id="1c8f72cd-f82e-4bad-98f0-dce9f2181eee" class="">Zo heb ik deze 3 ontwerpen gemaakt als een eerste vrije interpretatie van hoe het platform eruit kan gaan zien. </p><p id="52552468-6cf0-49fe-a6f0-cdc6b559d9a1" class="">Het bovenste  concept gaat voor mij vooral over het samen komen van de juiste ingredienten wat kan zorgen voor succesvolle start-ups. Hierin zou vooral het samenkomen een belangrijke functie zijn, zo kun je een ondernemer het gevoel geven van samenhorigheid en dus vertrouwen.</p><p id="c130d119-40f6-45a7-9b16-fcae36c65221" class="">Het concept linksonder gaat vooral over de reis die je samen kan doorlopen en die je tegemoet komt als je verder zou gaan met het platform. </p><p id="ed3cd2cf-0317-45e5-9c2a-7aed252bc209" class="">Het concept rechtsonder gaat ook over het samen komen maar dan op een meer abstractere manier van samenkomen. </p><p id="0725b64f-c969-4931-8b41-f5d6a7f09051" class="">
+</p><p id="2f22b177-2773-45d3-a61b-8fa63d6a11c1" class="">Grafisch werken is nooit echt mijn ding geweest maar ik vind het belangrijk dat ik mij tijdens mijn stage ook richt op andere dingen dan waar ik goed in ben. Ik was dan ook vrij lang bezig met het maken van goede uitwerkingen van mijn ideeën tot iets visueels. Maar ik merkte dat dit zorgde voor een goede vertaling van wat ik in mijn hoofd had tegenover mijn teamgenoten. Ze begrepen sneller welke waarden ik naar voren wilden laten komen met het concept. </p><p id="8e44ce22-1657-4c6c-8ae5-b55a8d054e7b" class="">Om onze concepten samen te brengen hebben we hierna al onze concepten op een rijtje gezet en opgeschreven waar de vergelijkingen liggen om een goed beeld te krijgen. Deze hebben we samen gebracht tot meerdere concepten. Deze hebben we ook gepresenteerd. </p><h3 id="ef98a94d-1f01-4790-b28f-0f807431f217" class="">1. LIGHT IT UP</h3><figure id="b3990c5c-a7e0-4c0d-93ad-7a5c25429d92" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.49.29.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.49.29.png"/></a></figure><p id="6d427682-a5ba-439f-9b9d-c053ab7deae5" class="">Dit is hoe we onze meerder concepten hebben uitgewerkt. We hebben ze ingedeeld in verschillende fases die bij week 7 benoemd zijn. Daarna wat er in deze fases zou voorkomen en daarna hoe deze fases visueel tot stand zouden komen. Dit concept zou vooral gaan om het gevoel van het in de spotlight zetten van een ondernemer zijn idee. Er is namelijk behoefte aan representatie en dit concept zou daar voor kunnen zorgen. Om het nog visueler te maken hebben we bij elk concept een korte uitwerking gemaakt van een mogelijke homepage. </p><figure id="8d59a9c5-24f2-4426-9283-eff6d48c7fce" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.53.36.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.53.36.png"/></a></figure><p id="fae410e0-3d9a-4754-a5e7-745a892d72db" class="">
+</p><p id="f6b9bc43-a006-4af6-8ec5-7cd78d867100" class="">
+</p><h3 id="13f96f66-f341-46a2-8a89-dd3e240162c1" class="">2. PUSH IT TO THE LIMIT</h3><p id="851bf2c4-7aec-41f4-94cc-be327a1949d5" class="">
+</p><figure id="b5fad8f5-751b-4360-9134-29779cf3dbc5" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.54.05.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.54.05.png"/></a></figure><p id="b8e08ab5-4ae3-4f64-8a27-3aae1f53cd7a" class="">Concept 2 viel erg in de smaak bij veel mensen. Dit concept zou vooral gaan om de uitdaging aangaan als ondernemer. En hiernaast zou het gaan om motiveren en ambitie. Ook is dit concept goed te vertalen naar de verschillende fases die bij week 7 zijn vastgesteld. Er is namelijk een goede tussenstop en een duidelijke eindfase die je in kan gaan. Vooral de reis die je maakt als ondernemer is goed terug te zien in dit concept. </p><figure id="5060e651-6106-4a66-9385-4997476a00b8" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.57.23.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.57.23.png"/></a></figure><p id="3a008802-fb76-4041-a6a9-349cb23b6da1" class="">Dit is een iets letterlijke uitwerking dan het vorige concept. Waarin het thema iets meer naar voren komt. Deze uitwerkingen staan ook nog niet helemaal vast, maar zijn vooral om naar de mogelijkheden te kijken. </p><p id="eba21870-e040-4911-9407-1a99628a237c" class="">
+</p><p id="ecc37687-51c8-4e6e-9f68-ff086b8d7584" class="">
+</p><h3 id="739137a7-ce94-4669-ab43-fcfdfb73c10b" class="">3. INDEPENDENT, NOT ALONE</h3><p id="ec25bfa5-71ed-4ee5-ab99-8dc269324b84" class="">
+</p><figure id="3d693709-dc50-4ac9-8364-a600242db0d7" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.59.14.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_18.59.14.png"/></a></figure><p id="02fae5df-c20e-42e8-b986-1bacccc778d3" class="">Wat ook belangrijk is, is dat de ondernemer zich veilig voelt binnen het platform, en het gevoel heeft dat het iets is dat je samen doorloopt in plaats van alleen. Door het gevoel te geven van samenhorigheid zorg je voor een gevoel van vertrouwen. Je kunt dit ook zien als een concept waar alles samenkomt. </p><figure id="b27cb7c6-e067-4752-9480-a49db6b8d5f2" class="image"><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_19.01.34.png"><img style="width:1616px" src="Week%208%20ce1716c87f0c4b609720eb122ac1ab98/Schermafbeelding_2021-04-24_om_19.01.34.png"/></a></figure><p id="566cd862-fe32-4dbc-aa82-91009ab41f04" class="">
+</p><p id="f6e401b7-b547-49fe-9f85-55ebdffa0769" class="">
+</p><p id="89980f83-0f4c-4ed3-a491-7241f733acce" class="">
+</p><h3 id="f0a1ee4e-f52b-4521-bf46-1e9e2529e663" class="">Vervolgstappen</h3><p id="1a0052fa-241b-4adf-8da5-5804e7599884" class="">Er waren vooral positieve reacties op concepten 2 en 3, en dan bij concept 3 vooral het samenhorigheidsgevoel. Bij concept 2 kwam vooral naar voren dat de fases die naar voren komen en de reis die je maakt positieve punten zijn. Door deze samen te kunnen voegen in een concept verwacht ik dat je hierbij een sterker concept krijgt dan door een van de twee nu al te kiezen. Hiernaast zijn er al meerder uitwerkingen van soortgelijke platformen met een raket en hierdoor kan dit beter niet al gedaan worden. </p><p id="08d36428-f2d0-4542-9d5b-4e354ea67cd0" class="">
+</p><p id="511d77d5-35bb-4584-9717-046c64ecb1ba" class=""><a href="Week%209%20a8e59e6adfb0473da36c4ce00b70c15b.html">Week 9</a> </p></div></article></body></html>

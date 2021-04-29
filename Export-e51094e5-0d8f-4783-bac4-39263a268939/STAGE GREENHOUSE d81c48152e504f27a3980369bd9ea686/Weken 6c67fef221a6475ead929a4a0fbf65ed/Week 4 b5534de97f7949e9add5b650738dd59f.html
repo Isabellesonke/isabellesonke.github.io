@@ -1,0 +1,633 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 4</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b5534de9-7f79-49e9-add5-b650738dd59f" class="page sans"><header><h1 class="page-title">Week 4</h1></header><div class="page-body"><p id="9673f180-9376-4f11-845c-b40d08909388" class="">Voordat we verder gingen werken aan de interviews merkten we dat we niet heel gestructureerd aan het werken waren. We waren met zijn drieen aan het werken in een document dat tot dit punt ongeveer 35 pagina&#x27;s bevatte, en hier staat alles in wat we besproken hebben etc. Dit gaat zo niet langer natuurlijk. Om dit op te lossen hebben we een aparte google-drive gemaakt en hier structuur in gemaakt</p><figure id="2e9a3ef6-59b6-4823-aa5b-8a39ba0eba96" class="image"><a href="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_15.48.50.png"><img style="width:1444px" src="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_15.48.50.png"/></a></figure><p id="e19bbfba-6dcb-4d24-9045-7bb96bb5e4fa" class="">Dit is ongeveer hoe we ons gezamenlijke werk hebben gestructureerd. Dus we hebben bijvoorbeeld los onderzoek gedaan en zijn hierna dit samen gaan voegen in een bestand wat op de drive komt. </p><p id="15db40cf-4c6a-4291-8d2d-16265b4cf16f" class="">
+</p><h2 id="95a558e9-b28f-47ff-9abf-fcfc1d7c99e9" class="">Interviewen</h2><p id="02716040-0187-4931-b76c-3bee6f04e4b2" class="">We hadden in week 3 namen ontvangen van mensen die wij kunnen interviewen. Deze hebben ook allemaal een uitnodiging gekregen om met ons in gesprek gegaan. Omdat Boom! en het Growth inititief zich vooral focus op ondernemers denken wij ook dat zij een grote rol gaan spelen op het platform, en daarom hebben we daar de meeste mensen voor geïnterviewd. In totaal hebben we deze mensen gesproken:</p><p id="4440f1e0-5958-489b-8355-fcc3f1e47fee" class="">
+</p><p id="067be2bf-2542-4d8a-8c1f-5a547c25349c" class="">5 ondernemers</p><p id="9dd89eeb-c50e-4391-bdbf-2fe7c182449c" class="">3 GroupM core team members</p><p id="1d6ed8f1-cf01-4155-922b-33b191d3501d" class="">2 innovation coaches (vanuit Greenhouse)</p><p id="c5604e1c-2da5-4486-9db9-51e90551f250" class="">1 software engineer</p><p id="5797c5f8-070e-487b-90c5-99ecb6dbda43" class="">1 client lead</p><p id="9d213343-4c6f-4bc6-9282-25c8d3a8d3af" class="">1 strategy lead</p><p id="dee55bf6-24eb-4228-921a-d7d6b5d617c3" class="">
+</p><p id="f7d96d15-c251-416e-a8c2-a0b59cd9f363" class="">Dit is een vrij diverse groep qua functies, en dat maakt het interessant want we kregen allemaal verschillende behoeftes en inzichten. Ook hebben we 3 personen buiten Greenhouse gesproken. Dit zodat we een extern perspectief konden zien. 1 persoon hiervan woont in Denemarken, dit vonden we relevant omdat het Growth initiatief zich eerst gaat focussen op Nederland, Denemarken en Engeland. </p><p id="d4dc268a-e4d1-41bb-9fb6-7d611636081a" class="">In totaal dus 13 interviews, en hiervoor is het cruciaal wij de juiste informatie verkrijgen van de mensen. 1 interview was met een belangrijk persoon binnen innovation, en hij heeft veel tips gegeven oven hoe we moeten interviewen. Hiernaast hebben we natuurlijk ook les gehad hierover op CMD, dus deze informatie is ook meegenomen. Hieronder staan wat belangrijke punten die we tijdens het interviewen hebben meegenomen:</p><p id="da4a0bf4-7d23-4abd-8100-7de95fcd6867" class="">
+</p><p id="f76eb816-f281-4a8b-a191-8fd34e183ff8" class="">De eerste en misschien wel de meest logische was <strong>doorvragen</strong>. Hier zei hij dat het eerste wat mensen zeggen vaak niet het echte probleem is. Of misschien alleen het probleem, maar waarom is het dan een probleem?</p><p id="a390a66f-4280-43ad-9d91-d4d865fb91d8" class="">Om hierachter te komen noemde hij de volgende tactiek<strong> principes 5 times why</strong>. Hier vraag je eigenlijk 5 keer waarom. Wat je wil is de oorzaak van een probleem te identificeren.</p><ul id="421e9b1c-5957-4625-9dfd-52b06a1520b3" class="bulleted-list"><li>Identificeer het probleem waarvoor de root-cause geïdentificeerd moet worden.</li></ul><p id="082c5000-8181-4e11-a8e7-239036a9d55a" class="">Stel de vraag Waarom dit probleem is ontstaan? Het resultaat is een antwoord met weer een nieuw of ander probleem;</p><ul id="2dacbf42-48c0-4d03-8aeb-c1b1327de44b" class="bulleted-list"><li>Neem het eerste antwoord (of probleem) and stel opnieuw de vraag: Waar is dit probleem ontstaan?;</li></ul><ul id="a2bee949-d653-40fe-850a-9f37a8e48f59" class="bulleted-list"><li>Herhaal deze stappen totdat je bij de kern (root-cause) van het probleem bent gekomen.</li></ul><p id="77bc391d-bd5f-433f-890a-68f2b1a9c263" class="">Vervolgens kwam hij met het <strong>valideren</strong> van vragen. Wanneer je meerdere interviews hebt gehad zul je ze naast elkaar moeten gaan leggen. Misschien geeft iemand zijn baas de schuld terwijl dit onterecht is. Door te valideren zul je overeenkomsten zien en daardoor een goed beeld krijgen.</p><p id="d2a70afd-d888-47e7-8b61-77bdd760695c" class="">Antwoorden met</p><p id="e5ec91dc-161e-4051-b41d-46e94b05374e" class=""><strong>“meer” of “beter”</strong></p><p id="b85dedea-e835-4407-a616-c580796a9430" class="">zijn slechte antwoorden. Hier merk je vaak dat er niet goed over een antwoord is nagedacht. Ga hier dan weer doorvragen waarom dit zo is.</p><p id="af2d6582-3b4c-4a06-9151-e7bb96a082ef" class="">Interviewen is namelijk een kunst op zichzelf en het is belangrijk om hier de juiste aanpak voor te hebben. Zodat er goed gekeken kan worden naar de essentie van wat er verteld wordt. </p><p id="a72effe6-30ac-4786-bf84-9e32b3cb3deb" class="">Naast dat we beter wilden begrijpen hoe we moesten interviewen is het van essentieel belang dat er nagedacht wordt over een manier van dit goed structureren. Zo kunnen we goed kijken waar er bijvoorbeeld overeenkomsten zijn. En op deze manier kan er snel terug gekeken worden etc. We hebben samen met het team uiteindelijk de keuze gemaakt om dit op een paar verschillende manieren te doen:</p><p id="daa826a9-d4a4-4412-b69f-f3e678e7d4d5" class="">
+</p><figure id="c03d4eed-d5d0-4022-997c-5b463ff93a60" class="image"><a href="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_16.12.41.png"><img style="width:1664px" src="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_16.12.41.png"/></a></figure><p id="be9fad50-9b10-49f6-9211-a038afd24468" class="">Er zijn een aantal &#x27;basisdocumenten&#x27; gemaakt om dit vast te leggen. Ten eerste hebben we basisvragen opgesteld die we erbij houden bij elk interview zodat we inzicht hebben van verschillende mensen op dezelfde onderwerpen. Ten tweede hebben we deze vragen in een tabel gezet, en wanneer deze vragen beantwoord zijn kunnen we hier een kruisje bij neerzetten. Ten derde hebben we de vragen uitgeschreven en schrijven we achteraf een kort antwoord van deze persoon bij de toepasselijke vraag. Ook schrijven we belangrijke/interessante punten op wanneer deze voorbij komen tijdens interviews. Deze documenten zijn vooral om snel in te kunnen zien wat er beantwoord is. Voor elke geïnterviewde hebben we een apart mapje gemaakt waarin ook nog een samenvatting en een uitgeschreven interview in staat. </p><figure id="751e570b-f787-4a54-ad20-67c4ef897310" class="image"><a href="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_16.18.05.png"><img style="width:1634px" src="Week%204%20b5534de97f7949e9add5b650738dd59f/Schermafbeelding_2021-04-18_om_16.18.05.png"/></a></figure><p id="13c2d7a3-721f-44da-9fe6-c02a6b6b3a74" class="">We hebben hierna de eerste interviews gehad. We hebben deze vooral teruggeluisterd, samengevat en erover gepraat. We hebben hier nog geen echte conclusies uit getrokken, dit gaat we volgende week doen zodat we hier ook weer naar de meest effectieve manier kunnen kijken. </p><p id="d1957736-5817-4a51-aa30-809ea3c6bf9c" class="">Al met al heb ik deze week veel geleerd over interviewen en structuur geven aan het interviewen zelf. </p><p id="f7e1d019-2329-4bbb-a724-9bbbee614c91" class="">
+</p><p id="5a4325e6-0c4e-453a-a2b6-1a2ac69907d5" class=""><a href="Week%205%20c8ee0f67ce404451a31aebbc95caaab4.html">Week 5</a> </p></div></article></body></html>

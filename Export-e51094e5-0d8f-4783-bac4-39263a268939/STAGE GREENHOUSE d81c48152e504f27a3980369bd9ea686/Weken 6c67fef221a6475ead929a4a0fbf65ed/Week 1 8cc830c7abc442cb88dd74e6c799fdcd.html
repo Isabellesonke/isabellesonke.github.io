@@ -1,0 +1,632 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 1</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8cc830c7-abc4-42cb-88dd-74e6c799fdcd" class="page sans"><header><h1 class="page-title">Week 1</h1></header><div class="page-body"><h2 id="59b6abe7-1a00-4025-bf0e-7f7d4d07000f" class="">Kennismaking</h2><p id="7e6f1945-f3ac-4ccd-a087-0c418a3835c0" class="">Week 1 stond in het teken van kennismaking. Kennismaking met het team, met de stagebegeleider, met de opdracht die komen gaat. En hier zijn mijn werkzaamheden dus ook aan te koppelen. </p><p id="f76fbf1a-70d2-4ff8-8325-36407c01cdab" class="">Ten eerste hebben we een overzicht gekregen van hoe de organisatie van Greenhouse eruit ziet en waaronder zij vallen. We hebben dus kennis gemaakt met de bedrijfscultuur. Ik zal in deze week kort beschrijven wat wij hier gedaan en geleerd hebben en zal dit structureren doormiddel van verschillende kopjes. </p><h3 id="0fad9887-3d79-4f58-8c8e-b4daf8a058e0" class="">Opdracht</h3><p id="0a41db4e-7cdf-4f43-bfe0-e0ef379542ed" class="">De volgende  beschrijving is de beschrijving die Tim, onze stagebegeleider heeft gedeeld na aanleiding van het sollicitatiegesprek:</p><p id="3dc617c8-0e1a-4749-9f90-838ab728440a" class="">Tot op heden is er vanuit de Innovation afdeling te weinig en niet op een structurele manier gecommuniceerd met de rest van Greenhouse, met als gevolg dat zij onvoldoende op de hoogte zijn van wat er speelt binnen de 2 entiteiten binnen Innovation (dat zijn het innovatielab en de business accelerator). We willen Greenhousers (NL) maar tevens alle GroupM EMEA collega’s (de groep waar we onderdeel van zijn) graag meer inspireren en tevens onze business accelerator workshops beschikbaar stellen, door een online platform te maken. De opdracht zal een onderzoekend, concepting, design, development en test component in zich hebben. Je werkt samen in een multidisciplinair studententeam om dit te realiseren, waarbij je alle genoemde facetten zult raken, maar zelf de keuze hebt om ergens meer de nadruk op te leggen.</p><p id="f60b6494-a4c7-4639-8889-92d2b2d26b71" class="">Hierin staan veel termen en namen die weinigzeggend zijn en waar dus meer uitleg voor nodig was. Om grip te krijgen op wat er komen gaat is er een briefing geweest over de opdracht en benodigde informatie. Ik zal hier kort beschrijven wat er besproken is. </p><p id="5d554210-c2f4-406a-9b50-8c8a8b992afa" class="">Voor de opdracht zijn 2 aanleidingen geweest: </p><ol id="f93a4a0d-83b0-416f-89f7-bcdf91f296c6" class="numbered-list" start="1"><li>Een vorige stagaire heeft onderzoek gedaan naar hoe innovatie binnen Greenhouse betere representatie kan krijgen en heeft hieruit de conclusie getrokken dat dit een online platform kan worden. </li></ol><ol id="719f785a-1393-4992-b22c-906035d0e46a" class="numbered-list" start="2"><li>Er is een nieuw proces gaande binnen GroupM waarin het groeien van ondernemingen een hoofdrol speelt en waar een plek voor begeleiding gemaakt moet worden. Dit zal ik voor nu het Growth initiatief noemen. </li></ol><p id="d1a007de-0cca-4671-be8c-8c63746464f0" class="">De bedoeling is dat wij deze twee aanleidingen een rol gaan geven op ons platform. Hoe en wat gaan wij nog onderzoeken. Hiernaast is het ook belangrijk om erbij te zeggen dat het platform innovatie moet uitstralen, hier moeten we ook onderzoek naar gaan doen. </p><h3 id="100276cd-ccce-4bd3-99e2-58d51ad08aba" class="">Bedrijf</h3><p id="f19d8b6b-cf84-478d-9ea6-3e3c278907ff" class="">Van te voren was er duidelijk wat voor bedrijf Greenhouse was, echter was er nog niet duidelijk wat de structuur van Greenhouse en daarbuiten was. Hier is dus ook meer duidelijk over geworden. </p><p id="21609535-5287-442c-8932-2c345dcfb296" class="">Greenhouse zelf heeft verschillende crafts: Media, creatie, data en tech. De crafts geven zelf al duidelijk aan wat ze doen en waar ze voor staan. Ook valt er onder Greenhouse het onderdeel innovation, hieronder valt innovation labs en Boom!. Boom! is iets binnen Greenhouse wat zorgt voor het aangrijpen van nieuwe ideeën van medewerkers en hiermee aan de slag gaan. Zo onderstaan er nieuwe teams en producten die gebruikt kunnen worden door klanten. </p><p id="12cdb063-d8b2-4fe9-9912-b457076b8c0a" class="">Greenhouse is een onderdeel van GroupM, wat een media bedrijf is waar heel veel andere bedrijven ondervallen. Binnen Nederland zijn dit Mediawave, wavemaker etc. Greenhouse valt hier onder en werkt ook samen met deze andere bedrijven. </p><p id="9cabd969-453a-4c0e-9055-626d23155f25" class="">En GroupM valt dan weer onder WPP wat een internationaal media bedrijf is waar heel veel bedrijven ondervallen. Om een goed beeld te schetsen: 1/3 van alle reclames komt van een WPP bedrijf af. </p><h3 id="2320bb9b-854f-4fc5-bd69-35752b263053" class="">Team</h3><p id="e3ad0f4f-91f7-4fb3-b2f6-0b0708ecf6be" class="">Er is aangegeven dat ik met andere studenten zou komen te werken en deze heb ik ook ontmoet in mijn eerste week. Mijn teamgenoten zijn Teun en Tobias, twee afstuderende CMD studenten. Zij hebben deze opdracht als hun afstudeer opdracht gekregen en zullen hier net als ik full-time mee aan de slag gaan. Dit zullen we doen onder begeleiding van Tim Deynen, hij is onze stagebegeleider. Vanuit het Growth initiatief zullen wij ook een product owner hebben, dit is Bas Ploeg. Hij werkt onder innovation en is deel van het team van het Growth initiatief. Met hun zullen we wekelijkse meetings hebben om de stand van zaken te bekijken en feedback te krijgen op voortgang etc. Andere belangrijke namen zijn Marieke Versteegh, zij is een innovatie coach bij Boom! en zal ons hier meer over kunnen vertellen. </p><p id="7760dd9a-3bcf-471c-8e87-19e1f6300d93" class="">
+</p><p id="e89c5480-b3cd-4601-bd26-a7dfc7c06214" class="">Dit was natuurlijk een hele bak met informatie. Nadat dit was bezonken hebben we dit samengevat wat ongeveer is wat hierboven staat aangegeven. We hebben hierna wat interessante punten opgeschreven en wat vragen/vervolgstappen opgezet. :</p><ol id="d26c0c1d-8e18-418e-a486-28cf13d8bcc3" class="numbered-list" start="1"><li>Hoe leren we Greenhouse kennen?<ul id="dcd13d45-55e9-4e7b-af63-79a18c68283f" class="bulleted-list"><li>In gesprek gaan met Marieke over Boom!.</li></ul><p id="51a09084-3a80-4706-85c2-cf6d45d669e4" class="">
+</p></li></ol><ol id="04feae1c-4e2e-450e-909a-208f6833ccf9" class="numbered-list" start="2"><li>Er zijn nu twee aanleidingen, waar zit de overlapping?</li></ol><ol id="cc8ef832-6cc2-4ce1-8189-e59bd4fe9cac" class="numbered-list" start="3"><li>Hoe zit Boom! in elkaar?</li></ol><ol id="e17f7af5-122d-4ad7-a92f-eeb8766944bf" class="numbered-list" start="4"><li>Wat wordt de structuur van het Growth initiatief. </li></ol><ol id="0fb97f78-6b18-41b1-964b-dbfc5e1d889a" class="numbered-list" start="5"><li>Hoe wordt de teamstructuur?</li></ol><p id="bd14d986-aaa9-4874-9458-cf185cf4ffb7" class="">
+</p><p id="08e1b1ce-18eb-4ebd-8ba6-e77e0e3c147a" class="">Dit zijn punten waar we in de eerste week mee bezig zijn geweest en waar we mee verder gaan in de komende weken. Dus vooral kijken naar hoe we deze opdracht gaan aanpakken. </p><p id="61d95fe3-e11e-4d5f-82f7-acba2614a69e" class="">
+</p><p id="ea167466-13fe-493f-948c-a2234e1e031c" class="">Een korte opsomming van wat ik deze week geleerd en gedaan heb:</p><ul id="047ea97f-f03a-438a-b8b2-9bf5ed9436b4" class="bulleted-list"><li>De bedrijfscultuur leren kennen</li></ul><ul id="d796a267-ecf3-4e94-b0fe-8c89a42e4565" class="bulleted-list"><li>Mijn collega&#x27;s leren kennen</li></ul><ul id="22fa6744-890d-4c2c-ab3c-cc753e2546d1" class="bulleted-list"><li>Grip krijgen op de opdracht</li></ul><p id="56e60e16-7f63-47d4-8511-4a7321ab17b3" class="">
+</p><p id="79951252-9463-4432-b334-b2d148fd485e" class=""><a href="Week%202%20a365cef819a7458689b5e0dd679bac59.html">Week 2</a> </p></div></article></body></html>

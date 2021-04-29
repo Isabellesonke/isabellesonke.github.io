@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Pitches</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="aef0bc57-c2c0-4fed-a64c-328cdea8f9c0" class="page sans"><header><h1 class="page-title">Pitches</h1></header><div class="page-body"><p id="92bdfa96-789b-46a6-a071-24e1f230b83c" class="">Opzet:</p><p id="2031327b-eff5-4420-9219-44599a16d2ea" class="">
+</p><p id="d5de94b3-f3ec-4c81-a32b-258ed98e34d2" class=""><em>Doelgroep</em>:
+Ondernemers binnen GroupM / Potentiële ondernemers / Klanten / Incubator Team en Innovation Coaches
+.</p><ul id="93e21c25-7901-43c0-b6e1-99b8bb5975f8" class="bulleted-list"><li>Waarom moet dit platform voor jouw doelgroep specifiek ontwikkeld worden? (En juist niet voor de andere doelgroepen?) (Welke problemen kunnen er voor je doelgroep opgelost worden?)</li></ul><ul id="394244cb-f717-415a-8776-f50618fabd6c" class="bulleted-list"><li>Wat is het profijt van de andere doelgroepen als het voor jouw doelgroep ontwikkeld wordt?</li></ul><ul id="1a21bb5c-39ca-498b-be81-37d990ae4f8e" class="bulleted-list"><li>Welke onderdelen heeft het platform? (Onderbouwen met onderzoek) (Is een deel van het platform &quot;locked&quot;?) (Intern of extern?) (Gat in de markt: vervangt/creëert het de rol van bijvoorbeeld Wrike of Slack binnen GroupM?)</li></ul><ul id="581c0a56-03af-4697-9a0d-6a8521a88728" class="bulleted-list"><li>Wat is het incentive voor je doelgroep om naar dit platform te komen?</li></ul><ul id="7918f1a7-c586-490b-9bdf-4bf024ac5d97" class="bulleted-list"><li>Hoe kunnen we ervoor zorgen dat het platform deel uit gaat maken van de dagelijkse job van de doelgroep?</li></ul><ul id="9e7cff15-0bfa-444d-bb58-d28aff93416f" class="bulleted-list"><li>Hoofdvraag en deelvragen opstellen voor je doelgroep</li></ul><ul id="303b3219-56c6-4c64-91a1-b455fb6a8a45" class="bulleted-list"><li>Wat heeft GroupM aan dit platform?</li></ul><ul id="c90dca42-a28b-4e48-b982-785b2df4e0c9" class="bulleted-list"><li>Verplaats je in Bas (GroupM) en Tim (Greenhouse)</li></ul><p id="a21db1cd-2b24-4c13-a8a7-d2aca06948cd" class="">.
+1-2 A4&#x27;tjes per doelgroep
+4 doelgroepen per persoon
+2 jury - 1 pitcher
+Printen vòòr pitches</p><p id="01b04637-7425-472c-a518-6c3fd304c2db" class="">
+</p><p id="45238499-f1b3-4406-a9b0-d163af388a82" class="">
+</p><p id="558241e6-df4d-4abb-bf4b-e7a48361b6d0" class="">Pitch 1: Ondernemers:</p><p id="8af0158a-b4ef-4b50-8424-d36ffb6592e6" class="">
+</p><p id="be395eed-d65e-4815-af9a-7e3ed9fb66e5" class="">Waarom moet dit platform voor jouw doelgroep specifiek ontwikkeld worden? (En juist niet voor de andere doelgroepen?) (Welke problemen kunnen er voor je doelgroep opgelost worden?)<div class="indented"><ul id="ef27faf1-23cd-4452-97cb-a0b889177f6c" class="bulleted-list"><li>Ondernemers, en dan vooral ondernemers onder de structuur binnen GroupM krijgen niet de benodigde ondersteuning om beginnende ideeen en start-ups succesvol te schalen. Dit komt door meerdere aspecten:<ul id="91cb554f-f07c-404a-ac83-492620ba5d8a" class="bulleted-list"><li>Ten eerste is er geen effectieve manier van netwerken opbouwen of contact zoeken met de benodigde mensen. </li></ul><ul id="3c2c3ba3-64dd-439b-ba08-71406fd768fc" class="bulleted-list"><li>Doordat er hier geen effectieve manier voor is is het lastig om in contact te komen met de juiste mensen</li></ul></li></ul><ul id="73496117-1aee-4c22-aca8-91ade5a0e640" class="bulleted-list"><li>Daarnaast hebben ondernemers behoefte aan  ondersteuning bij het business plan gedeelte. Ons platform kan zorgen voor een digitale manier van ondersteuning op het gebied van business plannen. Zo krijgen zij de juiste ondersteuning om hun idee te schalen. </li></ul><ul id="c0a53200-860d-461f-a7b2-9da94a0dc536" class="bulleted-list"><li>Ik ben er hiernaast van overtuigd dat iedereen er baat bij heeft als het platform voor ondernemers. Het zal voor hun een manier zijn om het netwerk van GroupM makkelijker te navigeren zodat communiceren en ondersteunen makkelijker zal worden dan het nu is. Hierdoor kunnen bestaande initiatieven leren van wat er al gebeurd is. Voor nieuwe initivatieven zal het een manier worden om te kijken wat er is of wat er al gedaan is. </li></ul><p id="f7cd8f1f-681a-41c1-bbef-ab2786639e35" class="">
+</p><p id="f78a9d64-d401-4797-b7d8-0ae8d90c7de4" class="">Wat is het profijt van de andere doelgroepen als het voor jouw doelgroep ontwikkeld wordt?</p><ul id="6eef8b07-5510-4715-ad84-3faaf08b58bc" class="bulleted-list"><li>Om altijd te blijven innoveren en bezig te zijn met wat er gaat komen in de toekomst moet je goede ideeen en start-ups aanmoedigen. DIt kun je het beste doen door al bestaande ondernemers te ondersteunen. Ondernemers hebben de mogelijkheid om ook de andere doelgroepen te beinvloeden. Zo kunnen ze beginnende ondernemers inspireren, kunnen ze met goede ideeen en start-ups klanten helpen. Hiernaast helpt het hte incubator team wanneer er digitale ondersteuning is voor ondernemers, zo kunnen ze zich focussen op de persoonlijkere begeleiding etc. </li></ul><p id="1aa2d89d-3940-4ead-a839-502fac6cfac6" class="">
+</p><p id="570a3fcf-79d3-4524-aae1-0e0933f85794" class="">
+</p><p id="87c3a482-9773-475f-bf52-7b13717ceb6b" class="">Welke onderdelen heeft het platform? (Onderbouwen met onderzoek) (Is een deel van het platform &quot;locked&quot;?) (Intern of extern?) (Gat in de markt: vervangt/creëert het de rol van bijvoorbeeld Wrike of Slack binnen GroupM?)</p><p id="9a8dea5f-fd1c-4b69-a205-02e011690dea" class="">Er kan een tweedeling gedaan worden tussen de doelgroep ondernemers. Ondernemers die werken tussen veilige structuren en dus al veel handvaten hebben. En ondernemers die als het ware op zichzelf staan en geen makkelijk bereikbare handvaten hebben. </p><p id="16512681-07f0-4fdb-b83e-a3b05625fd11" class="">
+</p><ul id="aa69ad6c-45fb-41c0-8818-228ba75b4b2b" class="bulleted-list"><li>Wat er nu onder ondernemers wordt aangegeven (namen) is dat er behoefte is aan een manier van het navigatiesysteem bevaren. Deze is momenteel nog niet bestaand waardoor het zoeken van de juiste contacten een moeilijk aspect is. Beide groepen ondernemers geven aan dat dit een behoefte is als zij op een effectieve manier verder willen met hun onderneming. </li></ul><ul id="946a36a4-0cd9-4c30-9afb-c17d77056f59" class="bulleted-list"><li>Hiernaast lijk het me ook slim om als ondernemer met een idee te kunnen zien wat er al op dat spectrum gedaan is. Zo kun je kijken naar succes verhalen en soortgelijke onderzoeken. Dit is ook een functie waar beide doelgroepen als het ware naar &#x27;vragen&#x27;. </li></ul><ul id="0615b74d-5912-49fe-9ad8-16abbe751b08" class="bulleted-list"><li>Het laatste punt is iets waar vooral de beginnende ondernemer behoefte aan heeft. Namelijk handvaten voor het opstarten en opschalen van de onderneming. Er moet een belans gevonden worden in persoonlijke begeleiding en theoretische kennis om de maximale support te geven. </li></ul><p id="781f50f5-15b2-4743-bc07-3447f8177b44" class="">
+</p><p id="61e74a56-e123-4a97-afba-c6ba5ff0c2fc" class="">
+</p><p id="ce686f77-c520-4ed3-97e9-ff97b2b882bd" class="">Wat is het incentive voor je doelgroep om naar dit platform te komen?</p><p id="a3cd23e0-68fb-40e8-8371-bdb8c00ef83b" class="">
+</p><p id="a8e9a0de-d9dc-418d-8f86-ee8390762319" class="">Hoe kunnen we ervoor zorgen dat het platform deel uit gaat maken van de dagelijkse job van de doelgroep?</p><ul id="10023990-665d-4c30-97ff-164cebc395ff" class="bulleted-list"><li>Zoals meerdere personen al aangaven is het belangrijk dat mensen het nut zien van het platform. Dit kan op verschillende manieren maar het moet vooral van bovenaf aangegeven worden als goede optie.</li></ul><p id="571fdde9-7516-4d28-ba32-2d16f33b4eb4" class="">
+</p><p id="d5f68f8b-126c-4f94-81a2-77273e327895" class="">Hoofdvraag en deelvragen opstellen voor je doelgroep</p><p id="3791addf-9888-437c-8f52-9c9246e66b30" class="">
+</p><p id="31db3501-f86b-41a1-bde4-a79f84580294" class="">Wat heeft GroupM aan dit platform?</p><p id="e266de7f-0277-4472-8586-dfa0d39e84c0" class="">
+</p><p id="18e4682e-96f8-404d-88b2-49e48af0c2e2" class="">Verplaats je in Bas (GroupM) en Tim (Greenhouse)</p><p id="290b8325-fe9d-41cd-97b3-6712191dedac" class="">
+</p><p id="956c432a-8189-419d-864c-51a49101e3d3" class="">
+</p><p id="2e3c6430-6cd1-4632-95cf-60c83c3c65ad" class="">
+</p><p id="1cfa78bb-9620-43b4-8a03-8c146e6bec55" class=""> </p><h3 id="990f2c62-c93d-4a08-8987-299173f1319a" class="">Pitch 2: Potentiele ondernemers</h3><p id="8ab2aa14-6faf-44ca-a43e-15cbe3a39f55" class="">Waarom moet dit platform voor jouw doelgroep specifiek ontwikkeld worden? (En juist niet voor de andere doelgroepen?) (Welke problemen kunnen er voor je doelgroep opgelost worden?)</p><ul id="fbb1d6ad-2d84-4aee-91bd-285402eb8c9d" class="bulleted-list"><li>Potentiele ondernemers zijn medewerkers binnen GroupM die momenteel geen ondernemer zijn maar wel de potentie hebben om ondernemer te worden. Om achter te halen wanneer deze potentie naar voren kan komen moet je erachter komen hoe je een ondernemer wordt. Wat naar voren kwam bij al bestaande ondernemers is dat een deel van het ondernemer worden wel frictie is, er moet weerstand zijn om je tot een volgend level te brengen met een idee. Echter kan je er wel voor zorgen dat mensen die volgende stap durven te stappen. Het probleem is nu dat de problemen en ideeen vaak klein blijven. Met het platform zou je dus het volgende probleem kunnen oplossen: <p id="58fc20b5-a414-49a2-aa98-20f1c4bf8fbb" class="">Potentiele ondernemers worden momenteel niet genoeg gemotiveerd of uitgedaagd om met nieuwe innovatie ideeen te komen. Deze worden vaak niet doorgezet naar een groter idee. </p><p id="33b96c7b-6d05-416b-ab7b-bbf6453b6867" class="">Met dit innitiatief kun je tot nieuwe ideeen en plannen komen.</p></li></ul><p id="0bbaf7a6-8e30-4fd8-b4ae-b158ad9a3d4f" class="">
+</p><p id="831ca325-9836-46b3-bbe2-ccfe4e3b9456" class="">Wat is het profijt van de andere doelgroepen als het voor jouw doelgroep ontwikkeld wordt?</p><ul id="a9b240c3-1abc-4961-9a0d-76971afdaed7" class="bulleted-list"><li>Meer ondernemers betekent meer nieuwe start-ups die kunnen zorgen meer succesvolle initiatieven. </li></ul><p id="98b2a5ab-08b1-48a8-9dcb-640ec740db59" class="">
+</p><p id="8c9ea2ab-0eef-4c54-81f5-0cb388cb4fc7" class="">Welke onderdelen heeft het platform? (Onderbouwen met onderzoek) (Is een deel van het platform &quot;locked&quot;?) (Intern of extern?) (Gat in de markt: vervangt/creëert het de rol van bijvoorbeeld Wrike of Slack binnen GroupM?)</p><ul id="45a42827-ed90-4f75-8e08-cf4fdbaf6136" class="bulleted-list"><li>Het platform zou in dit geval moeten zorgen voor meer ideeen van potentiele ondernemers. Hiervoor zul je de medewerkers moeten uitdagen met vraagstukken van klanten of teams, ze hierbij inspiratie geven. Hiernaast moet ook duidelijk worden wat ze aan ondernemingen binnen de incubator. </li></ul><p id="72d2dda5-6fc2-4f08-902a-5af641ce3121" class="">
+</p><p id="75a60671-0bb0-47e2-bad6-320a65fd91c5" class="">Wat is het incentive voor je doelgroep om naar dit platform te komen?</p><p id="4fde6e01-f1c7-4a8c-825a-8c58db49e697" class="">
+</p><p id="1b87be5b-801c-4676-b703-9e777d5d880d" class="">Hoe kunnen we ervoor zorgen dat het platform deel uit gaat maken van de dagelijkse job van de doelgroep?</p><ul id="2be8acc1-ab86-47fe-a798-859c6a8d0ad2" class="bulleted-list"><li>Je zult het moeten aangeven bij teamleads etc. Zodat ze het willen gebruiken. </li></ul><p id="150f9dda-3fda-47f4-8b53-a2285ad72203" class="">
+</p><p id="b9c32f82-f8af-4fd7-a163-8809f7422232" class="">Hoofdvraag en deelvragen opstellen voor je doelgroep</p><p id="167186bb-f825-4dda-bcb1-e41935e007b4" class="">
+</p><p id="cfdde5dc-d2a2-4477-9343-1861b78afa87" class="">Wat heeft GroupM aan dit platform?</p><p id="f47ed1e9-5b0b-4dde-8dd0-48a3b61c51d1" class="">
+</p><p id="a418d6e1-0689-48ee-a8f4-8ba600a24cfd" class="">Verplaats je in Bas (GroupM) en Tim (Greenhouse)</p><p id="2787c578-9ac7-4066-b2d6-7a674201eaba" class="">
+</p><p id="32241714-6338-4577-afe1-88a60f85e0b2" class="">
+</p><h3 id="d0fb9604-2491-43f8-8c22-75ebe68f7afb" class="">Pitch 3: Klanten</h3><p id="bb7ebdd7-5d48-4b7e-a9e1-d03029334fe4" class="">
+</p><p id="14071320-21bf-4f3f-9625-de8d57eb6e9e" class="">Waarom moet dit platform voor jouw doelgroep specifiek ontwikkeld worden? (En juist niet voor de andere doelgroepen?) (Welke problemen kunnen er voor je doelgroep opgelost worden?)</p><ul id="74400ad7-4841-4288-8540-a03eb1cc8237" class="bulleted-list"><li>Klanten is waar het uiteindelijk allemaal omdraait, het gaat niet om intrisieke motivatie van ondernemers of innovatie, het gaat om het verkrijgen van klanten en het behouden hiervan. Wat zouden wij eraan. hebben als klanten de main focus zouden zijn van het platform? Het zou een manier kunnen zijn om Greenhouse en GroupM goed neer te zetten en te laten shinen. Hiernaast zou het een innovatieve manier kunnen zijn om klanten betrokken te laten worden bij nieuwe ideeen en initiatieven. Ze zouden kunnen zien waar wij mee bezig zijn en hier contact mee opzoeken of whatever. </li></ul><p id="11bad81e-d767-41a4-8bed-528f660739bb" class="">
+</p><p id="cbc12dd0-d87c-413e-aace-7ff3917cd06a" class="">Wat is het profijt van de andere doelgroepen als het voor jouw doelgroep ontwikkeld wordt?</p><ul id="47377bd9-8c98-4229-b196-f5b74d4ff89b" class="bulleted-list"><li>Ideeen kunnen leuk zijn maar als klanten het niks vinden zal het nooit wat worden. Dit zou een manier kunnen zijn om onszelf goed neer te zetten tegenover klanten waardoor wij dus bij deze doelgroep meer mogelijkheden creeeren. Hier zullen alle doelgroepen van profiteren door de mogelijkheden die hierbij ontstaan. </li></ul><p id="308c9223-439c-4a4f-8b59-36ec2605372e" class="">
+</p><p id="27933b3d-c7d6-4db9-aee8-9d971df750a5" class="">Welke onderdelen heeft het platform? (Onderbouwen met onderzoek) (Is een deel van het platform &quot;locked&quot;?) (Intern of extern?) (Gat in de markt: vervangt/creëert het de rol van bijvoorbeeld Wrike of Slack binnen GroupM?)</p><ul id="5fd1eae7-a0a8-4504-85d5-1262ddade978" class="bulleted-list"><li>Dit platform zou een manier moeten krijgen om als klant inzicht te krijgen in wat er zich afspeelt en wat er gaat gebeuren. Zo kunnen zij al rekening houden met nieuwe veranderingen en trends. Dit is namelijk wat ze willen, ze willen de eerste met bepaalsde ideeen zijn en de trends volgen. Door hier een goed overzicht voor te creeeren voor klanten kunnen ze betrokken blijven bij wat zich afspeelt binnen GroupM. Hiernaast kan er een mogelijkheid zijn voor klanten om met suggesties te komen of deze in ieder geval te bespreken. </li></ul><p id="a0aae4e0-39b3-4749-8276-e1cecc99c8f7" class="">
+</p><p id="24b6f5a7-6b60-4ad7-897b-558b041b1521" class="">Wat is het incentive voor je doelgroep om naar dit platform te komen?</p><p id="a5e9e973-a7fa-4155-908e-cab84a7dd602" class="">
+</p><p id="ef5153d8-8075-48d1-b698-b82ba0ff7a7c" class="">Hoe kunnen we ervoor zorgen dat het platform deel uit gaat maken van de dagelijkse job van de doelgroep?</p><p id="27b12308-40aa-48e8-8673-1bed2eacafb9" class="">
+</p><p id="34829e8f-e59e-43f8-b179-968c029b9294" class="">Hoofdvraag en deelvragen opstellen voor je doelgroep</p><p id="b7f862eb-4078-4112-99a1-b000a97857c2" class="">
+</p><p id="613632e8-e953-4dfc-af29-dbb41c8cf139" class="">Wat heeft GroupM aan dit platform?</p><p id="526efac4-24e2-401f-a821-f5ea422c4af7" class="">
+</p><p id="f8d23811-3f43-463b-956e-08db83be8bf6" class="">Verplaats je in Bas (GroupM) en Tim (Greenhouse)</p><p id="d286ddf8-0570-4d28-a59d-c61f049d7868" class="">
+</p><p id="18f5f4de-a52c-43a5-ac95-52adcfd123b7" class="">
+</p><p id="053eb5b9-4d86-4b7a-a7cd-4af8e62f4d32" class="">Interview Guus</p><ul id="fa8de291-10a4-4d75-8149-1b4e79073eec" class="bulleted-list"><li>Hij is client lead, hoe werkt dit?<ul id="95d208c4-2397-402a-8021-d7d344cd3e42" class="bulleted-list"><li>Er zijn een paar belangrijke aspecten. </li></ul><ul id="116f7171-c282-4935-b29a-ba75d4196f01" class="bulleted-list"><li>Het commerciele deel</li></ul><ul id="50664620-4b91-4212-8229-3173386ddee2" class="bulleted-list"><li>Het klanten team moet goed zijn als het ware</li></ul><ul id="101c645e-762f-4a8d-8065-481c59e18bc2" class="bulleted-list"><li>De klant moet ons goed waarderen</li></ul><p id="761c9c16-49f4-48db-96af-bea6cdef1f27" class="">
+</p></li></ul><ul id="6176f9e3-89b9-4381-b565-76d13b4a821d" class="bulleted-list"><li>Alle client leads moeten op de hoogte zijn van alle innovatie initiatieven. </li></ul><ul id="3094d5f3-db17-48b4-b845-ca40a2d4a6ae" class="bulleted-list"><li>Een platform zou hierin wel een rol kunnen spelen</li></ul><ul id="a479cab4-a652-4287-b4b7-3dd08ea3934b" class="bulleted-list"><li>Het ligt aan de klant of zij dit zouden gebruiken</li></ul><p id="08956bed-64f5-47c9-8dd8-9ce029fd32b2" class="">
+</p><p id="c847edc3-2c39-4b7b-9327-8dc9e2b29d41" class="">
+</p></div></p><ul id="23935c69-9693-4952-a979-fd6edb2caa8f" class="bulleted-list"><li>Je moet zorgen voor traffic maar ook zorgen dat de doelgroep op het platform &#x27;moet&#x27; komen. </li></ul><ul id="73ee1a3a-7f21-4780-a71b-5694948a5319" class="bulleted-list"><li>Willen we ook mensen aantrekken die niet ondernemer zijn?</li></ul><ul id="861fc13a-6295-468d-89f1-4e3916264b23" class="bulleted-list"><li>Wat is de behoefte van potentiele ondernemers ?</li></ul><ul id="2c21f31c-4b55-49c4-a339-e8c228c5710e" class="bulleted-list"><li>Wat onderbreekt er vanuit de ondernemer naar andere doelgroepen toe?<ul id="88e4cc5f-46d3-4b5f-84d0-b4cfd9755ca2" class="bulleted-list"><li>Vanuit de ondernemer naar andere doelgroepen</li></ul></li></ul><ul id="03de0681-834e-4401-9860-49d713a70b29" class="bulleted-list"><li>Wanneer ben je potentieel ondernemer?<ul id="34961d42-2530-43d0-a7c0-ca7450d0d4ee" class="bulleted-list"><li> Wanneer je een idee hebt? en hier in een stap wil en kan zetten?</li></ul><p id="689638e1-9bbd-4cd5-8cf0-0dd1bba576a2" class="">
+</p><p id="dbd9d6ab-ada2-4f82-b0f9-4f079fa52ae7" class="">
+</p><p id="130256df-43c6-46dc-b738-4d72dd16ccc3" class="">Focus leggen en hier structuur in aan te brengen</p><p id="40c6857c-c14f-442a-868c-e4c9f75cf28d" class="">Iets meer naar de voorgrond treden</p><p id="cc3d49a8-5489-4bb4-9ae5-fa0344155d80" class="">Kritischer opstellen</p><p id="b8754a0f-db4b-4b51-8759-6d2fc5e6ee12" class="">Uitdagen op technisch vlak</p><p id="201a56e1-a514-4459-9221-ec65f9ebf5b7" class="">
+</p><p id="f7abb766-df59-4bb7-93a0-73ce31b345c6" class="">
+</p><p id="12dea7d9-cd43-4364-b523-e05f34571a3e" class="">
+</p><p id="06c9530e-8a24-48f0-b716-36a9f2435b41" class="">Briefing 24-03</p><p id="70d1b7a8-c240-4c10-9656-3443da460107" class="">
+</p><p id="b12b75c1-643d-44c8-916f-1682881c60bb" class="">
+</p><p id="e4ff8082-060f-45a4-bde8-28ea7afde93b" class="">Conceptontwikkeling: </p><p id="1f734fbb-e27b-445e-9de8-51d75d0de592" class="">Concepting:</p><ul id="28927f6f-1c1f-4137-938e-cf9209ce58ad" class="bulleted-list"><li>naam concept</li></ul><ul id="5dbb2116-b720-434e-ad29-37e9a827ead2" class="bulleted-list"><li>half a4 verantwoording</li></ul><ul id="af6efa4a-151f-4d70-a9e1-d36b960f9fb6" class="bulleted-list"><li>moodboard</li></ul><ul id="b730a87d-4a72-427b-ac73-04d416ab6275" class="bulleted-list"><li>visualisaties</li></ul><ul id="d5e8c974-dc93-430f-b6f0-816cdcbb4eb2" class="bulleted-list"><li>fases</li></ul><ul id="0498ebec-2f4e-4099-b31d-e38881e92237" class="bulleted-list"><li>3 concepten pp.</li></ul><p id="8c3a1e05-4cff-4eac-bb54-7017cbd8b7dd" class="">
+</p><p id="2fae9aca-b2f7-4fa9-a857-54b08d0f95cf" class="">render after effects via java function</p><p id="6d06913b-b8ee-4886-9c2d-ea7690eda660" class="">
+</p><p id="0dd14486-8803-4d69-b288-9552c128b264" class="">
+</p><p id="379bbdd6-f1c4-4ba6-906f-eb9afcf022fb" class="">
+</p><p id="d93e4d95-c69a-4e9c-9ac8-822f25fdbca7" class="">
+</p><p id="154aea7f-de68-4668-9fbc-b5afd3d098ee" class="">
+</p><p id="ef81c7b4-442a-4702-aae4-18be3422dd1c" class="">
+</p><p id="9d49f630-b188-4ed4-bbe8-b327871f22c4" class="">
+</p><p id="6c9b6756-a583-47fb-8eb6-6346c0d7059d" class="">
+</p><p id="b1f9b44a-46f6-46e5-b39a-808f919ae043" class="">
+</p><p id="5d6f5a33-5f7e-466c-99af-0b0d530a83ed" class="">
+</p><p id="8c1c480e-a126-4117-b92d-b026b8c9acc6" class="">
+</p><p id="4d9e94d2-1b2e-4a9c-a296-9dd93abbe3c0" class="">
+</p><p id="2dbfe1c4-df78-42d5-b4f2-5985e5a50af2" class="">
+</p><p id="3f0b80b8-7f82-4b95-ab12-329ec589993d" class="">
+</p><p id="e664500e-fcc0-46d3-9a60-4bc24990f7c5" class="">
+</p><p id="1d153c77-de9b-428e-811b-a3d8a5f566fc" class="">
+</p><p id="ba2f9e6b-3b0b-4bf5-89b6-69c37fcd9284" class="">
+</p><p id="86c82bcd-191a-4ad7-a085-9dda2947ec71" class="">
+</p><p id="e0499125-4d6e-492e-b702-125ccb12b860" class="">
+</p><p id="b7d02f9a-0900-4916-b1b0-93113f42cc62" class="">
+</p><p id="0eeefae2-f6b7-492c-9c4a-5bba69fae4f8" class="">
+</p><p id="77556d9e-4b27-48d6-a3cd-b17bdd24d1ea" class="">
+</p><p id="9a9a3026-8436-4475-9a3a-1830c7ca3b44" class="">
+</p><p id="4f01c829-ed22-4d5e-a3f5-e1ddaf5f4aa9" class="">
+</p><p id="11e64134-a5fb-4e5b-9d2a-e49ead19a75f" class="">
+</p><p id="5c7e0408-a7d9-4a6d-9ad0-db1ad91a874c" class="">
+</p><p id="807aa8b4-2d37-465a-9a36-bfb3ac3aeb0d" class="">
+</p><p id="9f580453-7084-4035-a2b9-2aadfa1ac673" class="">
+</p><p id="3c85fda4-e53b-49d9-bd72-d93cda23044f" class="">
+</p><p id="da7fc478-7c28-4db0-a9ee-e533150a5f5b" class="">
+</p><p id="11188547-7f30-4fc2-b571-7c25de315fe6" class="">
+</p><p id="b193aee1-d2a9-4e2f-a595-2ec5c22618f2" class="">
+</p><p id="056cdacf-a382-4448-a688-9b37902b5fe2" class="">
+</p><p id="1a2df4ba-d465-4a2a-8b63-e53bbae483d4" class="">
+</p><p id="1ea5ef42-5c7f-427b-96d6-8f2c96dd7d92" class="">
+</p></li></ul></div></article></body></html>

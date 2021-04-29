@@ -1,0 +1,640 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 7</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="949f45dd-4e42-4ee6-8ca1-a59b1c8a03bb" class="page sans"><header><h1 class="page-title">Week 7</h1></header><div class="page-body"><p id="02f5da15-d961-4772-ba8f-fb4977c76536" class="">Week 7 gaat vooral over het verbeteren van de hoofdvraag en de doelen die we hierbij hebben opgesteld. </p><p id="54db7f86-115c-4ce1-976b-23147377081d" class="">Wat we merkten toen we over deze vraag in gesprek gingen was dat er duidelijke reis was die de ondernemer doormaakt tijdens zijn proces met ondernemen. Deze reis was ook duidelijk terug te zien in interviews en in de vragen die wij hieruit hadden opgesteld. Aan deze vragen zijn duidelijke behoeftes te koppelen. Daarom zijn de deelvragen die we eerder hadden opgesteld in fases die aansluiten bij de reis van behoeftes. </p><p id="881d0d3b-0ebb-4f1e-887b-d576138790f0" class="">
+</p><p id="af287580-c7e2-4be6-86d1-f0f4009428ff" class=""><strong>FASE 1</strong></p><p id="477c9068-3d3b-45fb-b7d0-16853253fb7d" class=""><strong>1. Hoe kunnen we de initiële pitch procedure structuur geven?</strong></p><p id="d6022add-4fcb-4be6-a0e1-2d20065e9871" class="">Behoefte in deze fase:</p><ul id="c54191be-5ae1-49c4-bebf-a886b16efdf4" class="bulleted-list"><li>Inspiratie</li></ul><ul id="a82aa34c-72b4-414b-a933-e631532f11d2" class="bulleted-list"><li>Gevoel structuur &amp; veiligheid creëren voor de ondernemer.</li></ul><ul id="7350e0ab-6c2e-41d5-8417-55c9f082b8b0" class="bulleted-list"><li>Inzicht in theorie en mogelijkheden.</li></ul><ul id="e61b0814-1deb-42fa-a45a-d455ade5d76e" class="bulleted-list"><li>Proces aanmelden en indienen pitch.</li></ul><p id="4e5103c4-845b-4a55-a7ad-6b2ca63cd9fc" class="">De initiële pitch procedure gaat hier niet over de pitch rondes naar groupM maar naar een mogelijk pitch ronde hiervoor, dit zal voor het incubator team zijn. En dit zal vooral ingericht zijn op het vinden van nieuwe ideeën met potentie. In de fase dat ondernemers beginnen met een idee  hebben ze vooral behoefte aan goede informatie en de juiste begeleiding. Misschien nog een stapje hiervoor hebben ze ook behoefte aan inspiratie, maar dit is iets wat op verschillende vlakken doorgaat. </p><p id="8aa4da9c-500b-4e2e-9e67-f6864e0f37d4" class="">Dit is ongeveer de verantwoording voor waarom we in verschillende fases zijn gaan werken. Op deze manier zorgen we ook voor structuur in het werk etc. De andere twee fases zijn op dezelfde manier ingericht:</p><p id="de0980e4-3e53-44c5-9bf9-010dafec91e3" class="">
+</p><p id="14ec04e7-ab20-4c8e-af35-705a9a433621" class=""><strong>FASE 2</strong></p><p id="fc062233-4b0c-4236-b415-109f7f6d48b6" class=""><strong>2. Hoe creëren we een omgeving voor online begeleiding?</strong></p><p id="6c24531a-30b2-4e58-86f0-afb88950ee98" class="">Behoefte in deze fase:</p><ul id="84a36ff1-6bb6-4fba-9ce0-0db37677c559" class="bulleted-list"><li>Digitale ondersteuning.</li></ul><ul id="70938b6a-e689-4c01-8287-b66ed58489fc" class="bulleted-list"><li>Business coaching</li></ul><ul id="2b1586c3-453f-4cd0-b3b7-6c1ebc350555" class="bulleted-list"><li>Frameworks</li></ul><ul id="a04b95c3-c5c7-4ef3-b78f-97ce6d6212ef" class="bulleted-list"><li>Theorie</li></ul><p id="08c49396-6434-46b9-a224-050c26d7e3a2" class="">
+</p><p id="bfc67efc-194c-4e22-b6ce-1337dd4bdb05" class="">
+</p><p id="a687b8ee-8ab2-4560-a4b6-15d4ca9364f9" class=""><strong>FASE 3</strong></p><p id="826c6f53-d0d1-45a6-aec7-0eda0f7f1f05" class=""><strong>3. Hoe kunnen we een way to navigate creëren voor ondernemers?</strong></p><p id="3b1803a7-37e5-411c-93eb-2b5056a21eb8" class=""><strong>4. Op welke manieren kunnen wij ondernemers hun ondernemingen laten representeren?</strong></p><p id="9cf48651-8fa3-4759-a019-96c1e09bec09" class="">Behoefte in deze fase:</p><ul id="4cd4eb11-0976-4ed9-9e9f-f4b07a346fc5" class="bulleted-list"><li>Navigatie netwerk</li></ul><ul id="2f799167-a600-44db-aa9d-64eb12274835" class="bulleted-list"><li>Overzicht specialisten.</li></ul><ul id="9f9c11b2-45f0-451d-ae7e-eed5aee7f819" class="bulleted-list"><li>Referentie projecten pijlen.</li></ul><ul id="de2f5861-ff1a-404f-aedc-453d4b0e264c" class="bulleted-list"><li>Representatie</li></ul><p id="0ea0e823-d625-40a4-876f-e93a32d361dc" class="">
+</p><p id="57f87014-d67c-4f3c-a483-e223f1c82cf1" class="">Omdat ik wat meer visueler wil werken hebben we de overlapping van de fases in een overzicht gezet waarbij duidelijk naar voren komen waar de overlapping van fases komt. Dit zodat er een beter overzicht kan komen over wat er op het platform moet komen voor de verschillende fases. </p><p id="e38a5509-9d0e-4ada-ace9-cfd5110ec83d" class="">
+</p><p id="7892c845-ae02-4128-9fec-0fad823bbaba" class="">
+</p><figure id="7756deaa-6811-4f31-b5bb-81b755f02628" class="image"><a href="Week%207%20949f45dd4e424ee68ca1a59b1c8a03bb/Schermafbeelding_2021-04-23_om_13.32.36.png"><img style="width:1616px" src="Week%207%20949f45dd4e424ee68ca1a59b1c8a03bb/Schermafbeelding_2021-04-23_om_13.32.36.png"/></a></figure><p id="83d9b907-481e-47be-b2fd-ce736ef3930f" class="">
+</p><h3 id="0c142e39-3cac-41e0-936b-993c3b8a6407" class="">Inschatting van wat wij kunnen gaan maken:</h3><p id="1681788b-e0f7-4c30-b8db-63d04fcd6c36" class="">
+</p><p id="61d694fa-f282-4be0-90a8-8f88fddbee7b" class=""><strong>WAT GAAN WIJ REALISEREN?</strong></p><p id="737dd605-31db-456f-9f3b-3b4559042c9a" class=""><em>In de meeste gevallen zullen wij het template ontwikkelen.</em></p><ul id="bc912dc5-de2f-411b-9283-a19e6ddfde2b" class="bulleted-list"><li>De omgeving voor de workshops.</li></ul><ul id="5f76a6f0-309b-40db-ba4b-c2f910398662" class="bulleted-list"><li>Representeren (Cases)</li></ul><ul id="e93794f6-a7a7-47f7-9ce9-de73bdd673f3" class="bulleted-list"><li>Pitch indienen</li></ul><ul id="73bbf24e-a2aa-4b36-ba19-54fb67a22424" class="bulleted-list"><li>Inzicht in het proces.</li></ul><ul id="4d6b2842-bf98-4532-a3a0-31c5b3eb11a1" class="bulleted-list"><li>Inspireren</li></ul><ul id="589f5329-1e3b-4df2-baec-35b7d8388f59" class="bulleted-list"><li>Huisstijl</li></ul><ul id="e6622bab-a543-400c-9e5b-7fe830dc03ed" class="bulleted-list"><li>Werkend proof of concept platform</li></ul><p id="7ddbf0d8-51cd-4a20-9f25-1427551ad4e9" class="">
+</p><p id="b855b0db-7d04-488e-b223-3a8351c43e4a" class=""><strong>WAT ZOUDEN ANDERE VOOR ONS MOETEN REALISEREN?</strong></p><p id="f46ad121-ce8c-4526-b4bf-bdbda4b8ee94" class=""><em>Input zal in veel gevallen worden gerealiseerd door andere partijen.</em></p><ul id="a1ea0655-b5ed-43d6-a676-b738cddddb19" class="bulleted-list"><li>Het digitaliseren van de workshops</li></ul><ul id="4d8ce589-0da9-4ea4-a020-da72b3b84814" class="bulleted-list"><li>Bepalen wat de input van de workshops is</li></ul><ul id="f6bd5463-f991-4a55-a868-4d44ab6d7344" class="bulleted-list"><li>Input inzicht cases ondernemingen</li></ul><p id="dbf383a3-8a5f-4435-861d-310f61319226" class=""><strong>WAT GAAN WE NIET REALISEREN?</strong></p><ul id="1959f714-259a-4970-add6-68c251827766" class="bulleted-list"><li>Navigatiesysteem voor heel GroupM</li></ul><ul id="1261ae85-1e85-4aa3-8d56-45b4b24eea2a" class="bulleted-list"><li>Compleet platform</li></ul><p id="c487d54a-ea47-4897-b0e8-428e590da84e" class="">
+</p><p id="820947dc-4bc0-4360-987b-7c5f8251a8bd" class="">Deze punten zijn opgeschreven om een duidelijk beeld te krijgen van wat wij nog moeten doen in de tijd die we hebben en alvast vervolgstappen als wij er niet zijn. Het liefst zou ik natuurlijk een compleet platform inleveren, maar dit is qua tijd en resources niet mogelijk. Hierdoor gaat er gewerkt worden naar een werkend proof of concept wat kan toewerken naar een compleet werkend platform. </p><p id="0fae9b21-e0c3-4ed8-bf90-268fbd3ea145" class="">
+</p><p id="8877c1e9-8349-42d9-8713-99b069a5f692" class="">Omdat we nu visueler willen gaan werken en meer creatief bezig willen zijn gaan we de komende week weer los van elkaar werken aan concepten. Zodat we hier kunnen gaan kijken hoe dit goed kan en hoe we dit zo effectief mogelijk kunnen neerzetten. En hiernaast willen we kijken hoe we het concept op zo&#x27;n manier kunnen neerzetten dat het doel goed naar voren komen en aansluit bij de vragen etc. </p><p id="569110ac-c15d-451c-9f95-c38f07a37572" class="">
+</p><p id="3e187b23-de82-4a0b-981a-3abc3411a733" class=""><a href="Week%208%20ce1716c87f0c4b609720eb122ac1ab98.html">Week 8</a> </p></div></article></body></html>

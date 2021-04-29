@@ -1,0 +1,661 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Concepting</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e334bbde-2331-400d-b0d5-833df6986a9c" class="page sans"><header><h1 class="page-title">Concepting</h1></header><div class="page-body"><p id="ee4ee8f5-14a9-4f34-95b2-46d7fc4dd62c" class="">
+</p><p id="86b92370-97d2-4904-ada8-0f93e52a7704" class="">concepting:</p><ul id="b841c961-d08b-4548-9d54-63838a9c90c5" class="bulleted-list"><li>naam concept</li></ul><ul id="9fc13723-4171-40da-a175-5ee0b8cd3b79" class="bulleted-list"><li>half a4 verantwoording</li></ul><ul id="96e21833-f6d8-4910-8d38-2d01e92badc2" class="bulleted-list"><li>moodboard</li></ul><ul id="5256d7e5-996c-44b3-bb12-dff5cfb941f2" class="bulleted-list"><li>visualisaties</li></ul><ul id="f472fc9c-ce96-4606-b2f8-be40aa7015a7" class="bulleted-list"><li>fases</li></ul><ul id="7eb401f3-8ac0-4b7e-b584-0dceb0606ddf" class="bulleted-list"><li>3 concepten pp.</li></ul><p id="703e215e-a031-449f-a04a-3b7f53e0fc02" class="">
+</p><p id="578ff2c4-5b25-4d96-bb69-f3cea495598f" class="">Concept ideeen:</p><p id="c59e28ba-35e6-401e-9746-a177377cd49f" class="">Grow concept (?) groei concept</p><p id="2faa81eb-f958-48ac-9d93-600e2493c64c" class="">explosie?</p><p id="fbaae6d6-b399-4655-a5ea-05e486691478" class="">Roadtripping?</p><p id="14f90795-6f04-45f3-b64b-291ae6502212" class="">Varen</p><p id="2732d022-9e90-42ad-890e-f901912e367f" class="">
+</p><p id="45eef208-849b-49c7-97be-4203d77a9a5f" class="">Wat wil je bereiken met een goed concept?</p><p id="9cb6813f-546f-42c2-85a4-bc44f03caebc" class="">Je wilt zorgen dat het verhaal dat je overbrengt, duidelijk de fases naar voren laat komen en dat het je proces duidelijker maakt. Hoe kun je dit doen?</p><p id="26a6f7d4-988a-4dc4-b52a-b5be8b5f7aa4" class="">Je wilt dat je concept aansluit bij het verhaal en dat het achter je verhaal staat. Je moet dus een concept hebben dat de stappen duidelijk maakt. Zo&#x27;n concept houdt rekening met vormgeving/huisstijl/icons/verhaal/customer journey etc. En zal dus overal bij betrokken zijn. Je wilt niet dat dit de behoefte weghaalt. </p><p id="d5edbd94-bf48-4da7-b7b2-17199a35842d" class="">Goede onderwerpen zouden kunnen zijn:</p><ul id="87253b02-4aaf-4a48-a2c3-03a6276ca805" class="bulleted-list"><li>Iets waardoor growth naar voren komt</li></ul><ul id="d786d2ba-39ac-42e0-8d08-1f94e4dd0e09" class="bulleted-list"><li>Iets met Boom erin </li></ul><ul id="8098f36e-fd50-4804-8136-91023cff2de7" class="bulleted-list"><li>Roadtripping/schatkaart</li></ul><ul id="83860aed-aa55-49ea-8410-a513a81b4ce9" class="bulleted-list"><li>Bootvaart</li></ul><p id="bfbbd1ee-1ae2-4d6f-bda6-300517a15405" class="">Iets wat voor een reis staat, Route to the top?, Roadtrip naar een duidelijk einddoel met verschillende fases?, Routeway, Way to succes, Wat kun je nog meer als een reis zien? een bloem worden, een volgroeide plant. een meal, een korte treinreis. Wat straalt hier innovatie uit? </p><p id="cff171ae-246d-4a23-9a72-ae4750c3be3e" class="">En waar zitten fases in. Wat is origineel?</p><p id="6d11bfac-8a97-493d-8b8e-8a90d539a113" class="">er </p><p id="3023023a-bd92-47e6-b69a-f68d2fa7de44" class="">Wat is iets waar je niet perse tot een eind punt moet komen? maar waar je kan blijven doorgaan? roadtrip?Meer een onderzoek door bijvoorbeeld de oceaan. Dive in the deep, Groeiende </p><p id="7f2abeba-19b9-4339-bfcf-2119b9c55513" class="">
+</p><p id="21c2382e-8654-42b6-880e-5941fdfd9d4a" class="">Het groeien doortrekken, en dan op de abstracte manier, help create your own path, design your eigen pad? Eigen pad ingaan? en dat dan abstract, dit is tering saai, wat the fuck is dit. Ik wil niet meer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </p><p id="8436893d-317c-4a7f-805a-361a7276e1e7" class="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </p><p id="988e4c68-bedc-4125-9552-634171dd2d7c" class="">Abstract je pad laten kiezen: ???, zelf je weg kiezen. <div class="indented"><p id="ccf184b9-d1f7-4c51-8d35-10d75d688d54" class="">Hoe ga je dit visualiseren?</p><ul id="5db71099-6e16-4843-83dd-3a1a878b701e" class="toggle"><li><details open=""><summary>Modeblad ofzo? stemmings bord</summary></details></li></ul><p id="c18c618b-5420-40ed-ba75-524e4f65d39d" class="">Ik blijf gewoon typen totdat het lijkt alsof ik iets gedaan heb dat nuttig is.</p><p id="a1e1f7fa-6882-465a-852e-a3de12bcb7f4" class="">Hoe ga je dit noemen?</p></div></p><p id="07073a58-18f9-4b90-90d3-619698e68dbf" class="">
+</p><p id="5e9b84b2-7247-49e9-899b-cc26836490b8" class="">Oke maar real talk. Je wil gen 2 goede ideeën hebben. En je forceert jezelf tot creatief zijn. That shit don&#x27;t work honey.</p><p id="cffc8f3d-0597-4aa1-aab0-6adffbb76979" class="">Tf is een concept eigenlijk...</p><p id="098cdc2c-4b19-4cfd-9951-5ebbb0f43511" class="">https://medium.com/artscientist/the-concept-of-the-concept-of-a-website-95487d112643</p><p id="3d0b7998-aa7b-4753-947a-3b02c9c30979" class="">
+</p><h2 id="1f2fe5bf-9ba8-4170-a4c4-6302601326ee" class="">Het groei idee</h2><p id="bd8a4558-1e1a-443e-9a38-4c1f1b77ae6e" class="">Een letterlijke interpretatie van &quot;Greenhouse&quot;. Projecten beginnen als zaadje, een idee dat kan uitgroeien tot een complex project met de juiste toevoegingen en aandacht. De projecten bevinden zich bij elkaar in de vorm van planten. Hoe groter de plant. Hoe complexer of groter het project is. Voor inspiratie kan met een wandeling maken door het Greenhouse om ideeën op te doen en andere projecten te bekijken.</p><p id="fa01fd33-1f5a-46a5-9cd5-be65b9e71a1b" class="">
+</p><h2 id="d85b69e3-0151-4fd9-8f9d-9a15a0bffa2c" class="">Overige ideeën</h2><ol id="3c79ed8a-1d56-40de-bcb4-6d85dbee0711" class="numbered-list" start="1"><li>Gamification</li></ol><ol id="d6decf2e-7005-48be-b552-0944d2d2a365" class="numbered-list" start="2"><li>Avontuur ofzo?</li></ol><ol id="3b86ff50-a09b-4bde-8ee3-8766fd1cd472" class="numbered-list" start="3"><li>Dromen?</li></ol><ol id="f5e0cf3a-ef41-4bf7-938e-63f3980b52e1" class="numbered-list" start="4"><li>Startup simulator?</li></ol><ol id="9fe7cedc-05e6-4bea-9ca6-3a7e93792b47" class="numbered-list" start="5"><li></li></ol><p id="6624f3a2-45ce-44bf-b0d5-e3209cee031b" class="">
+</p><p id="543f62a4-c656-4373-86f6-d0c0a84f6bb6" class="">
+</p><p id="5a226887-dcca-4af3-9213-d889a174720c" class="">
+</p><h1 id="6a47cabf-3144-46f1-a595-694179a5330b" class="">Groen Concept??</h1><p id="a62aee27-77a0-4e5e-adfb-fbc16b8e11fa" class="">
+</p><p id="a804c8db-6a55-48b6-b235-b5a79be2cb84" class="">Een van de eerste gedachten die bij mij en ik denk ons opkwam is het groeien van ideeën. Je kan dit net als het Boom proces letterlijk vertalen naar bijvoorbeeld een raket en in dit geval planten en groen. </p><p id="b7c0062c-9a97-4427-9269-cd3853a48438" class="">Projecten beginnen als een zaadje, een idee dat kan uitgroeien tot een complex project met de juiste toevoegingen en aandacht. De projecten kun je zien als groeiende projecten en dus bijvoorbeeld als planten, hoe groter de plant, hoe complexer of groter het project is. Voor inspiratie kan men een wandeling maken door bijvoorbeeld het &#x27;Greenhouse&#x27; om ideeën op te doen en andere projecten te bekijken.</p><p id="731bf2d2-cba9-4eba-b522-56ceec8b00f8" class="">Projecten beginnen als een klein idee. Een idee dat kan uitgroeien tot een complex project met de juiste begeleiding. Het doel van dit concept is de focus leggen op het opstarten en uitbreiden te visualiseren. En dit als het ware letterlijk te nemen door het te zien als planten (?) die groeien. </p><p id="08877808-bb67-4d89-9ed1-50bcdb234799" class="">Door de aandacht te richten op het ontwikkelen en laten groeien van ideeën verlaagt het de gebruiksdrempel om ideeën door te ontwikkelen. </p><p id="cdb89184-da1b-4594-8c96-b45078e0bb3a" class="">De hoop is dat deze cyclus  er voor zorgt dat mensen gemakkelijker en vaker hun ideeën met anderen kunnen delen. Om dit ook echt uit te voeren moet openheid en gemak van communicatie voorop staan. </p><p id="67c77105-a84a-4b65-a024-2096c996337a" class="">Het kan corny zijn om het helemaal letterlijk te gebruiken dus het is ook mogelijk om bijvoorbeeld het groeien doormiddel van groen om te zetten in iets abstractere voorbeelden. Zie plaatje hieronder. </p><p id="ff17ec9d-0f80-447b-9256-fcc1d1806b32" class="">De fases kun je hier gemakkelijk in terugzien door verschillende groeifases terug te laten komen, je kan dit heel letterlijk nemen en van een zaadje een boom maken of zoiets maar je zou het ook abstracter kunnen vormgeven. </p><p id="00d6ea52-60e2-4deb-824b-a6907999ec12" class="">Functionaliteit gericht op het groeien en dit doorspelen naar de functies, betalen in groei, of dit simpel visualiseren. Een logo dat groeit wanneer je bezig bent. Hoe verder je bent met een workshop, hoever in het proces. </p><p id="cadb0f83-c387-42a1-9dd3-6a4e8041a982" class="">
+</p><h2 id="7aa10830-740a-477c-a880-27b6d760d2a6" class="">MoodBoard</h2><figure id="15ee03d2-33f6-4e0a-84fb-a17c69c5a40a" class="image"><a href="https://cdn.staticneo.com/ew/thumb/d/d6/Gris_Ch2-1.jpg/662px-Gris_Ch2-1.jpg"><img src="https://cdn.staticneo.com/ew/thumb/d/d6/Gris_Ch2-1.jpg/662px-Gris_Ch2-1.jpg"/></a></figure><div id="4bf70cd2-f673-49d8-985d-8156783b289c" class="column-list"><div id="9c58e212-f7d9-490c-9329-c5beabda2a68" style="width:33.333333333333336%" class="column"><p id="efd52d0e-5588-4c55-a324-e378f778444b" class="">
+</p><figure id="574fe100-b9c6-4e58-9c31-bfa1b5bcde8c" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Untitled.png"><img style="width:2560px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Untitled.png"/></a></figure></div><div id="23a585c8-082a-476c-a217-e239ae0e10ee" style="width:33.333333333333336%" class="column"><p id="6459726a-86e5-4ea2-b243-5ee1594da16b" class="">
+</p></div><div id="013f2054-31a1-4ab3-b154-b118f7ddbb7d" style="width:33.33333333333333%" class="column"><figure id="8f83fc17-f56a-4041-8702-d1bc79f01dfe" class="image"><a href="https://image.freepik.com/free-vector/generative-branch-growth-pattern_1217-1823.jpg"><img style="width:240px" src="https://image.freepik.com/free-vector/generative-branch-growth-pattern_1217-1823.jpg"/></a></figure></div></div><p id="b6bfb387-d84b-42f4-8be2-7f985074dbc1" class="">
+</p><p id="90e66cb1-aef9-4871-a11d-b2152c239018" class="">Qua uitstraling en gebruik zie ik veel key features uit de bovenstaande foto&#x27;s terug. Planten en groen geven een natuurlijke uitstraling. Terwijl de versimpelde/gestileerde vormen de interface nog wel overzichtelijk houden. Op het gebied van interactie kunnen de text en groepelementen van Discord goed samen gebruikt worden met het browsen op spotify. Hierbij krijgt de gebruiker tijdens het zoeken naar projecten nette slideshows te zien om een idee the highlighten.</p><p id="c4a2caca-93b9-4631-8c6b-bd408647559e" class="">
+</p><p id="2620a86b-72c6-4db5-a99f-f49bf5c0836b" class="">
+</p><h2 id="06ad6215-7636-4f93-bac1-9156675f3a34" class="">Visual</h2><figure id="90f2048d-d763-4e1d-af01-abc8470a9461" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_20.13.22.png"><img style="width:720px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_20.13.22.png"/></a></figure><figure id="76a697bc-d7f5-415a-b785-95badbb62569" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_20.08.45.png"><img style="width:672px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_20.08.45.png"/></a></figure><h2 id="111a5e01-ef2d-4957-9e0f-91b2ba8f3728" class=""></h2><p id="37147f4f-0538-4dd0-a211-ea4333e1d78c" class="">
+</p><h1 id="53f26cd4-26a8-4d1f-8960-731708636c30" class="">You need us!</h1><p id="346080be-df4b-4c7d-804d-5d4bf91818c5" class="">Dit idee kwam eigenlijk een beetje bij de presentaties naar boven, want de ondernemers gaan ons echt nodig hebben  en dit kunnen we &#x27;misbruiken&#x27; en hier ons main verhaal van maken. Wij kunnen duidelijk maken dat wij de juiste ingrediënten hebben om hun verhaal over te brengen. </p><p id="591a77aa-4b94-4c76-b712-e9d7d085217e" class="">De essentie van dit concept is aan de ondernemers laten zien dat zij ons nodig gaan hebben en wij hun, door de juiste ingrediënten te bieden kunnen wij hun helpen. Het is dus belangrijk dat er naar voren komt dat doormiddel van de juiste ingrediënten en samenwerkingen je verder komt dan zonder. Hierdoor wek je vertrouwen bij de ondernemer </p><p id="c8b35603-876b-422b-b162-fdde940aa718" class="">Zo breng je ten eerste over dat zij ons nodig hebben en kun je snel de switch gaan maken naar wat wij hiervoor aanbieden. Om het gevoel van kennis en een professionele service over te brengen wordt er vaktaal gebruikt in de teksten en bevinden zich er veel call to actions om aan de slag te gaan. Dit zorgt voor een hands-on gevoel en zet aan tot ondernemen.</p><p id="f9228333-4d43-4b60-b4bf-069d74cbf04d" class="">Je kunt op dit op verschillende manieren verwerken. Ten eerste kun je dit heel letterlijk maken en de juiste &#x27;ingrediënten&#x27; pakken om met een goed concept te komen. Ten tweede kun je dit heel abstract maken en dit met lijnen en vormen proberen duidelijk te maken. Nog een idee hiervoor is om dit met bijvoorbeeld puzzelstukjes te toen, om aan te geven dat wij het missende puzzelstukje zijn. En dat wij de juiste puzzelstukjes aanbieden om je idee/start-up succesvol te maken. Of je brengt het zo dat het incubator team dit aanbiedt. (Dit is meer een voorbeeld voor een ingrediënt als metafoor zien ofzo&#x27; Iets wat me hier wel leuk bij lijkt is de zin jump in to it verwerken. Dit voelt wel toepasselijk met de manier om voor call to action te zorgen. </p><p id="b4a3fc3b-7d23-4ad7-8a36-604d031c7eb3" class="">Support is een belangrijke factor in dit concept. Het zo makkelijk en toegankelijk mogelijk maken helpt een zo breed mogelijke groep mensen met het opzetten van hun startup.</p><p id="3ea349ed-174a-4858-9b4d-bb1e70a50fa0" class="">Dit is wel cool maar niet van mij :(:</p><p id="d0625159-6d4c-447d-a36f-6b08ae11bdae" class="">Ons neerzetten als het missende puzzelstukje. Dit doorspelen en functies zien als een puzzel. </p><p id="103ef376-1e4c-4dc7-b53d-2e1d7a58c89f" class="">fases doormiddel van puzzelstukjes die in elkaar passen. Ontwerpspiraal, goed inzicht in wat er gaat gebeuren. </p><p id="c3b320c6-e60e-4d2e-8ee7-295b64414931" class="">
+</p><p id="690ec941-a044-4c3a-8bdf-afbf620d16a7" class="">Jump into it: </p><p id="7761a8ff-8c94-403b-888d-fc7f3d458221" class="">
+</p><figure id="e53c2e26-48d6-413f-acc0-8e5e72a1655c" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Untitled%201.png"><img style="width:626px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Untitled%201.png"/></a></figure><p id="7bc8ffa5-51ef-4c61-b52c-c48e77c5c81e" class="">
+</p><p id="1178685e-e3e0-4764-98e8-a6c8a5f006c6" class="">
+</p><p id="e749268b-012c-403b-809f-0f17541e8dec" class="">                                     </p><p id="a83817fb-3313-45bf-9ce1-b77dde280f95" class="">De site zie je als een integratie van de ontwerp spriraal. Veel signaal kleuren maar wel modern minder hard. Gebruiker doorloopt de spiraal als start up. Tegelijk forum Functionaliteiten over verschillende markten of business cellen.</p><p id="0deb0432-2203-452a-8615-508e98d407ef" class="">
+</p><p id="8607f4b5-b989-402a-9daa-1e63150af1ac" class=""><a href="https://www.freepik.com/premium-vector/set-web-page-design-template-startup-business-company_7951794.htm#page=1&amp;query=innovative%20webdesign&amp;position=5">https://www.freepik.com/premium-vector/set-web-page-design-template-startup-business-company_7951794.htm#page=1&amp;query=innovative webdesign&amp;position=5</a></p><p id="495e9426-3fcd-4e8b-a6ea-7390659979e0" class="">
+</p><h2 id="77c11a10-7b53-4772-9009-4d99374ead24" class="">Visuals</h2><p id="0c017eb7-a95c-47ee-8f5f-7fd642bdefec" class="">
+</p><figure id="76223f9d-4a86-4383-bf42-d397950b3afe" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-29_om_10.33.27.png"><img style="width:1066px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-29_om_10.33.27.png"/></a></figure><p id="96d0ce5a-f2ae-4cd5-b544-fe0b7335b7fa" class="">
+</p><figure id="94a5b3c2-b366-4135-bbb4-2eb0d6b3a0cc" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-29_om_10.37.36.png"><img style="width:1184px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-29_om_10.37.36.png"/></a></figure><h2 id="68211bd9-b829-4dca-98b1-d334bcf85d7a" class="">Journey Concept</h2><p id="a71479f9-c97c-4970-becc-3cad5735fdb4" class="">
+</p><figure id="f60f264b-6660-4e11-811b-6c67be6efee5" class="image"><a href="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_19.57.35.png"><img style="width:1282px" src="Concepting%20e334bbde2331400db0d5833df6986a9c/Schermafbeelding_2021-03-28_om_19.57.35.png"/></a></figure><p id="21c80ae8-484f-48fa-b162-1c346bb02e11" class="">Freedom is something that allows people to express themselves. This concept aims to highlight and elevate those feelings allowing for greater ideas and better startups. Freedom to create whatever the customer wants is central to this concept.</p><p id="8a044577-0f96-467f-83d9-58bf50fd1115" class="">When it comes to tool we let the user figure it out themself past the basic introduction. This increases the feeling of success and in turn increases productivity. This hands-off approach is great since it increases the overall efficiency. However it might have a negative impact on users that don&#x27;t have any experience at all.</p><p id="0f83c1bc-1c49-43c3-b8bd-d83d93602cfb" class="">The user journey plays a large roll in this concept. By allowing users to discover and try elements by themself. We stimulate their own curiosity and journey on the platform. This allows for more unique ideas and projects. </p><p id="9ae30a36-f48c-44ed-b9ee-21a246a7ac20" class="">Een reis zonder bestemming, om te laten zien dat er geen einde is. </p><p id="4faf4e01-30d3-419a-90d7-8b7eb68ed384" class="">Duidelijk een reis laten doorspelen, hoe kun je dit visualisern</p><p id="5f61f1d2-a249-45b4-af1b-9f5332a47919" class="">
+</p><p id="8c5bee5b-3f40-43f4-aa90-a96e5b825ac2" class="">
+</p><p id="1f32a468-c4cd-47fa-8ec7-6f42452508af" class="">
+</p><p id="c3a63c4b-9888-48ed-92b7-8ea581b0cdcd" class="">
+</p><p id="a4cbfac3-a893-41cb-bece-0a770134842a" class="">Wat voor programma om te prototypen:</p><p id="8982632e-95b4-451a-ad9e-20a3804632ea" class="">sketch.com</p><p id="a92331a0-9c68-48bd-a02a-abeadf8b166f" class="">adobe xd</p><p id="841924ac-b262-4282-bb37-6c8198f5dd12" class="">offers a vector-based system for putting together prototypes, including tools for creating interactions, transitions, and other types of dynamic functionality. Because it’s vector based, scaling and resizing elements is no problem.</p><p id="8f940931-a42b-451a-9f00-5cdb7aabd1c6" class="">Adobe XD work well alongside other Adobe family apps like Illustrator and Photoshop. It’s nice to be able to edit Adobe images, like a .psd, right in the application.</p><p id="318038b1-6a19-4e06-99e5-ce2ec49cfb08" class="">invision studio</p><p id="244cee2b-95bc-4a38-b0cd-bb660af49dda" class="">With a host of well-designed tools, InVision gives designers the power to put together functional prototypes quickly and to share them with others. It offers so many nice features, including a handy vector drawing tool, repeatable components that can be changed sitewide, and tools for creating animations and other dynamic visual effects.</p><p id="7c51b397-3f3f-46b5-b00f-4b2bbda2b0c4" class="">Collaboration and communication are also strengths of InVision. Freehand lets team members draw, add notes, and offer feedback. And through LiveShare, a prototype can be demonstrated with full interactivity. InVision makes it easy for team members to stay connected and work together throughout the course of a project.</p><p id="518b4711-52ee-4635-b5fb-b17b4413e6b7" class="">axure</p><p id="f5e6beb2-06ca-408f-9e85-4f3b6959103b" class="">too complicated lmao</p><p id="47adadc8-5ff1-44c2-9020-b674b9c56d7b" class="">proto.io</p><p id="8498dd67-f631-4574-90f9-ffea08640801" class="">balsamique?</p><p id="85955b76-c882-49cb-82a2-24bda78b1956" class="">Balsamiq is a low-fidelity wireframing tool. While it&#x27;s not necessarily designed specifically for ready prototypes, like some of the tools mentioned above, it is a great place to create website wireframe mockups. But it can be used for more than just websites. Balsamiq is great for sketching product design, web apps, desktop software, mobile apps, and user interface wireframes.</p><p id="54f718fc-2314-4e5a-bc34-c58198e70d9b" class="">
+</p><p id="32a87f1b-c714-4f2f-a7cd-ea8dbe4d0151" class="">
+</p><p id="bf529eef-c2c6-42ca-a8d4-5e58c1f05efa" class="">
+</p><ul id="66ad1f77-4972-42db-b6fd-75f5ba5781a6" class="bulleted-list"><li>Losse visuele dia&#x27;s maken</li></ul><ul id="9c3e38db-44ca-46cb-8ae0-bdae5c4be403" class="bulleted-list"><li>Duidelijke criteria voor onszelf opstellen</li></ul><ul id="22ec6671-c68f-4411-842c-ca1f5a1ab654" class="bulleted-list"><li>Onderscheiding maken tussen goede concepten en kleine ideeën. </li></ul><ul id="f1a194e5-663b-41be-83da-e1f79b338de4" class="bulleted-list"><li></li></ul></div></article></body></html>

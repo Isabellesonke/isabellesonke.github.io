@@ -1,0 +1,645 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Scheiding op het platform</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="920e41de-18d1-4c06-a9ad-409cbb65aa1c" class="page sans"><header><h1 class="page-title">Scheiding op het platform</h1></header><div class="page-body"><p id="3c217a9a-54ab-4151-b09b-212a7ad735ed" class="">
+</p><p id="3b4f9b76-2ed5-4720-9467-d368849a30f3" class=""><strong>Scheiding in het platform</strong></p><ul id="0bf75132-09d9-4474-8bfc-23180cfb087f" class="bulleted-list"><li>Is hier een inlog bij nodig?</li></ul><ul id="76472eda-a0d0-4a1d-9c3d-ccaccd0be3e4" class="bulleted-list"><li>Wie kan wat zien?</li></ul><ul id="f303c8bf-407b-4880-bf78-5396f833e171" class="bulleted-list"><li>Hoe zien twee verschillende schermen eruit?</li></ul><ul id="c20aaa20-a7a2-44a3-be75-7cc756ff84b2" class="bulleted-list"><li>Wanneer mag je naar de andere kant van de scheiding?</li></ul><ul id="77b6c4b5-bd68-4642-a8e0-7c4cb380dde6" class="bulleted-list"><li>Pagina met uitleg van het platform het nut, en hoe moet je dit gebruiken?</li></ul><p id="d82e1e64-b791-4556-856c-ea2e3f231db8" class="">
+</p><p id="f3751680-01dc-4414-adbb-47745e24a73f" class="">Waarom?/verantwoording</p><p id="cc42be9d-c6a8-48a0-8954-966c077fcaac" class="">Uitwerking</p><p id="83f8c5c1-6686-4dd4-89cd-481c07b97d25" class="">Doorloop</p><p id="5bf68e37-ba83-40d4-a6a8-e1c32f4654e8" class="">Opties</p><p id="740706ae-d7d7-4674-8b4f-7555d3f1286d" class="">Wat voor input heb je nodig?</p><ul id="37e05b2d-2cb8-4ca0-8795-e349ea89f88c" class="bulleted-list"><li>Hoe kan dit innovatie</li></ul><ul id="6688e155-9ae8-47ea-97e8-3de63a27b209" class="bulleted-list"><li>Wat moet er allemaal in de functie?</li></ul><p id="256a881b-b3dd-45ab-9687-c799663f689a" class="">
+</p><h3 id="d888209e-dae2-463e-9757-d6fda7288bb2" class="">Waarom/verantwoording van een scheiding in het platform. </h3><ul id="7211bc4b-afc9-4c60-8e3b-6b3ded2b99e6" class="bulleted-list"><li>We willen de drempel verlagen</li></ul><ul id="fd845fc5-c9c9-4d3f-bb21-1725bbd24f0f" class="bulleted-list"><li>Mensen moeten willen terugkomen naar het platform</li></ul><ul id="bfb047cf-05d3-423d-8ef9-142b3706ce39" class="bulleted-list"><li>Er moet een duidelijke structuur zijn</li></ul><ul id="95fc3524-854c-4396-a4dc-28d4eeb8397f" class="bulleted-list"><li>Er moet verschil zitten in een casual gebruiker die wil kijken wat het is en wat het doet en iemand die daadwerkelijk begeleiding nodig heeft. </li></ul><ul id="08527207-42a6-4e5b-bbfb-0000dee21bb5" class="bulleted-list"><li>Niet iedereen zijn pitch wordt doorgelaten, niet iedereen heeft toegang nodig/mag toegang hebben tot alle informatie. Anders kan iedereen alles &#x27;stelen&#x27; </li></ul><h3 id="ddc241fb-6d2a-4f62-ab64-c03958000296" class="">Wat moet er deel uitmaken van de functie?</h3><ul id="d1aea65f-6070-4bb3-a45e-6f7ea82331bf" class="bulleted-list"><li>Een main pagina</li></ul><ul id="aad26b89-26a3-43a8-a640-707791e6c695" class="bulleted-list"><li>Een pagina met informatie</li></ul><ul id="081c3271-177f-49a6-a1c7-d0bfb8f50340" class="bulleted-list"><li>Een inlog</li></ul><ul id="56f30c0b-22ea-4e64-ac39-68092cf0ec7c" class="bulleted-list"><li>Van te voren moet de pitch procedure er zijn, en wanneer deze succesvol is doorlopen kan er een inlog aangemaakt worden. </li></ul><ul id="1faaf8d8-2cf9-4d6c-9426-337be90327dd" class="bulleted-list"><li>Een pagina met informatie over wat het profijt is van meedoen met de open incubator. </li></ul><p id="751c8b9d-5a1b-4b48-8242-3d4b4f7fed83" class="">
+</p><h3 id="0ee8c616-d3b5-47ea-9ba2-fcb878971095" class="">Doorloop</h3><p id="7e7bac54-d943-4d0a-af4b-b5a043a62481" class="">Wat ik nu voor me zie is deze optie:</p><p id="8685aa2b-99d9-49e5-be46-2a108d6ca9a8" class="">Je komt op de main page, hier zijn meerdere vervolgstappen op te nemen. </p><ol id="015e7f8b-f129-41d4-bb2e-69a801b45e08" class="numbered-list" start="1"><li>Je kan naar een pagina met informatie over het proces en over het profijt ervan. <ol id="c9e0399d-a5b3-4b81-be64-6394df5275cb" class="numbered-list" start="1"><li>Hiernaast is er mogelijk een voorproefje op de begeleiding die je gaat krijgen, dus je krijgt informatie over hoe je het pitchproces in moet gaan. <ul id="3aeab7d7-38ec-426c-9e7c-2e90eabdbc77" class="bulleted-list"><li>Zo krijg je de juiste begeleiding maar is er nog niet volledige toegang tot alle informatie</li></ul><ul id="33c63d7d-2d05-40ca-a539-d1408a99b52a" class="bulleted-list"><li>En zo creëer je wel structuur en een voorproefje voor wat er komen kan. </li></ul></li></ol></li></ol><ol id="f3eab421-ac28-41c6-84d7-f3d984692979" class="numbered-list" start="2"><li>Je kan de pitchprocedure doorgaan. </li></ol><ol id="43d9e3b7-68dd-46a7-8309-cc342ede5ea9" class="numbered-list" start="3"><li>Wanneer je deze pitchprocedure bent doorlopen mag je een inlog maken en kun je dus naar de main pagina voor het volgende deel. </li></ol><p id="fccad2b5-2066-48ce-964b-01827846218e" class="">
+</p><ul id="c45f98d3-480b-4e97-82e4-1c328e71a088" class="bulleted-list"><li>Main pagina is iets wat hier belangrijk voor is. </li></ul><p id="6dcefaf1-a825-4385-9586-4dbb980f2df8" class="">1st mogelijke doorloop:</p><p id="0182925e-4cd7-4ed0-8fe1-f11d90a6bf81" class="">Main page → Keuze menu naar pitchprocedure<div class="indented"><p id="313bfe92-a183-4585-aa54-ec5a4a118d4b" class="">             →Naar informatie over profijt/proces<div class="indented"><p id="289ed078-2b87-4410-80b1-81922d236fca" class="">       → Naar informatie over het pitchproces/formulier voor het       pitchproces doorgaan</p></div></p><p id="7523b03f-a524-4987-8da1-0d3752f38630" class="">
+</p></div></p><p id="3c1cf710-c6d8-4ac0-b6fe-06bfd4ae1f8a" class="">→ Het pitchproces doorlopen en een inlog mogen maken/krijgen</p><p id="50a4f58f-1650-4435-acbc-4a81941ece6d" class="">→ Inloggen</p><p id="e17d6e44-2fab-4267-94fc-47a7655faa8e" class="">→ De main pagina voor de begeleiding en in het platform mogen. </p><p id="d6770710-0b75-4ed3-9117-67f8d035d5c5" class="">
+</p><p id="8611c4f2-bc7f-4aa1-ab85-611e268f9a2f" class="">
+</p><p id="b22aac30-fbe6-4819-9b34-c057e6a3dc4b" class="">Mogelijke doorloop:</p><p id="51e480b2-0691-4dd5-9004-9132970d8e50" class="">Het belangrijkste is dat niet iedereen toegang heeft tot alle informatie maar dat hier wel de juiste informatie gegeven gaat worden om succesvol de pitchprocedure door te kunnen. </p><p id="0d14901d-5c43-4b11-9011-45ce7f84144d" class="">
+</p><ul id="55f2e75c-81ff-4ac6-8932-815e5ff315fb" class="bulleted-list"><li>Ook voor wat representatie zorgen voor buitenstaanders. </li></ul><p id="ab144fca-1494-497a-bccc-5530a9199353" class="">
+</p><p id="9a3f03e8-fc55-4604-99da-b1088a2ab775" class="">
+</p><p id="dad5bc23-b3d1-4a26-9c13-26b98c671383" class="">Wie kunnen het gebruiken?</p><p id="6b714d2a-1fc6-4c0b-bc5e-8b110c03d9a9" class="">Wat voor input is er nodig?</p><p id="3e7ba9f6-9abc-4a0d-92b9-0537c11c27de" class="">Een duidelijke beschrijving van elk benodigd punt?</p><p id="7b71e97f-7562-4912-99f5-32bcfdf4bb9d" class="">Hoe kun je hier een customer journey van maken?</p><p id="9784d70b-564c-42a3-88e7-10bb24fcb1a6" class="">Hoe kunnen de fases hierin verwerkt worden?</p><p id="ba8e3d1b-4af5-424e-bf9e-bca041abea9a" class="">Elke stap verantwoorden?</p><p id="b9fc540f-6991-487d-b42e-ed882e67bec9" class="">
+</p><p id="0d43b4d4-2f02-4383-bd14-f41e08d8fa48" class="">
+</p><p id="defed095-b4b2-4915-9d31-2018a92d4aad" class="">Wie gaan het gebruiken:</p><ol id="8137a464-426b-471f-8e9b-0f015553fa96" class="numbered-list" start="1"><li>De ondernemer die de pitchprocedure in kan gaan. <ul id="e35196da-7419-4381-a3f1-d0107fe7e7f1" class="bulleted-list"><li>Wat zijn de behoeftes/benodigdheden:<ul id="7ec43b52-ebc0-452e-a087-cf0ff289c207" class="bulleted-list"><li>Kunnen inzien wat er met de open incubator kan</li></ul></li></ul></li></ol><ol id="16c8874a-3b00-4cfc-8d83-4f91b91b62bc" class="numbered-list" start="2"><li>De gebruiker die niet in de eigenlijke doelgroep valt maar wel gebruik wil maken van een deel van de functies; in dit geval zien wat er is en wat er mee kan. </li></ol><p id="c01d3bf8-7c0d-40fe-b3df-54c2e92a5711" class="">
+</p><p id="341aab68-1987-4796-816c-ba7dcb93460a" class="">
+</p><p id="7a2f8bff-db05-4a17-8b5c-a5d0d9c4d7e6" class="">Pitch procedure: Het in kunnen gaan van het proces, het juiste formulier invullen</p><p id="6021559f-322a-411b-85c8-1e914efd0086" class="">Profijt/proces: Een duidelijk overzicht van hoe het proces verloopt door het platform/het incubator proces en wat het profijt er van is met verantwoording. </p><p id="8c00c21e-a2b6-4629-bb63-70cb91cc87aa" class="">Informatie pitch: Zorgen dat ondernemers informatie krijgen over wat er te verwachten valt tijdens het proces. </p><p id="0e9c3be5-c204-4a60-b7f6-433394befc06" class="">Cases: Een selectie van random cases voor buitenstanders om te zien.</p><p id="c4f57dbe-b814-43f8-9f84-f058e503b04f" class="">
+</p><p id="ef328638-2dc3-4d2f-a785-2026aa907447" class="">Qua fases zou ik dit echt zien als in de startblokken staan en het voorbereiden. Het idee voor dat de race begint. Wanneer je erdoor bent ben je begonnen met het rijden en kun je de volgende stappen zetten. </p><p id="653966a5-2c1d-4c65-aeaf-0513380e0479" class="">
+</p><p id="6bd842cf-88ee-48f5-9da0-246f32caa25f" class="">
+</p><p id="d8f30d2c-353a-437c-91f5-d788ec2e394c" class="">Een paar uitwerkingen via illustrator? MEt functies en knoppen en layouts die nice zijn voor de functie van de scheiding. </p><p id="4da5f9ef-c303-4abb-8e25-a39d77808f5e" class="">En dan 1 hiervan deels uitwerken via xd</p></div></article></body></html>

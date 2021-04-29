@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Benjamin Pomerleau</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b8f1d2e1-9305-4b11-b087-bfe732ae5eba" class="page sans"><header><h1 class="page-title">Benjamin Pomerleau</h1></header><div class="page-body"><p id="eb02e6cd-9086-40c2-85fb-b16ddec176e0" class="">Notes interview:</p><p id="2a2fce5a-34af-4365-9f7b-794822390ec8" class="">0:00: inleiding, concept of what we are doing. </p><p id="daff984f-708b-4ca0-b80b-7b88635babf1" class="">1:30 What are you doing?</p><p id="90d2a6ef-6ad1-4462-914a-b3737bf59905" class="">he&#x27;s been working on a technology in Denmark that can spark trends in industries by basically, all language based performance. </p><p id="0dab09cd-edcc-4b30-84e1-b23e7126b633" class="">7:10 What is your title</p><ul id="84ccef13-fd79-4939-a502-6abbaff627bd" class="bulleted-list"><li>productowner</li></ul><p id="ae139942-2396-4589-bedd-ccf1769ae36c" class="">7:30 What do you think your next step will be?</p><ul id="0bbd8ae6-e7e6-4973-8604-1ad4c71ca7ce" class="bulleted-list"><li>Technical part</li></ul><ul id="40fc2353-7830-41ee-a2e7-65a804afcc6d" class="bulleted-list"><li>Figuring out the pricing part</li></ul><ul id="184fb686-8df1-456c-9734-a7fddf81dc92" class="bulleted-list"><li>They need allies in agencies to help prolifirate</li></ul><p id="dc7da3a9-0098-4bd3-b729-7b3ff610f5d3" class="">9:50 Do you have any function that you would like to see that you&#x27;re strugging with right now?</p><ul id="142dc433-465d-42ad-b1bd-0eb5c8448b3f" class="bulleted-list"><li>Recources<ul id="9714846e-c0bc-44aa-8442-13045b148607" class="bulleted-list"><li>Money and time</li></ul></li></ul><ul id="a0c78ea8-ef82-438d-81e4-5c599fe01b6e" class="bulleted-list"><li>Who knows information, theoretic stuff</li></ul><ul id="63b8b44a-1052-4ee4-a59e-43804ae98a3f" class="bulleted-list"><li>Technical expertice</li></ul><ul id="9ac0a698-ecfa-4e46-a1fa-980e0d5eeafa" class="bulleted-list"><li>How do we find time ourselves?</li></ul><ul id="f1f5b73e-730c-4772-a5e2-5d0c6bcaf63c" class="bulleted-list"><li>When we want to innovation seriously, we have to make time</li></ul><p id="51f72eb6-3243-4c55-bc86-bda84a158555" class="">12:40 Marketplace</p><ul id="dac2234a-5b7a-4855-a284-9781e2a6c7e5" class="bulleted-list"><li>If the founders don&#x27;t have time to at least get the ball rolling, it will never get off the ground. </li></ul><ul id="1dfc1159-664f-47fd-a74e-cbc644b10f6f" class="bulleted-list"><li>So for the people that have an idea, time has to be bought. or something. </li></ul><p id="80a6ff4d-0295-48f1-8b1a-ddaaa5ee24d1" class="">13:30 What makes you wanna stay in a company to work on your idea?</p><ul id="f861cd7d-5367-472c-a6f7-b6f48ee81064" class="bulleted-list"><li>Fuck it i&#x27;ll teach myself to code</li></ul><ul id="b82c9bdb-c9c0-4ce6-8598-c34e3aa51f4e" class="bulleted-list"><li>I really value the friction, he has worked with a team with a lot of ideas and it isn&#x27;t clear which idea is good. </li></ul><ul id="1eaee22e-d7ed-4f24-81e7-9bc3c40afe83" class="bulleted-list"><li>there has to be a level of friciton to realise what idea has potential. The incubator is the right way to go. There needs to be a place where random ideas can be shared but also a place where there has to be friction</li></ul><p id="e9ce46f9-4f5a-4cfe-9885-ac1fd4cef762" class="">17:00 Scaling the idea, showcasing start-ups. would this benefit you? how do you see this?</p><ul id="aa4613df-85de-462a-8025-a2b9a3c4afa2" class="bulleted-list"><li>It would be inspiring, and how they got there, the great milestones and what mistakes they made. What projects did not make it?</li></ul><ul id="6b898f6d-96da-49c5-867d-de1f6b871ce1" class="bulleted-list"><li>It would be a good framework for choosing ideas, seeing what has been done and what has not. </li></ul><ul id="e8dd3b58-f7e3-4af2-b344-e06b06ec4d04" class="bulleted-list"><li>There would have to be some overview, what am i seeking, what kind of inspiration do i want to see. It has to be a balance</li></ul><p id="07c71912-5d9c-4012-8190-60ad3302f4e9" class="">20:10 Marketplace, for finding skills and people</p><ul id="c1cf6e8c-60ec-4f86-86df-aca31c7e1879" class="bulleted-list"><li>No emails, the platform is presented in meetings. They have to be implemented in your personal goals. </li></ul><p id="472ead02-6a08-492a-ae86-4bed231fad93" class="">22:40 It has the right ingredients to be a valuable place because for example coaches and stuff. You have to go there when you have an idea. You need leadership</p><p id="92ab1189-170c-43d1-b37a-e92c506e8870" class="">24:50</p><ul id="69ff70f5-8ade-4f56-abca-8d583caddef8" class="bulleted-list"><li>He also needs to buy time for them</li></ul><p id="e5045930-95f8-45d4-aaa0-09e3ccc86a43" class="">25:30: There is a team in england working on the same thing. Would you be willing to work with them?</p><ul id="d27bc9f8-42d2-4700-a88d-a2f040678efe" class="bulleted-list"><li>If you have an idea it&#x27;s your baby</li></ul><ul id="94dca970-c1ac-418f-8b35-bed53a6126bb" class="bulleted-list"><li>No idea can become anything without other people</li></ul><ul id="7c8ec1e2-d5c9-4f3a-8420-67fd38dfdcf4" class="bulleted-list"><li>It&#x27;s much more important to be a small part of an extraordinary idea. </li></ul><p id="fe33a55c-b757-41e5-bce7-404cd179f9bf" class="">27:40 what triggers you to start?</p><p id="d0de54c6-0d9f-490d-af2d-d1b5536a93a3" class="">What do you need happened to make something about your idea?</p><ul id="68941dcd-7313-4c6b-aac0-a254be919d50" class="bulleted-list"><li>You need to be provoced to a lot of different platforms, people. Different ways of thinking. You need to be provocec by the problem. </li></ul><ul id="ab13c3a1-7538-4fc3-9f3f-4f5f5c709ce7" class="bulleted-list"><li>You need to be provoced by something very irritating</li></ul><ul id="a23491a4-812a-4859-8ec4-54e4a527273a" class="bulleted-list"><li>You need exposure and experience but also you need to be provoced. And you need to be playful, and you need to know you will fail. </li></ul><p id="0fa813c2-03f7-4f2d-b2a1-90eb62da31ca" class="">31:20 Will inspiration have a function on our platform?</p><ul id="2957d4e5-4fe2-459c-86b6-908078276b27" class="bulleted-list"><li>To start thinking in this matter, you would benefit from a platform. you can put out new ideas, challenges, something to get the ball rolling. Coming up with new ideas, if you give people a blank canvas nothing will come of it. When you constrain the realm of possibilities, people get creative. Creative constrains. </li></ul><p id="202441e0-656e-436a-9ba6-18fe2f482e1b" class="">34:50 </p><ul id="d43150e1-684c-4307-81a6-8302927acc4d" class="bulleted-list"><li>When you meet an obstacle, it is also an extra solution. Become more value-oriented. Trying to come up with an idea within a huge company and getting on the radar with this idea is a learning experience. Motivation wise I get very frustrated but he can see their team is increasingly getting better at it. </li></ul><p id="7f3806aa-9c5c-4f1f-a10c-e40e1ac84fee" class="">37:10 The friction filters out the real entrepeneurs. What is your experience with Greenhouse?</p><ul id="5dc8e6a2-63fe-4abc-b42b-60c22b59951f" class="bulleted-list"><li>It isn&#x27;t accurate that they are the innovative heart of GroupM. His experience was really good and he was impressed by their abilities. </li></ul><p id="8da5e4b3-2f7d-4845-8914-b73cc655ed1a" class="">39:35 Visual aid</p><p id="14dd47b3-b412-449f-bfcb-485901fc9c6f" class="">41:20 Is there something we missed</p><ul id="a2a248fc-b015-40ec-9588-5955191d2793" class="bulleted-list"><li>Yeah, we have some idea of innovation. </li></ul><ul id="06129338-2186-4019-8385-e27171ec00cd" class="bulleted-list"><li>The vast majority have no clue what innovation or incubator means. A platform like that should also be an easy place to start with an idea. No difficult lingo etc. </li></ul><ul id="26b6b40c-36bb-4c46-8c94-11df1b22679b" class="bulleted-list"><li>There are many ways into innovation</li></ul><ul id="30df6c1a-96be-4c6f-8bd5-dd28c737934d" class="bulleted-list"><li>the platform should handle that responsibility</li></ul><p id="d196a47c-babe-4d05-8d25-c817ae687889" class="">44:30 Is there a negative side, will it get confusing or something</p><ul id="6ddc6517-556d-480a-b27f-fddddc90f29b" class="bulleted-list"><li>You can&#x27;t ask someone where they are, they don&#x27;t know how it works. Just because people are working on an idea they know anything about innovation. </li></ul><ul id="bfb6c0a5-7410-4704-9a88-368f81216019" class="bulleted-list"><li>Don&#x27;t make the bar too high, they might not have any idea where they are on our spectrum</li></ul><ul id="7f9893a5-b95f-4370-b9c5-c510f2eab358" class="bulleted-list"><li>There are so many perspectives and levels etc. </li></ul><p id="d8926946-c9fa-4f5a-8f30-a19160db85cc" class="">
+</p><p id="98dcd077-64f8-4b37-a281-0cff5c2e4dec" class="">Recap interview:</p></div></article></body></html>

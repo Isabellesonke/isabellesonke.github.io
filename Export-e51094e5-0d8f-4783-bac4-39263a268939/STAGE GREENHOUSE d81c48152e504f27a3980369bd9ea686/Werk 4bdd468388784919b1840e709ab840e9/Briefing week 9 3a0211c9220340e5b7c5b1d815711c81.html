@@ -1,0 +1,637 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Briefing week 9</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3a0211c9-2203-40e5-b7c5-b1d815711c81" class="page sans"><header><h1 class="page-title">Briefing week 9</h1></header><div class="page-body"><ul id="27974205-4b44-4a38-a66c-2a5406958779" class="bulleted-list"><li>Interview Lonneke<ul id="0df57586-42b7-453e-8263-bda3dfa3a8ab" class="bulleted-list"><li>ZE wil in contact komen met andere projecten dan de projecten die binnen haar bubbel vallen. Anders verveelt het mensen te snel en komen ze niet meer terug. </li></ul><ul id="6c953e03-6d1a-4bed-9fc2-4e633a44ec2b" class="bulleted-list"><li>Het is belangrijk dat er gefocust word op het doel van ons platform en dat we niet teveel poespas toevoegen</li></ul><ul id="31814eb7-aab0-4584-91c8-707d80a9195f" class="bulleted-list"><li>Goed het belang van de ondernemer neerzetten, want die voordelen zijn er; structuur, veiligheid, begeleiding.</li></ul><ul id="c00dd968-8763-4537-97e2-fc5683d1f0c1" class="bulleted-list"><li>Ze gaf aan dat zij bijvoorbeeld geen behoefte heeft aan workshops en dat ze het dan niet zou willen gebruiken. Wanneer er een scheiding zou zijn voor de casual gebruiker en de gebruiker die de begeleiding nodig heeft kun je hier verschil in maken op het platform.</li></ul><p id="b65a0212-6e9b-45bf-822e-36d1b6738676" class="">
+</p><p id="2a9ce374-d396-44dd-b0ad-d39f6c203799" class="">
+</p></li></ul><ul id="32ee83e7-5639-4d3c-9c18-e4129e327cc1" class="bulleted-list"><li>Nova<ul id="e4b177e8-1bff-42ae-9ef4-cd85c7829677" class="bulleted-list"><li>Digital human/virtual influencer</li></ul><ul id="ba6a2870-e2cd-42c7-98e7-2b7235aa02ae" class="bulleted-list"><li>Zij konden nog niet bieden wat wij nodig zouden hebben</li></ul><ul id="6ad1a411-5e30-43c3-950f-7c9e51a723a5" class="bulleted-list"><li>En ze zou teveel poespas zijn op het platform</li></ul><ul id="f976136c-4c8f-4cbe-a29c-f4e037a983d0" class="bulleted-list"><li>Cases is wel een optie, hierin zouden ze zich representeren</li></ul><p id="07506f2e-2fba-43dc-9499-9a17c8cebf3f" class="">
+</p><p id="5bfe688c-76a4-414d-8c7d-a7c301d642dd" class="">
+</p></li></ul><ul id="eda6db2d-b9b4-4ab5-911f-b4527535487a" class="bulleted-list"><li>Groen <ul id="8ec54f7f-727d-4f54-bc2d-9473ebeb78ed" class="bulleted-list"><li>Het proces van natuurlijk groeien staat niet voor het proces van de ondernemer. </li></ul><ul id="4832c23d-ff84-4f4e-b1b0-483c71a598bc" class="bulleted-list"><li>Wachten tot het groeit en zelf de leiding nemen in wat er gebeurd. </li></ul><p id="3f4a6614-db32-4d3a-949d-6a51fa191bbd" class="">
+</p></li></ul><ul id="89bc8fb5-75f6-4986-a712-98ff4085267e" class="bulleted-list"><li>Cocpten<ul id="1f859c2b-b063-4e14-a1db-79b1474c8044" class="bulleted-list"><li>overall concept<ul id="e983da21-a4fd-47c7-a80e-93a702dc2181" class="bulleted-list"><li>We hebben de belangrijke concepten samen willen voegen, daarom dit overzicht met wat we hierin willen</li></ul><ul id="fe5eb806-7aca-4fb8-b561-265e34a516ba" class="bulleted-list"><li>Verschillende uitwerkingen die hierbij passen</li></ul><ul id="3aa2d7c3-8790-42a3-b6fa-bd6b782a98da" class="bulleted-list"><li>Together en inspiratie miste</li></ul></li></ul><ul id="d42c54f1-b5a0-43bb-a77a-c7d83affaff3" class="bulleted-list"><li>Raket<ul id="1db3d82b-11b5-44a2-89c5-4e7b59e371cb" class="bulleted-list"><li>Vorige week al besproken, wilden er andere draaien aan geven</li></ul></li></ul><ul id="bcfbdb1d-f188-43c7-84aa-c96c86cf77b2" class="bulleted-list"><li>Raceauto<ul id="df6c66a0-caed-419c-a707-9385463fc260" class="bulleted-list"><li>Ten eerste is racen staat centraal voor snelheid, samenwerken met een team, finish, pitstop kun je milestones van maken. Je kan overal naar toe, en je hebt een duidelijk proces maar je kan alle kanten op. </li></ul><ol id="5542bfeb-045a-4b73-b75d-9985e302b274" class="numbered-list" start="1"><li>Je werkt samen aan de auto met een heel team</li></ol><ol id="f85f8ac4-4774-4d20-bbfc-095e70d8aa0b" class="numbered-list" start="2"><li>matcht met de ondernemer: snelheid, kracht, power, gedreven, splitsecond</li></ol><ol id="417953b6-6dc0-4e7e-b287-8e6121833d53" class="numbered-list" start="3"><li>je kunt naar elk circuit in de wereld</li></ol><ol id="253b29f1-8638-4eb4-8ac9-007d71881a59" class="numbered-list" start="4"><li>je kunt je auto aanpassen op je reis.</li></ol><ol id="0232400f-5ee3-44ed-a989-f91357532c24" class="numbered-list" start="5"><li>finish en pitstop zijn leuke elemeneten.</li></ol><p id="3e4d6234-649d-40d1-9a36-07817b973fa9" class="">
+</p><p id="564fec2e-37b9-425e-82e9-3ea6ad225f13" class="">
+</p></li></ul><ul id="bfc0fea0-dc2d-444d-adb5-9ffcbe380789" class="bulleted-list"><li>Everest<ul id="e78d86c6-0a60-4918-bfb8-f2256f424364" class="bulleted-list"><li>Everest concept: Duidelijke fases, duidelijk einddoel, je VLAG planten (kan op meerdere fases, soort van check), Het is je eigen journey, eigen groei, eigen inzet. </li></ul></li></ul></li></ul><ul id="bb85f72c-ce9c-447d-a4bc-85f742497410" class="bulleted-list"><li>Functies<ul id="b9964707-719a-4f54-8fab-0388ec74fde7" class="bulleted-list"><li>Functies die we uit interviews gehaald hebben en die we willen gaan verwerken</li></ul></li></ul><ul id="60b29383-63f1-4fcb-ba6b-59fbede6f885" class="bulleted-list"><li>Plan van aanpak</li></ul><p id="2efe5782-1901-438b-ad64-401cd291d8f1" class="">
+</p><ul id="77801c03-04e1-47a5-8dc7-ddda57ee7468" class="bulleted-list"><li>Vragen</li></ul><ul id="eca4ddaa-0bcb-4bd9-96f7-caffd860475e" class="bulleted-list"><li>- Huisstijl?<ul id="07af8f94-765c-4d0d-a0d8-38d76cb869e8" class="bulleted-list"><li>Moet daar de funcite</li></ul><p id="60141c09-058d-4112-82f6-2529ff55e8a4" class="">
+</p><p id="5599d175-9312-48ed-a29f-4f0cf8b1a275" class="">
+</p><ul id="afe60dcd-7e5d-4f96-b1f4-fb3df09c019b" class="bulleted-list"><li>Verschillende oplossingen voor verschillende functies</li></ul><ul id="881e598a-7c15-4c27-af08-69554cc62d8b" class="bulleted-list"><li>Feedback op functies die we willen voorstellen aan ondernemers</li></ul></li></ul></div></article></body></html>
